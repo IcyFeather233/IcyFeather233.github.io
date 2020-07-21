@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>自我介绍</title>
+    <url>/2020/07/20/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>SCU计算机学院19级学生</p>
+<p>英俊潇洒，风流倜傥</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
+      </categories>
+      <tags>
+        <tag>实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用hexo写文章</title>
+    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3>准备工作</h3>
+<p>切换到hexo所在的目录</p>
+<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+
+<h3>如何创建新的博客</h3>
+<p>hexo new + 博客名</p>
+
+<h3>如何显示博客</h3>
+<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
+<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
+<p>hexo d = hexo deploy 上传到Github个人主页</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+</search>
