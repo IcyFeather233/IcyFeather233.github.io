@@ -40,46 +40,6 @@
       </tags>
   </entry>
   <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Map和Set</title>
     <url>/2020/07/22/Map%E5%92%8CSet/</url>
     <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
@@ -124,25 +84,43 @@
       </tags>
   </entry>
   <entry>
-    <title>如何用hexo写文章</title>
-    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+    <title>iterable</title>
+    <url>/2020/07/22/iterable/</url>
+    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<hr>
+<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
+<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
+<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
+<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
+<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
+<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是为什么要引入新的for … of循环。</p>
+<hr>
+<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
+<p>以Array为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Map的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>测试博客</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -377,6 +355,28 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用hexo写文章</title>
+    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3>准备工作</h3>
+<p>切换到hexo所在的目录</p>
+<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+
+<h3>如何创建新的博客</h3>
+<p>hexo new + 博客名</p>
+
+<h3>如何显示博客</h3>
+<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
+<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
+<p>hexo d = hexo deploy 上传到Github个人主页</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
       </tags>
   </entry>
 </search>
