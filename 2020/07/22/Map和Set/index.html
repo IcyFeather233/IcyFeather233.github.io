@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"icyfeather233.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="准备工作 切换到hexo所在的目录 如 D: 然后加上 cd blogs cd IcyFeather233  如何创建新的博客 hexo new + 博客名  如何显示博客 hexo g &#x3D; hexo generate 相当于编译，每当改变博客内容就要进行编译 hexo s &#x3D; hexo server 进行本地预览 地址为 localhost:4000 hexo d &#x3D; hexo deploy 上">
+  <meta name="description" content="JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。 但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。 为了解决这个问题，最新的ES6规范引入了新的数据类型Map。  MapMap是一组键值对的结构，具有极快的查找速度。 举个例子，假设要根据同学的名字查找对应的成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用hexo写文章">
-<meta property="og:url" content="https://icyfeather233.github.io/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="Map和Set">
+<meta property="og:url" content="https://icyfeather233.github.io/2020/07/22/Map%E5%92%8CSet/index.html">
 <meta property="og:site_name" content="极冰&amp;飞羽的小站">
-<meta property="og:description" content="准备工作 切换到hexo所在的目录 如 D: 然后加上 cd blogs cd IcyFeather233  如何创建新的博客 hexo new + 博客名  如何显示博客 hexo g &#x3D; hexo generate 相当于编译，每当改变博客内容就要进行编译 hexo s &#x3D; hexo server 进行本地预览 地址为 localhost:4000 hexo d &#x3D; hexo deploy 上">
+<meta property="og:description" content="JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。 但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。 为了解决这个问题，最新的ES6规范引入了新的数据类型Map。  MapMap是一组键值对的结构，具有极快的查找速度。 举个例子，假设要根据同学的名字查找对应的成">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-20T11:17:01.000Z">
-<meta property="article:modified_time" content="2020-07-20T12:52:15.883Z">
+<meta property="article:published_time" content="2020-07-22T01:50:07.000Z">
+<meta property="article:modified_time" content="2020-07-22T02:48:25.609Z">
 <meta property="article:author" content="IcyFeather233">
-<meta property="article:tag" content="写作">
+<meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://icyfeather233.github.io/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/">
+<link rel="canonical" href="https://icyfeather233.github.io/2020/07/22/Map%E5%92%8CSet/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>如何用hexo写文章 | 极冰&飞羽的小站</title>
+  <title>Map和Set | 极冰&飞羽的小站</title>
   
 
 
@@ -200,7 +200,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">如何创建新的博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text">如何显示博客</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.</span> <span class="nav-text">Set</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -270,7 +270,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/22/Map%E5%92%8CSet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -283,7 +283,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何用hexo写文章
+          Map和Set
         </h1>
 
         <div class="post-meta">
@@ -294,7 +294,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-20 19:17:01 / 修改时间：20:52:15" itemprop="dateCreated datePublished" datetime="2020-07-20T19:17:01+08:00">2020-07-20</time>
+              <time title="创建时间：2020-07-22 09:50:07 / 修改时间：10:48:25" itemprop="dateCreated datePublished" datetime="2020-07-22T09:50:07+08:00">2020-07-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B5%8B%E8%AF%95%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">测试博客</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -317,17 +317,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+        <p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
+<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
+<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
+<hr>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
+<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
 
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
+<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
+<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
 
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
+<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
+
+<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
+<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
+
+<p>重复元素在Set中自动被过滤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意数字3和字符串’3’是不同的元素。</p>
+<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过delete(key)方法可以删除元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -337,7 +359,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+              <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           </div>
 
         
@@ -345,10 +367,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/" rel="next" title="Js数据类型和变量">
-      Js数据类型和变量 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/22/Js%E5%BE%AA%E7%8E%AF/" rel="prev" title="Js循环">
+      <i class="fa fa-chevron-left"></i> Js循环
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/22/iterable/" rel="next" title="iterable">
+      iterable <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
