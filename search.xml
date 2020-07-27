@@ -45,17 +45,31 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+    <title>Js循环</title>
+    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
+<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
 ]]></content>
       <categories>
-        <category>bugs</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -98,6 +112,20 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo提交的NunjucksError</title>
+    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+]]></content>
+      <categories>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>iterable</title>
     <url>/2020/07/22/iterable/</url>
     <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
@@ -135,6 +163,28 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用hexo写文章</title>
+    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3>准备工作</h3>
+<p>切换到hexo所在的目录</p>
+<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+
+<h3>如何创建新的博客</h3>
+<p>hexo new + 博客名</p>
+
+<h3>如何显示博客</h3>
+<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
+<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
+<p>hexo d = hexo deploy 上传到Github个人主页</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -338,56 +388,6 @@
 ]]></content>
       <categories>
         <category>前端</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Js循环</title>
-    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何用hexo写文章</title>
-    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
-
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
-
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
-]]></content>
-      <categories>
-        <category>测试博客</category>
       </categories>
       <tags>
         <tag>写作</tag>
