@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Map和Set</title>
-    <url>/2020/07/22/Map%E5%92%8CSet/</url>
-    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
-<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
-<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
-<hr>
-<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
-<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
+    <title>Js数据类型和变量</title>
+    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
-<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
-
-<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
-
-<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
+<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
+<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
-<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
 
-<p>重复元素在Set中自动被过滤：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
+<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
 
-<p>注意数字3和字符串’3’是不同的元素。</p>
-<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
+<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
+<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
 
-<p>通过delete(key)方法可以删除元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
+<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
+<hr>
+<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
 
+<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
+<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
+<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
+<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
+<p><code>&#39;use strict&#39;;</code></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -73,36 +68,41 @@
       </tags>
   </entry>
   <entry>
-    <title>Js数据类型和变量</title>
-    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+    <title>Map和Set</title>
+    <url>/2020/07/22/Map%E5%92%8CSet/</url>
+    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
+<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
+<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
+<hr>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
+<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
 
-<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
-<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
+<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
+
+<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
+
+<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
+<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
 
-<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
-<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
+<p>重复元素在Set中自动被过滤：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
-<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
+<p>注意数字3和字符串’3’是不同的元素。</p>
+<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
 
-<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
-<hr>
-<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
+<p>通过delete(key)方法可以删除元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
-<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
-<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
-<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
-<p><code>&#39;use strict&#39;;</code></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -166,25 +166,18 @@
       </tags>
   </entry>
   <entry>
-    <title>如何用hexo写文章</title>
-    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
-
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
-
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+<hr>
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
 ]]></content>
       <categories>
-        <category>测试博客</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>动态规划,leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -388,6 +381,28 @@
 ]]></content>
       <categories>
         <category>前端</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用hexo写文章</title>
+    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3>准备工作</h3>
+<p>切换到hexo所在的目录</p>
+<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+
+<h3>如何创建新的博客</h3>
+<p>hexo new + 博客名</p>
+
+<h3>如何显示博客</h3>
+<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
+<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
+<p>hexo d = hexo deploy 上传到Github个人主页</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
       </categories>
       <tags>
         <tag>写作</tag>
