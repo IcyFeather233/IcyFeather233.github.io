@@ -112,6 +112,46 @@
       </tags>
   </entry>
   <entry>
+    <title>iterable</title>
+    <url>/2020/07/22/iterable/</url>
+    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<hr>
+<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
+<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
+<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
+<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是为什么要引入新的for … of循环。</p>
+<hr>
+<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
+<p>以Array为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Map的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo提交的NunjucksError</title>
     <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
@@ -332,43 +372,19 @@
       </tags>
   </entry>
   <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
 <hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>Javascript</tag>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -391,22 +407,6 @@
       </categories>
       <tags>
         <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
-<hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
