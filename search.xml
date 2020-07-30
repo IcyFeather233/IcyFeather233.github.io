@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js循环</title>
-    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Js数据类型和变量</title>
     <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
@@ -59,6 +31,34 @@
 <p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
 <p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
 <p><code>&#39;use strict&#39;;</code></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Js循环</title>
+    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
+<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -102,46 +102,6 @@
 
 <p>通过delete(key)方法可以删除元素：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -366,6 +326,63 @@
 ]]></content>
       <categories>
         <category>前端</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iterable</title>
+    <url>/2020/07/22/iterable/</url>
+    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<hr>
+<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
+<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
+<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
+<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是为什么要引入新的for … of循环。</p>
+<hr>
+<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
+<p>以Array为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Map的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>删除无用的tags和categories</title>
+    <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
+    <content><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p>
+<p>但是，当某个标签被完全替代，没有文章使用这个标签之后，会发现在标签列表里还是会出现这个标签，点击进去却并没有内容，这非常影响使用体验。</p>
+<p>要清除，只需要执行下列指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>bugs</category>
       </categories>
       <tags>
         <tag>写作</tag>
