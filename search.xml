@@ -68,50 +68,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Map和Set</title>
-    <url>/2020/07/22/Map%E5%92%8CSet/</url>
-    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
-<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
-<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
-<hr>
-<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
-<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
-
-<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
-<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
-
-<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
-
-<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
-<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
-
-<p>重复元素在Set中自动被过滤：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意数字3和字符串’3’是不同的元素。</p>
-<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过delete(key)方法可以删除元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo提交的NunjucksError</title>
     <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
@@ -166,19 +122,47 @@
       </tags>
   </entry>
   <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+    <title>Map和Set</title>
+    <url>/2020/07/22/Map%E5%92%8CSet/</url>
+    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
+<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
+<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
 <hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
+<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
+
+<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
+<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
+
+<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
+
+<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
+<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
+
+<p>重复元素在Set中自动被过滤：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意数字3和字符串’3’是不同的元素。</p>
+<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过delete(key)方法可以删除元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -388,25 +372,19 @@
       </tags>
   </entry>
   <entry>
-    <title>如何用hexo写文章</title>
-    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
-
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
-
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+<hr>
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
 ]]></content>
       <categories>
-        <category>测试博客</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -474,6 +452,28 @@
       </categories>
       <tags>
         <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用hexo写文章</title>
+    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h3>准备工作</h3>
+<p>切换到hexo所在的目录</p>
+<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
+
+<h3>如何创建新的博客</h3>
+<p>hexo new + 博客名</p>
+
+<h3>如何显示博客</h3>
+<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
+<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
+<p>hexo d = hexo deploy 上传到Github个人主页</p>
+]]></content>
+      <categories>
+        <category>测试博客</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
