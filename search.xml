@@ -29,6 +29,20 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo提交的NunjucksError</title>
+    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+]]></content>
+      <categories>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Js数据类型和变量</title>
     <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
@@ -149,20 +163,6 @@
       </categories>
       <tags>
         <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
-]]></content>
-      <categories>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -389,6 +389,31 @@
       </tags>
   </entry>
   <entry>
+    <title>同余定理</title>
+    <url>/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/</url>
+    <content><![CDATA[<h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p>
+<h2 id="同余符号"><a href="#同余符号" class="headerlink" title="同余符号"></a>同余符号</h2><p>两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对模m同余或a同余于b模m。记作a≡b(mod m)</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>充分性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,q1和q2为某两个整数，由此的a-b=(q1m+r)-(q2m-r)=m(q1-q2)，根据整除定义，我们有m|(a-b)，由同余式定义得出结论：a≡b(mod m)</p>
+<p>必要性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,所以a-b=m(q1-q2) 故 m|(a-b)。</p>
+<h2 id="同余性质"><a href="#同余性质" class="headerlink" title="同余性质"></a>同余性质</h2><p>反身性：a≡a (mod m)</p>
+<p>对称性： 若a≡b(mod m)，则b≡a(mod m)</p>
+<p>传递性： 若a≡b(mod m)，b≡c(mod m)，则a≡c(mod m)</p>
+<p>同余式相加：若a≡b(mod m)，b≡c(mod m)，则a ± c≡b ± d(mod m)</p>
+<p>同余式相乘：若a≡b(mod m)，b≡c(mod m)，则ac≡bd(mod m)</p>
+<p>线性运算：如果a≡b(mod m)，c≡d(mod m)，那么a ± c≡b ± d(mod m)，且a * c≡b * d(mod m)</p>
+<p>除法：若ac ≡ bc (mod m) c≠0 则 a≡ b (mod m/gcd(c,m)) 其中gcd(c,m)表示c,m的最大公约数。特殊地 ,gcd(c,m)=1 则a ≡ b (mod m)</p>
+<p>幂运算：如果a ≡ b (mod m)，那么a^n ≡ b^n (mod m)</p>
+<p>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</p>
+<p>若a ≡ b (mod mi) (i=1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态规划</title>
     <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<p>leetcode题解动态规划打卡</p>
@@ -427,70 +452,44 @@
       </tags>
   </entry>
   <entry>
-    <title>微信小程序day1</title>
-    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
-    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
-<p>例如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
-<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
-<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
-<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
-<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
-<li>按钮</li>
-<li>属性<ul>
-<li>type<ul>
-<li>primary 绿色</li>
-<li>warn 红色</li>
-<li>default 白色</li>
-</ul>
-</li>
-<li>size<ul>
-<li>default</li>
-<li>mini</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
-<li>文本输入框</li>
-<li>属性 type, 默认为text</li>
-</ul>
-<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
-<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
-<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
-<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
-<li>普通页面的跳转</li>
-<li>属性 url 指定目标页面地址</li>
-</ul>
-<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
-<ul>
-<li>src</li>
-<li>lazy-load</li>
-</ul>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
+    <title>学习打卡</title>
+    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
+    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>规划</category>
       </categories>
       <tags>
-        <tag>微信小程序</tag>
+        <tag>打卡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>康托展开和逆康托展开</title>
+    <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
+    <content><![CDATA[<p>康托展开</p>
+<p>原理：</p>
+<p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p>
+<p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p>
+<p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p>
+<p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p>
+<p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p>
+<p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆康托展开</p>
+<p>原理分析：</p>
+<p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
+<p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
@@ -570,6 +569,133 @@
       </categories>
       <tags>
         <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序day1</title>
+    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
+    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
+<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
+<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
+<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
+<li>按钮</li>
+<li>属性<ul>
+<li>type<ul>
+<li>primary 绿色</li>
+<li>warn 红色</li>
+<li>default 白色</li>
+</ul>
+</li>
+<li>size<ul>
+<li>default</li>
+<li>mini</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
+<li>文本输入框</li>
+<li>属性 type, 默认为text</li>
+</ul>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
+<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
+<li>普通页面的跳转</li>
+<li>属性 url 指定目标页面地址</li>
+</ul>
+<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
+<ul>
+<li>src</li>
+<li>lazy-load</li>
+</ul>
+<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>次方求模</title>
+    <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
+    <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
+<p>基本题意 求a的b次方，对c去余的值；</p>
+<p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
+<p>出入acm的思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欧几里得算法求解最大公约数</title>
+    <url>/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int gcd(int a, int b)&#123;</span><br><span class="line">    if (b &#x3D;&#x3D; 0) return a;</span><br><span class="line">    return gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>数学证明：</p>
+<p>##引理证明</p>
+<p>如果 (a + b) % d = 0，b % d = 0，则必然有 a % d = 0。<br>证明如下：<br>因为(a + b) % d = 0 ,b % d = 0，<br>所以可以令 a + b = kd , b = k’ d, 其中k 和 k’ 都是整数。<br>进而，a + b = kd —-&gt; a + k’d = kd —–&gt; a = (k-k’)d，即 a 是 d 的整数倍，进而必有 a % d = 0，证毕。</p>
+<p>##证明过程</p>
+<p>证 cd(a,b)=cd(b,a%b)</p>
+<p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
+<p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
+<p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>筛法求素数</title>
+    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
+    <content><![CDATA[<p>暴力解法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
+
+<p>埃式筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
       </tags>
   </entry>
 </search>

@@ -212,20 +212,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -262,6 +262,468 @@
 
         <div class="content index posts-expand">
           
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/" class="post-title-link" itemprop="url">次方求模</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 22:19:20 / 修改时间：22:44:06" itemprop="dateCreated datePublished" datetime="2020-07-31T22:19:20+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这是acm数论部分经常用到的一个知识点。   </p>
+<p>基本题意 求a的b次方，对c去余的值；</p>
+<p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
+<p>出入acm的思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/" class="post-title-link" itemprop="url">同余定理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 22:11:57 / 修改时间：22:15:28" itemprop="dateCreated datePublished" datetime="2020-07-31T22:11:57+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p>
+<h2 id="同余符号"><a href="#同余符号" class="headerlink" title="同余符号"></a>同余符号</h2><p>两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对模m同余或a同余于b模m。记作a≡b(mod m)</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>充分性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,q1和q2为某两个整数，由此的a-b=(q1m+r)-(q2m-r)=m(q1-q2)，根据整除定义，我们有m|(a-b)，由同余式定义得出结论：a≡b(mod m)</p>
+<p>必要性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,所以a-b=m(q1-q2) 故 m|(a-b)。</p>
+<h2 id="同余性质"><a href="#同余性质" class="headerlink" title="同余性质"></a>同余性质</h2><p>反身性：a≡a (mod m)</p>
+<p>对称性： 若a≡b(mod m)，则b≡a(mod m)</p>
+<p>传递性： 若a≡b(mod m)，b≡c(mod m)，则a≡c(mod m)</p>
+<p>同余式相加：若a≡b(mod m)，b≡c(mod m)，则a ± c≡b ± d(mod m)</p>
+<p>同余式相乘：若a≡b(mod m)，b≡c(mod m)，则ac≡bd(mod m)</p>
+<p>线性运算：如果a≡b(mod m)，c≡d(mod m)，那么a ± c≡b ± d(mod m)，且a * c≡b * d(mod m)</p>
+<p>除法：若ac ≡ bc (mod m) c≠0 则 a≡ b (mod m/gcd(c,m)) 其中gcd(c,m)表示c,m的最大公约数。特殊地 ,gcd(c,m)=1 则a ≡ b (mod m)</p>
+<p>幂运算：如果a ≡ b (mod m)，那么a^n ≡ b^n (mod m)</p>
+<p>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</p>
+<p>若a ≡ b (mod mi) (i=1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/" class="post-title-link" itemprop="url">康托展开和逆康托展开</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 21:36:22 / 修改时间：21:52:12" itemprop="dateCreated datePublished" datetime="2020-07-31T21:36:22+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>康托展开</p>
+<p>原理：</p>
+<p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p>
+<p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p>
+<p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p>
+<p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p>
+<p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p>
+<p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆康托展开</p>
+<p>原理分析：</p>
+<p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
+<p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/" class="post-title-link" itemprop="url">筛法求素数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 21:16:12 / 修改时间：21:23:09" itemprop="dateCreated datePublished" datetime="2020-07-31T21:16:12+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>暴力解法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
+
+<p>埃式筛法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性筛法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/" class="post-title-link" itemprop="url">学习打卡</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 20:30:37 / 修改时间：20:34:02" itemprop="dateCreated datePublished" datetime="2020-07-31T20:30:37+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A7%84%E5%88%92/" itemprop="url" rel="index"><span itemprop="name">规划</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="英俊潇洒，风流倜傥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/" class="post-title-link" itemprop="url">欧几里得算法求解最大公约数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-31 20:27:45 / 修改时间：20:29:46" itemprop="dateCreated datePublished" datetime="2020-07-31T20:27:45+08:00">2020-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int a, int b)&#123;</span><br><span class="line">    if (b &#x3D;&#x3D; 0) return a;</span><br><span class="line">    return gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>数学证明：</p>
+<p>##引理证明</p>
+<p>如果 (a + b) % d = 0，b % d = 0，则必然有 a % d = 0。<br>证明如下：<br>因为(a + b) % d = 0 ,b % d = 0，<br>所以可以令 a + b = kd , b = k’ d, 其中k 和 k’ 都是整数。<br>进而，a + b = kd —-&gt; a + k’d = kd —–&gt; a = (k-k’)d，即 a 是 d 的整数倍，进而必有 a % d = 0，证毕。</p>
+<p>##证明过程</p>
+<p>证 cd(a,b)=cd(b,a%b)</p>
+<p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
+<p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
+<p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -596,790 +1058,6 @@
 <li>更新逻辑层的数据</li>
 <li>通知界面层进行更新</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/" class="post-title-link" itemprop="url">微信小程序day1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-26 21:52:15 / 修改时间：22:08:42" itemprop="dateCreated datePublished" datetime="2020-07-26T21:52:15+08:00">2020-07-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
-<p>例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
-<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
-<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
-<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
-<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
-<li>按钮</li>
-<li>属性<ul>
-<li>type<ul>
-<li>primary 绿色</li>
-<li>warn 红色</li>
-<li>default 白色</li>
-</ul>
-</li>
-<li>size<ul>
-<li>default</li>
-<li>mini</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
-<li>文本输入框</li>
-<li>属性 type, 默认为text</li>
-</ul>
-<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
-<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
-<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
-<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
-<li>普通页面的跳转</li>
-<li>属性 url 指定目标页面地址</li>
-</ul>
-<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
-<ul>
-<li>src</li>
-<li>lazy-load</li>
-</ul>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/22/iterable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/iterable/" class="post-title-link" itemprop="url">iterable</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 10:03:35" itemprop="dateCreated datePublished" datetime="2020-07-22T10:03:35+08:00">2020-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-30 21:22:30" itemprop="dateModified" datetime="2020-07-30T21:22:30+08:00">2020-07-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/22/Map%E5%92%8CSet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/Map%E5%92%8CSet/" class="post-title-link" itemprop="url">Map和Set</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-22 09:50:07 / 修改时间：10:48:25" itemprop="dateCreated datePublished" datetime="2020-07-22T09:50:07+08:00">2020-07-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
-<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
-<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
-<hr>
-<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
-<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
-
-<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
-<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
-
-<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
-
-<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
-<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
-
-<p>重复元素在Set中自动被过滤：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意数字3和字符串’3’是不同的元素。</p>
-<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过delete(key)方法可以删除元素：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/22/Js%E5%BE%AA%E7%8E%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/Js%E5%BE%AA%E7%8E%AF/" class="post-title-link" itemprop="url">Js循环</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 09:42:28" itemprop="dateCreated datePublished" datetime="2020-07-22T09:42:28+08:00">2020-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-30 21:22:21" itemprop="dateModified" datetime="2020-07-30T21:22:21+08:00">2020-07-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/21/markdown%E8%AF%AD%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/21/markdown%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">markdown语法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-21 22:04:12" itemprop="dateCreated datePublished" datetime="2020-07-21T22:04:12+08:00">2020-07-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-22 10:48:22" itemprop="dateModified" datetime="2020-07-22T10:48:22+08:00">2020-07-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><code>Markdown是什么</code></p>
-<ul>
-<li>Markdown 是一种非常简单的、轻量级的标记语言。用户可以使用简单的标记符号<strong>以最小的输入代价去生成极富表现力的文档。</strong>Markdown 的语法简洁明了、学习容易，功能比纯文本强得多，因此有很多人用它写博客、写文档。</li>
-</ul>
-<p><code>Markdown具有很多优点</code></p>
-<ul>
-<li>写作中添加简单符号即可完成排版，所见即所得，让你专注于文字而不是排版。</li>
-<li>格式转换方便，Markdown 的文本你可以轻松转换为 HTML、PDF等文件。</li>
-<li>自带格式化/排版信息，且规则简单友好，可保存为纯文本。</li>
-<li>对比HTML：它更专注于内容，标签对内容的侵入性低。</li>
-<li>写作时舒服，优雅感，你会感觉它就是为博客而生。</li>
-</ul>
-<hr>
-<h1 id="MarkDown使用语法如下"><a href="#MarkDown使用语法如下" class="headerlink" title="MarkDown使用语法如下"></a>MarkDown使用语法如下</h1><h2 id="一、-标题"><a href="#一、-标题" class="headerlink" title="一、 标题"></a>一、 标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><hr>
-<h2 id="二、-字体"><a href="#二、-字体" class="headerlink" title="二、 字体"></a>二、 字体</h2><ul>
-<li>加粗</li>
-</ul>
-<p>要加粗的文字左右分别用两个*号包起来</p>
-<ul>
-<li>斜体</li>
-</ul>
-<p>要倾斜的文字左右分别用一个*号包起来</p>
-<ul>
-<li>斜体加粗</li>
-</ul>
-<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
-<ul>
-<li>删除线</li>
-</ul>
-<p>要加删除线的文字左右分别用两个~~号包起来</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
-<hr>
-<h2 id="三、-引用"><a href="#三、-引用" class="headerlink" title="三、 引用"></a>三、 引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h2 id="四、-分割线"><a href="#四、-分割线" class="headerlink" title="四、 分割线"></a>四、 分割线</h2><p>三个或者三个以上的 - 或者 * 都可以。</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：<br>可以看到，显示效果是一样的。</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="五、-代码"><a href="#五、-代码" class="headerlink" title="五、 代码"></a>五、 代码</h2><p>语法：<br>单行代码：代码之间分别用一个反引号包起来<br><code></code>代码内容<code></code>    </p>
-<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">单行代码</span><br><span class="line"></span><br><span class="line">&#96;create database hero;&#96;</span><br><span class="line"></span><br><span class="line">代码块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    function fun()&#123;</span><br><span class="line">         echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><code>create database hero;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">     echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="六、-超链接"><a href="#六、-超链接" class="headerlink" title="六、 超链接"></a>六、 超链接</h2><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[简书](http:&#x2F;&#x2F;jianshu.com)</span><br><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
-<p><strong>注：</strong>Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;超链接地址&quot; target&#x3D;&quot;_blank&quot;&gt;超链接名&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;1f5ac0cf6a8b&quot; target&#x3D;&quot;_blank&quot;&gt;简书&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="七、-列表"><a href="#七、-列表" class="headerlink" title="七、 列表"></a>七、 列表</h2><p>###无序列表</p>
-<p>语法：<br>无序列表用 - + * 任何一种都可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<hr>
-<p>###有序列表</p>
-<p>语法：<br>数字加点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
-</ol>
-<hr>
-<p>###列表嵌套</p>
-<p>上一级和下一级之间敲空格错开即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line"> - 下一级</span><br><span class="line"></span><br><span class="line">2个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">  - 下一级</span><br><span class="line"></span><br><span class="line">3个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">   - 下一级</span><br><span class="line"></span><br><span class="line">4个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">	- 下一级</span><br></pre></td></tr></table></figure>
-
-<p>1个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>2个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>3个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>4个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="八、-表格"><a href="#八、-表格" class="headerlink" title="八、 表格"></a>八、 表格</h2><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名|技能|排行</span><br><span class="line">--|:--:|--:</span><br><span class="line">刘备|哭|大哥</span><br><span class="line">关羽|打|二哥</span><br><span class="line">张飞|骂|三弟</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th align="center">技能</th>
-<th align="right">排行</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>刘备</td>
-<td align="center">哭</td>
-<td align="right">大哥</td>
-</tr>
-<tr>
-<td>关羽</td>
-<td align="center">打</td>
-<td align="right">二哥</td>
-</tr>
-<tr>
-<td>张飞</td>
-<td align="center">骂</td>
-<td align="right">三弟</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="英俊潇洒，风流倜傥">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Js数据类型和变量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-21 21:41:56" itemprop="dateCreated datePublished" datetime="2020-07-21T21:41:56+08:00">2020-07-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-22 10:48:23" itemprop="dateModified" datetime="2020-07-22T10:48:23+08:00">2020-07-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
-<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
-
-<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
-<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
-
-<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
-<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
-
-<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
-<hr>
-<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
-
-<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
-<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
-<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
-<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
-<p><code>&#39;use strict&#39;;</code></p>
 
       
     </div>
