@@ -212,7 +212,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,6 +266,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="十年饮冰，难凉热血">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/" class="post-title-link" itemprop="url">二分与贪心</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-01 09:53:17 / 修改时间：16:31:02" itemprop="dateCreated datePublished" datetime="2020-08-01T09:53:17+08:00">2020-08-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="例题1：愤怒的牛（LOJ10011）"><a href="#例题1：愤怒的牛（LOJ10011）" class="headerlink" title="例题1：愤怒的牛（LOJ10011）"></a>例题1：愤怒的牛（LOJ10011）</h2><p>题目描述：</p>
+<p>农夫约翰建造了一座有n间牛舍的小屋，牛舍排在一条直线上，第i间牛舍在Xi的位置，但是约翰的m头牛对小屋很不满意，因此经常互相攻击。约翰为了防止牛之间互相伤害，因此决定把每头牛都放在离其它牛尽可能远的牛舍。也就是要最大化最近的两头牛之间的距离。</p>
+<p>牛们并不喜欢这种布局，而且几头牛放在一个隔间里，它们就要发生争斗。为了不让牛互相伤害。John 决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是多少呢？</p>
+<p>Input</p>
+<pre><code>第一行用空格分隔的两个整数 n 和 m；
+
+第二行为 n 个用空格隔开的整数，表示位置 x_i。</code></pre><p>Output</p>
+<pre><code>输出仅一个整数，表示最大的最小距离值。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[100005],n,c;</span><br><span class="line">&#x2F;&#x2F;给定最小距离，判断在该距离下是否可以分配出m个牛舍 </span><br><span class="line">bool check(int d)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;因为a[1]原点可以放一个，所以tot初始值为1 </span><br><span class="line">    &#x2F;&#x2F;寻找第一个比now大的牛舍 </span><br><span class="line">    int now&#x3D;a[1]+d,tot&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&lt;now)continue;</span><br><span class="line">        else&#123;</span><br><span class="line">            &#x2F;&#x2F;找到之后tot+1,now更新 </span><br><span class="line">            tot++;</span><br><span class="line">            now&#x3D;a[i]+d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tot&gt;&#x3D;c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;n为小屋数量，c为牛的数量 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">    &#x2F;&#x2F;a[i]表示第i个小屋的位置 </span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    &#x2F;&#x2F;二分法都要先排序,sort()函数是左闭右开区间,默认升序排列 </span><br><span class="line">    sort(a+1,a+n+1);</span><br><span class="line">    &#x2F;&#x2F;l是left，r是right，ans是answer</span><br><span class="line">    &#x2F;&#x2F;将数组平移初始化，使得a[1]位于原点的位置 </span><br><span class="line">    &#x2F;&#x2F;l,r,ans都是具体的距离，而不是下标 </span><br><span class="line">    int l&#x3D;0,r&#x3D;a[n]-a[1],ans;</span><br><span class="line">    while(l&lt;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;mid是middle，向0取整 </span><br><span class="line">        &#x2F;&#x2F;mid理解为最小距离</span><br><span class="line">        &#x2F;&#x2F;对最小距离二分法逼近 </span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;如果找到了，说明最小距离还可以更大 </span><br><span class="line">            ans&#x3D;mid;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else r&#x3D;mid-1; &#x2F;&#x2F;如果没找到，说明最小距离应该变小 </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="例题2：Best-Cow-Fences（LOJ10012）"><a href="#例题2：Best-Cow-Fences（LOJ10012）" class="headerlink" title="例题2：Best Cow Fences（LOJ10012）"></a>例题2：Best Cow Fences（LOJ10012）</h2><p>题目描述：</p>
+<p>给定一个长度为n的非负整数序列 A，求一个平均数最大的，长度不小于L的子段。<br>输出一个整数，表示这个平均数的1000倍。</p>
+<p>Input</p>
+<pre><code>第一行用空格分隔的两个整数 n 和 L；
+
+第二行为 n 个用空格隔开的非负整数，表示 A_i。</code></pre><p>Output</p>
+<pre><code>输出一个整数，表示这个平均数的 1000 倍。不用四舍五入，直接输出。</code></pre><p>Example</p>
+<pre><code>样例输入
+
+10 6
+6 4 2 10 3 8 5 9 4 1 
+
+样例输出
+
+6500</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;5+1e5;</span><br><span class="line">int n,k;</span><br><span class="line">double a[maxn],s[maxn];</span><br><span class="line">&#x2F;&#x2F;输入一个平均数xx，是否存在平均数比其大的子串长度大于k </span><br><span class="line">bool check(double xx)&#123;</span><br><span class="line">    double x&#x3D;s[k-1]-(k-1)*xx;</span><br><span class="line">    for(int i&#x3D;k;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;遍历，求长度为k的字串的和 - 给定平均值算出的和 </span><br><span class="line">        double y&#x3D;s[i]-s[i-k]-xx*k;</span><br><span class="line">        &#x2F;&#x2F;求出这些字串里面大的最多的那个存到x中 </span><br><span class="line">        x&#x3D;max(x+a[i]-xx,y);</span><br><span class="line">        &#x2F;&#x2F;只要x&gt;&#x3D;0,即存在这样的子串，使得k长度的字串和符合要求 </span><br><span class="line">        &#x2F;&#x2F;就返回真 </span><br><span class="line">        if(x&gt;&#x3D;0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F;n是序列A的长度，k是 字段最小长度 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    double l&#x3D;1e9,r&#x3D;0;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;a[]存储序列A </span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        &#x2F;&#x2F;s[]为前缀和 </span><br><span class="line">        s[i]&#x3D;s[i-1]+a[i];</span><br><span class="line">        &#x2F;&#x2F;l为序列最小值，r为序列最大值 </span><br><span class="line">        if(a[i]&gt;r)r&#x3D;a[i];</span><br><span class="line">        if(a[i]&lt;l)l&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;当r!&#x3D;l时 ，只有l&#x3D;&#x3D;r才跳出循环 </span><br><span class="line">    while((r-l)&gt;1e-4)&#123;</span><br><span class="line">        double mid&#x3D;(l+r)&#x2F;2.0;</span><br><span class="line">        if(check(mid))</span><br><span class="line">            l&#x3D;mid;  &#x2F;&#x2F;平均数范围还可以变大 </span><br><span class="line">        else</span><br><span class="line">            r&#x3D;mid;  &#x2F;&#x2F;平均数范围要缩小 </span><br><span class="line">    &#125;</span><br><span class="line">    int rrr&#x3D;r*1000;</span><br><span class="line">    cout&lt;&lt;rrr&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注： 要注意此题很多数据都是double类型</p>
+<h2 id="10014-「一本通-1-2-练习-1」数列分段-II"><a href="#10014-「一本通-1-2-练习-1」数列分段-II" class="headerlink" title="10014. 「一本通 1.2 练习 1」数列分段 II"></a>10014. 「一本通 1.2 练习 1」数列分段 II</h2><p>对于给定的一个长度为N的正整数数列A[i]，现要将其分成M（M&lt;=N）段，并要求每段连续，且每段和的最大值最小。</p>
+<p>题目里说最大值最小，所以我们可以想到二分答案。<br> 这道题的check是比较好想的。我们枚举每段和的最大值，看这样分出来的段数是否满足条件（段数小于等于m）。找到答案后输出即可（贪心，如果没有和没有达到最大值，则将该元素归于这一段）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn&#x3D;1e5+5;</span><br><span class="line">int n,m;</span><br><span class="line">int a[maxn];</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">    int t&#x3D;0,cnt&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        if(a[i]&gt;x)return false;</span><br><span class="line">        if(t+a[i]&lt;&#x3D;x)&#123;</span><br><span class="line">            t+&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            t&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt&lt;&#x3D;m;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int l&#x3D;0,r&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        r+&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l&lt;r)&#123;</span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))&#123;</span><br><span class="line">            r&#x3D;mid;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="题外话：STL中的sort如何对结构体排序"><a href="#题外话：STL中的sort如何对结构体排序" class="headerlink" title="题外话：STL中的sort如何对结构体排序"></a>题外话：STL中的sort如何对结构体排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int key,value;</span><br><span class="line">    bool operator &lt; (const Node&amp; rhs) const</span><br><span class="line">    &#123;</span><br><span class="line">        return key&gt;rhs.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[100005];</span><br><span class="line"></span><br><span class="line">bool cmp(const Node&amp; A,const Node&amp; B)</span><br><span class="line">&#123;</span><br><span class="line">    return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct cmp2</span><br><span class="line">&#123;</span><br><span class="line">    bool operator () (const Node&amp; A,const Node&amp; B)</span><br><span class="line">    &#123;</span><br><span class="line">        return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n&#x3D;100000;</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;5;i&lt;n;i+&#x3D;)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);&#x2F;&#x2F;第一种</span><br><span class="line">    sort(a,a+n,cmp);&#x2F;&#x2F;第二种</span><br><span class="line">    sort(a,a+n,cmp2());&#x2F;&#x2F;第三种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="lower-bound-和-upper-bound"><a href="#lower-bound-和-upper-bound" class="headerlink" title="lower_bound 和 upper_bound"></a>lower_bound 和 upper_bound</h2><p>想得到下标：<br>lower_bound(a,a+n,v)-a<br>v的个数：<br>upper_bound(a,a+n,v)-lower_bound(a,a+n,v)</p>
+<p>自己动手写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;找到第一个满足插入V后序列仍保持有序的位置</span><br><span class="line">int lower_bound(int l,int r,int v)</span><br><span class="line">&#123;</span><br><span class="line">    while(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        int m&#x3D;l+(r-l)&#x2F;2;</span><br><span class="line">        if(a[m]&gt;&#x3D;v)r&#x3D;m;</span><br><span class="line">        else l&#x3D;m+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,10 +394,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-31 22:19:20 / 修改时间：22:44:06" itemprop="dateCreated datePublished" datetime="2020-07-31T22:19:20+08:00">2020-07-31</time>
+              <time title="创建时间：2020-07-31 22:19:20" itemprop="dateCreated datePublished" datetime="2020-07-31T22:19:20+08:00">2020-07-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-01 08:26:07" itemprop="dateModified" datetime="2020-08-01T08:26:07+08:00">2020-08-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -317,9 +428,10 @@
           <p>这是acm数论部分经常用到的一个知识点。   </p>
 <p>基本题意 求a的b次方，对c去余的值；</p>
 <p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
-<p>出入acm的思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
+<p>另一个思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>
 
       
     </div>
@@ -923,141 +1035,6 @@
           <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
 
 <p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="IcyFeather233">
-      <meta itemprop="description" content="十年饮冰，难凉热血">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极冰&飞羽的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/" class="post-title-link" itemprop="url">微信小程序day2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-27 12:05:13 / 修改时间：12:52:12" itemprop="dateCreated datePublished" datetime="2020-07-27T12:05:13+08:00">2020-07-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
-<li>标签之间</li>
-<li>标签属性</li>
-<li>模板语法中</li>
-<li>任何使用到js代码或变量的地方都需要使用双重花括号</li>
-</ul>
-<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:else</span><br></pre></td></tr></table></figure>
-
-<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><h3 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a><code>wx:for</code></h3><ul>
-<li>应用场景<ul>
-<li>数组</li>
-<li>对象</li>
-<li>数值</li>
-<li>字符串</li>
-</ul>
-</li>
-<li><code>wx:for = &quot;</code></li>
-</ul>
-<h3 id="wx-for-index"><a href="#wx-for-index" class="headerlink" title="wx:for-index"></a><code>wx:for-index</code></h3><p>自定义接受数组索引的变量</p>
-<h3 id="wx-for-item"><a href="#wx-for-item" class="headerlink" title="wx:for-item"></a><code>wx:for-item</code></h3><p>自定义接受数组索引的元素</p>
-<h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a><code>wx:key</code></h3><ul>
-<li>在逻辑层和界面层建立一一对应关系，方便局部更新</li>
-<li>简单数组 <ul>
-<li><code>wx:key=&quot;*this&quot;</code></li>
-<li>数组的元素都是基本数据类型</li>
-</ul>
-</li>
-<li>列表数组 <ul>
-<li><code>{users:[{id:1,name:&#39;zs&#39;},{id:2,name:&#39;ls&#39;}]}</code></li>
-<li><code>&lt;view wx:for=&quot;&quot;&gt;&lt;/view&gt;</code></li>
-<li><code>wx:key=&quot;不重复的属性&quot; , 例如 wx:key:&quot;id&quot;, 这里不用写花括号</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h3><ul>
-<li>index 数组索引</li>
-<li>item 数组元素</li>
-</ul>
-<h2 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性"></a>hidden属性</h2><h3 id="通过样式来控制一个元素的实现状态"><a href="#通过样式来控制一个元素的实现状态" class="headerlink" title="通过样式来控制一个元素的实现状态"></a>通过样式来控制一个元素的实现状态</h3><h3 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h3><ul>
-<li>true 隐藏</li>
-<li>false 显示</li>
-</ul>
-<h2 id="模板的引用"><a href="#模板的引用" class="headerlink" title="模板的引用"></a>模板的引用</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
-<li>定义 <code>&lt;template name=&quot;header&quot;&gt;&lt;view&gt;公共头部&lt;/view&gt;&lt;/template&gt;</code></li>
-<li>导入 <code>&lt;import src=&quot;./header.wxml&quot;/&gt;</code></li>
-<li>调用 <code>&lt;template is=&quot;header&quot;&gt;&lt;/template&gt;</code></li>
-</ul>
-<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ul>
-<li>定义 header.wxml <code>&lt;view&gt;公共头部&lt;/view&gt;</code></li>
-<li>导入 <code>&lt;include src=&quot;./header.wxml/&gt;</code></li>
-</ul>
-<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><h2 id="bind-事件名"><a href="#bind-事件名" class="headerlink" title="bind+事件名"></a>bind+事件名</h2><p>存在事件冒泡</p>
-<h2 id="catch-事件名"><a href="#catch-事件名" class="headerlink" title="catch+事件名"></a>catch+事件名</h2><p>不存在事件冒泡</p>
-<h2 id="常见事件名称"><a href="#常见事件名称" class="headerlink" title="常见事件名称"></a>常见事件名称</h2><ul>
-<li>点击事件 tap</li>
-<li>input输入框和textarea文本域中 input</li>
-</ul>
-<h1 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h1><h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><ul>
-<li>响应式的像素单位</li>
-<li>1rpx~=0.5px</li>
-<li>rpx比px更精细</li>
-</ul>
-<h1 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h1><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><p>逻辑层-界面层<br>小程序中没有实现双向数据绑定</p>
-<h2 id="必须通过事件来实现"><a href="#必须通过事件来实现" class="headerlink" title="必须通过事件来实现"></a>必须通过事件来实现</h2><p><code>this.setData()</code></p>
-<ul>
-<li>更新逻辑层的数据</li>
-<li>通知界面层进行更新</li>
-</ul>
 
       
     </div>
