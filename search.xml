@@ -29,6 +29,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Js数据类型和变量</title>
+    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
+<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
+
+<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
+<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
+
+<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
+<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
+
+<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
+<hr>
+<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
+
+<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
+<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
+<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
+<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
+<p><code>&#39;use strict&#39;;</code></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Map和Set</title>
     <url>/2020/07/22/Map%E5%92%8CSet/</url>
     <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
@@ -64,45 +103,6 @@
 <p>通过delete(key)方法可以删除元素：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Js数据类型和变量</title>
-    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
-<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
-
-<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
-<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
-
-<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
-<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
-
-<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
-<hr>
-<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
-
-<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
-<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
-<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
-<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
-<p><code>&#39;use strict&#39;;</code></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -528,32 +528,70 @@
       </tags>
   </entry>
   <entry>
-    <title>康托展开和逆康托展开</title>
-    <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
-    <content><![CDATA[<p>康托展开</p>
-<p>原理：</p>
-<p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p>
-<p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p>
-<p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p>
-<p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p>
-<p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p>
-<p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure>
+    <title>微信小程序day1</title>
+    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
+    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
 
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>逆康托展开</p>
-<p>原理分析：</p>
-<p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
-<p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
+<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
+<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
+<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
+<li>按钮</li>
+<li>属性<ul>
+<li>type<ul>
+<li>primary 绿色</li>
+<li>warn 红色</li>
+<li>default 白色</li>
+</ul>
+</li>
+<li>size<ul>
+<li>default</li>
+<li>mini</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
+<li>文本输入框</li>
+<li>属性 type, 默认为text</li>
+</ul>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
+<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
+<li>普通页面的跳转</li>
+<li>属性 url 指定目标页面地址</li>
+</ul>
+<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
+<ul>
+<li>src</li>
+<li>lazy-load</li>
+</ul>
+<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>acm</tag>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -636,70 +674,32 @@
       </tags>
   </entry>
   <entry>
-    <title>微信小程序day1</title>
-    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
-    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
-<p>例如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
+    <title>康托展开和逆康托展开</title>
+    <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
+    <content><![CDATA[<p>康托展开</p>
+<p>原理：</p>
+<p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p>
+<p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p>
+<p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p>
+<p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p>
+<p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p>
+<p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure>
 
-<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
-<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
-<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
-<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
-<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
-<li>按钮</li>
-<li>属性<ul>
-<li>type<ul>
-<li>primary 绿色</li>
-<li>warn 红色</li>
-<li>default 白色</li>
-</ul>
-</li>
-<li>size<ul>
-<li>default</li>
-<li>mini</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
-<li>文本输入框</li>
-<li>属性 type, 默认为text</li>
-</ul>
-<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
-<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
-<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
-<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
-<li>普通页面的跳转</li>
-<li>属性 url 指定目标页面地址</li>
-</ul>
-<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
-<ul>
-<li>src</li>
-<li>lazy-load</li>
-</ul>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆康托展开</p>
+<p>原理分析：</p>
+<p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
+<p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>微信小程序</tag>
+        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
