@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js循环</title>
-    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Js数据类型和变量</title>
     <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
@@ -90,6 +62,34 @@
       </categories>
       <tags>
         <tag>单位</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Js循环</title>
+    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
+<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -164,55 +164,6 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>二分与贪心</title>
-    <url>/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/</url>
-    <content><![CDATA[<h2 id="例题1：愤怒的牛（LOJ10011）"><a href="#例题1：愤怒的牛（LOJ10011）" class="headerlink" title="例题1：愤怒的牛（LOJ10011）"></a>例题1：愤怒的牛（LOJ10011）</h2><p>题目描述：</p>
-<p>农夫约翰建造了一座有n间牛舍的小屋，牛舍排在一条直线上，第i间牛舍在Xi的位置，但是约翰的m头牛对小屋很不满意，因此经常互相攻击。约翰为了防止牛之间互相伤害，因此决定把每头牛都放在离其它牛尽可能远的牛舍。也就是要最大化最近的两头牛之间的距离。</p>
-<p>牛们并不喜欢这种布局，而且几头牛放在一个隔间里，它们就要发生争斗。为了不让牛互相伤害。John 决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是多少呢？</p>
-<p>Input</p>
-<pre><code>第一行用空格分隔的两个整数 n 和 m；
-
-第二行为 n 个用空格隔开的整数，表示位置 x_i。</code></pre><p>Output</p>
-<pre><code>输出仅一个整数，表示最大的最小距离值。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[100005],n,c;</span><br><span class="line">&#x2F;&#x2F;给定最小距离，判断在该距离下是否可以分配出m个牛舍 </span><br><span class="line">bool check(int d)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;因为a[1]原点可以放一个，所以tot初始值为1 </span><br><span class="line">    &#x2F;&#x2F;寻找第一个比now大的牛舍 </span><br><span class="line">    int now&#x3D;a[1]+d,tot&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&lt;now)continue;</span><br><span class="line">        else&#123;</span><br><span class="line">            &#x2F;&#x2F;找到之后tot+1,now更新 </span><br><span class="line">            tot++;</span><br><span class="line">            now&#x3D;a[i]+d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tot&gt;&#x3D;c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;n为小屋数量，c为牛的数量 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">    &#x2F;&#x2F;a[i]表示第i个小屋的位置 </span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    &#x2F;&#x2F;二分法都要先排序,sort()函数是左闭右开区间,默认升序排列 </span><br><span class="line">    sort(a+1,a+n+1);</span><br><span class="line">    &#x2F;&#x2F;l是left，r是right，ans是answer</span><br><span class="line">    &#x2F;&#x2F;将数组平移初始化，使得a[1]位于原点的位置 </span><br><span class="line">    &#x2F;&#x2F;l,r,ans都是具体的距离，而不是下标 </span><br><span class="line">    int l&#x3D;0,r&#x3D;a[n]-a[1],ans;</span><br><span class="line">    while(l&lt;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;mid是middle，向0取整 </span><br><span class="line">        &#x2F;&#x2F;mid理解为最小距离</span><br><span class="line">        &#x2F;&#x2F;对最小距离二分法逼近 </span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;如果找到了，说明最小距离还可以更大 </span><br><span class="line">            ans&#x3D;mid;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else r&#x3D;mid-1; &#x2F;&#x2F;如果没找到，说明最小距离应该变小 </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="例题2：Best-Cow-Fences（LOJ10012）"><a href="#例题2：Best-Cow-Fences（LOJ10012）" class="headerlink" title="例题2：Best Cow Fences（LOJ10012）"></a>例题2：Best Cow Fences（LOJ10012）</h2><p>题目描述：</p>
-<p>给定一个长度为n的非负整数序列 A，求一个平均数最大的，长度不小于L的子段。<br>输出一个整数，表示这个平均数的1000倍。</p>
-<p>Input</p>
-<pre><code>第一行用空格分隔的两个整数 n 和 L；
-
-第二行为 n 个用空格隔开的非负整数，表示 A_i。</code></pre><p>Output</p>
-<pre><code>输出一个整数，表示这个平均数的 1000 倍。不用四舍五入，直接输出。</code></pre><p>Example</p>
-<pre><code>样例输入
-
-10 6
-6 4 2 10 3 8 5 9 4 1 
-
-样例输出
-
-6500</code></pre><hr>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;5+1e5;</span><br><span class="line">int n,k;</span><br><span class="line">double a[maxn],s[maxn];</span><br><span class="line">&#x2F;&#x2F;输入一个平均数xx，是否存在平均数比其大的子串长度大于k </span><br><span class="line">bool check(double xx)&#123;</span><br><span class="line">    double x&#x3D;s[k-1]-(k-1)*xx;</span><br><span class="line">    for(int i&#x3D;k;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;遍历，求长度为k的字串的和 - 给定平均值算出的和 </span><br><span class="line">        double y&#x3D;s[i]-s[i-k]-xx*k;</span><br><span class="line">        &#x2F;&#x2F;求出这些字串里面大的最多的那个存到x中 </span><br><span class="line">        x&#x3D;max(x+a[i]-xx,y);</span><br><span class="line">        &#x2F;&#x2F;只要x&gt;&#x3D;0,即存在这样的子串，使得k长度的字串和符合要求 </span><br><span class="line">        &#x2F;&#x2F;就返回真 </span><br><span class="line">        if(x&gt;&#x3D;0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F;n是序列A的长度，k是 字段最小长度 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    double l&#x3D;1e9,r&#x3D;0;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;a[]存储序列A </span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        &#x2F;&#x2F;s[]为前缀和 </span><br><span class="line">        s[i]&#x3D;s[i-1]+a[i];</span><br><span class="line">        &#x2F;&#x2F;l为序列最小值，r为序列最大值 </span><br><span class="line">        if(a[i]&gt;r)r&#x3D;a[i];</span><br><span class="line">        if(a[i]&lt;l)l&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;当r!&#x3D;l时 ，只有l&#x3D;&#x3D;r才跳出循环 </span><br><span class="line">    while((r-l)&gt;1e-4)&#123;</span><br><span class="line">        double mid&#x3D;(l+r)&#x2F;2.0;</span><br><span class="line">        if(check(mid))</span><br><span class="line">            l&#x3D;mid;  &#x2F;&#x2F;平均数范围还可以变大 </span><br><span class="line">        else</span><br><span class="line">            r&#x3D;mid;  &#x2F;&#x2F;平均数范围要缩小 </span><br><span class="line">    &#125;</span><br><span class="line">    int rrr&#x3D;r*1000;</span><br><span class="line">    cout&lt;&lt;rrr&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注： 要注意此题很多数据都是double类型</p>
-<h2 id="10014-「一本通-1-2-练习-1」数列分段-II"><a href="#10014-「一本通-1-2-练习-1」数列分段-II" class="headerlink" title="10014. 「一本通 1.2 练习 1」数列分段 II"></a>10014. 「一本通 1.2 练习 1」数列分段 II</h2><p>对于给定的一个长度为N的正整数数列A[i]，现要将其分成M（M&lt;=N）段，并要求每段连续，且每段和的最大值最小。</p>
-<p>题目里说最大值最小，所以我们可以想到二分答案。<br> 这道题的check是比较好想的。我们枚举每段和的最大值，看这样分出来的段数是否满足条件（段数小于等于m）。找到答案后输出即可（贪心，如果没有和没有达到最大值，则将该元素归于这一段）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn&#x3D;1e5+5;</span><br><span class="line">int n,m;</span><br><span class="line">int a[maxn];</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">    int t&#x3D;0,cnt&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        if(a[i]&gt;x)return false;</span><br><span class="line">        if(t+a[i]&lt;&#x3D;x)&#123;</span><br><span class="line">            t+&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            t&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt&lt;&#x3D;m;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int l&#x3D;0,r&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        r+&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l&lt;r)&#123;</span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))&#123;</span><br><span class="line">            r&#x3D;mid;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="题外话：STL中的sort如何对结构体排序"><a href="#题外话：STL中的sort如何对结构体排序" class="headerlink" title="题外话：STL中的sort如何对结构体排序"></a>题外话：STL中的sort如何对结构体排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int key,value;</span><br><span class="line">    bool operator &lt; (const Node&amp; rhs) const</span><br><span class="line">    &#123;</span><br><span class="line">        return key&gt;rhs.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[100005];</span><br><span class="line"></span><br><span class="line">bool cmp(const Node&amp; A,const Node&amp; B)</span><br><span class="line">&#123;</span><br><span class="line">    return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct cmp2</span><br><span class="line">&#123;</span><br><span class="line">    bool operator () (const Node&amp; A,const Node&amp; B)</span><br><span class="line">    &#123;</span><br><span class="line">        return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n&#x3D;100000;</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;5;i&lt;n;i+&#x3D;)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);&#x2F;&#x2F;第一种</span><br><span class="line">    sort(a,a+n,cmp);&#x2F;&#x2F;第二种</span><br><span class="line">    sort(a,a+n,cmp2());&#x2F;&#x2F;第三种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="lower-bound-和-upper-bound"><a href="#lower-bound-和-upper-bound" class="headerlink" title="lower_bound 和 upper_bound"></a>lower_bound 和 upper_bound</h2><p>想得到下标：<br>lower_bound(a,a+n,v)-a<br>v的个数：<br>upper_bound(a,a+n,v)-lower_bound(a,a+n,v)</p>
-<p>自己动手写：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;找到第一个满足插入V后序列仍保持有序的位置</span><br><span class="line">int lower_bound(int l,int r,int v)</span><br><span class="line">&#123;</span><br><span class="line">    while(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        int m&#x3D;l+(r-l)&#x2F;2;</span><br><span class="line">        if(a[m]&gt;&#x3D;v)r&#x3D;m;</span><br><span class="line">        else l&#x3D;m+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
   </entry>
   <entry>
     <title>iterable</title>
@@ -461,19 +412,52 @@
       </tags>
   </entry>
   <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+    <title>二分与贪心</title>
+    <url>/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/</url>
+    <content><![CDATA[<h2 id="例题1：愤怒的牛（LOJ10011）"><a href="#例题1：愤怒的牛（LOJ10011）" class="headerlink" title="例题1：愤怒的牛（LOJ10011）"></a>例题1：愤怒的牛（LOJ10011）</h2><p>题目描述：</p>
+<p>农夫约翰建造了一座有n间牛舍的小屋，牛舍排在一条直线上，第i间牛舍在Xi的位置，但是约翰的m头牛对小屋很不满意，因此经常互相攻击。约翰为了防止牛之间互相伤害，因此决定把每头牛都放在离其它牛尽可能远的牛舍。也就是要最大化最近的两头牛之间的距离。</p>
+<p>牛们并不喜欢这种布局，而且几头牛放在一个隔间里，它们就要发生争斗。为了不让牛互相伤害。John 决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是多少呢？</p>
+<p>Input</p>
+<pre><code>第一行用空格分隔的两个整数 n 和 m；
+
+第二行为 n 个用空格隔开的整数，表示位置 x_i。</code></pre><p>Output</p>
+<pre><code>输出仅一个整数，表示最大的最小距离值。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[100005],n,c;</span><br><span class="line">&#x2F;&#x2F;给定最小距离，判断在该距离下是否可以分配出m个牛舍 </span><br><span class="line">bool check(int d)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;因为a[1]原点可以放一个，所以tot初始值为1 </span><br><span class="line">    &#x2F;&#x2F;寻找第一个比now大的牛舍 </span><br><span class="line">    int now&#x3D;a[1]+d,tot&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&lt;now)continue;</span><br><span class="line">        else&#123;</span><br><span class="line">            &#x2F;&#x2F;找到之后tot+1,now更新 </span><br><span class="line">            tot++;</span><br><span class="line">            now&#x3D;a[i]+d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tot&gt;&#x3D;c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;n为小屋数量，c为牛的数量 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">    &#x2F;&#x2F;a[i]表示第i个小屋的位置 </span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    &#x2F;&#x2F;二分法都要先排序,sort()函数是左闭右开区间,默认升序排列 </span><br><span class="line">    sort(a+1,a+n+1);</span><br><span class="line">    &#x2F;&#x2F;l是left，r是right，ans是answer</span><br><span class="line">    &#x2F;&#x2F;将数组平移初始化，使得a[1]位于原点的位置 </span><br><span class="line">    &#x2F;&#x2F;l,r,ans都是具体的距离，而不是下标 </span><br><span class="line">    int l&#x3D;0,r&#x3D;a[n]-a[1],ans;</span><br><span class="line">    while(l&lt;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;mid是middle，向0取整 </span><br><span class="line">        &#x2F;&#x2F;mid理解为最小距离</span><br><span class="line">        &#x2F;&#x2F;对最小距离二分法逼近 </span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;如果找到了，说明最小距离还可以更大 </span><br><span class="line">            ans&#x3D;mid;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else r&#x3D;mid-1; &#x2F;&#x2F;如果没找到，说明最小距离应该变小 </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="例题2：Best-Cow-Fences（LOJ10012）"><a href="#例题2：Best-Cow-Fences（LOJ10012）" class="headerlink" title="例题2：Best Cow Fences（LOJ10012）"></a>例题2：Best Cow Fences（LOJ10012）</h2><p>题目描述：</p>
+<p>给定一个长度为n的非负整数序列 A，求一个平均数最大的，长度不小于L的子段。<br>输出一个整数，表示这个平均数的1000倍。</p>
+<p>Input</p>
+<pre><code>第一行用空格分隔的两个整数 n 和 L；
+
+第二行为 n 个用空格隔开的非负整数，表示 A_i。</code></pre><p>Output</p>
+<pre><code>输出一个整数，表示这个平均数的 1000 倍。不用四舍五入，直接输出。</code></pre><p>Example</p>
+<pre><code>样例输入
+
+10 6
+6 4 2 10 3 8 5 9 4 1 
+
+样例输出
+
+6500</code></pre><hr>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;5+1e5;</span><br><span class="line">int n,k;</span><br><span class="line">double a[maxn],s[maxn];</span><br><span class="line">&#x2F;&#x2F;输入一个平均数xx，是否存在平均数比其大的子串长度大于k </span><br><span class="line">bool check(double xx)&#123;</span><br><span class="line">    double x&#x3D;s[k-1]-(k-1)*xx;</span><br><span class="line">    for(int i&#x3D;k;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;遍历，求长度为k的字串的和 - 给定平均值算出的和 </span><br><span class="line">        double y&#x3D;s[i]-s[i-k]-xx*k;</span><br><span class="line">        &#x2F;&#x2F;求出这些字串里面大的最多的那个存到x中 </span><br><span class="line">        x&#x3D;max(x+a[i]-xx,y);</span><br><span class="line">        &#x2F;&#x2F;只要x&gt;&#x3D;0,即存在这样的子串，使得k长度的字串和符合要求 </span><br><span class="line">        &#x2F;&#x2F;就返回真 </span><br><span class="line">        if(x&gt;&#x3D;0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F;n是序列A的长度，k是 字段最小长度 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    double l&#x3D;1e9,r&#x3D;0;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;a[]存储序列A </span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        &#x2F;&#x2F;s[]为前缀和 </span><br><span class="line">        s[i]&#x3D;s[i-1]+a[i];</span><br><span class="line">        &#x2F;&#x2F;l为序列最小值，r为序列最大值 </span><br><span class="line">        if(a[i]&gt;r)r&#x3D;a[i];</span><br><span class="line">        if(a[i]&lt;l)l&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;当r!&#x3D;l时 ，只有l&#x3D;&#x3D;r才跳出循环 </span><br><span class="line">    while((r-l)&gt;1e-4)&#123;</span><br><span class="line">        double mid&#x3D;(l+r)&#x2F;2.0;</span><br><span class="line">        if(check(mid))</span><br><span class="line">            l&#x3D;mid;  &#x2F;&#x2F;平均数范围还可以变大 </span><br><span class="line">        else</span><br><span class="line">            r&#x3D;mid;  &#x2F;&#x2F;平均数范围要缩小 </span><br><span class="line">    &#125;</span><br><span class="line">    int rrr&#x3D;r*1000;</span><br><span class="line">    cout&lt;&lt;rrr&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注： 要注意此题很多数据都是double类型</p>
+<h2 id="10014-「一本通-1-2-练习-1」数列分段-II"><a href="#10014-「一本通-1-2-练习-1」数列分段-II" class="headerlink" title="10014. 「一本通 1.2 练习 1」数列分段 II"></a>10014. 「一本通 1.2 练习 1」数列分段 II</h2><p>对于给定的一个长度为N的正整数数列A[i]，现要将其分成M（M&lt;=N）段，并要求每段连续，且每段和的最大值最小。</p>
+<p>题目里说最大值最小，所以我们可以想到二分答案。<br> 这道题的check是比较好想的。我们枚举每段和的最大值，看这样分出来的段数是否满足条件（段数小于等于m）。找到答案后输出即可（贪心，如果没有和没有达到最大值，则将该元素归于这一段）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn&#x3D;1e5+5;</span><br><span class="line">int n,m;</span><br><span class="line">int a[maxn];</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">    int t&#x3D;0,cnt&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        if(a[i]&gt;x)return false;</span><br><span class="line">        if(t+a[i]&lt;&#x3D;x)&#123;</span><br><span class="line">            t+&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            t&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt&lt;&#x3D;m;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int l&#x3D;0,r&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        r+&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l&lt;r)&#123;</span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))&#123;</span><br><span class="line">            r&#x3D;mid;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
+<h2 id="题外话：STL中的sort如何对结构体排序"><a href="#题外话：STL中的sort如何对结构体排序" class="headerlink" title="题外话：STL中的sort如何对结构体排序"></a>题外话：STL中的sort如何对结构体排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int key,value;</span><br><span class="line">    bool operator &lt; (const Node&amp; rhs) const</span><br><span class="line">    &#123;</span><br><span class="line">        return key&gt;rhs.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[100005];</span><br><span class="line"></span><br><span class="line">bool cmp(const Node&amp; A,const Node&amp; B)</span><br><span class="line">&#123;</span><br><span class="line">    return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct cmp2</span><br><span class="line">&#123;</span><br><span class="line">    bool operator () (const Node&amp; A,const Node&amp; B)</span><br><span class="line">    &#123;</span><br><span class="line">        return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n&#x3D;100000;</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;5;i&lt;n;i+&#x3D;)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);&#x2F;&#x2F;第一种</span><br><span class="line">    sort(a,a+n,cmp);&#x2F;&#x2F;第二种</span><br><span class="line">    sort(a,a+n,cmp2());&#x2F;&#x2F;第三种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="lower-bound-和-upper-bound"><a href="#lower-bound-和-upper-bound" class="headerlink" title="lower_bound 和 upper_bound"></a>lower_bound 和 upper_bound</h2><p>想得到下标：<br>lower_bound(a,a+n,v)-a<br>v的个数：<br>upper_bound(a,a+n,v)-lower_bound(a,a+n,v)</p>
+<p>自己动手写：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;找到第一个满足插入V后序列仍保持有序的位置</span><br><span class="line">int lower_bound(int l,int r,int v)</span><br><span class="line">&#123;</span><br><span class="line">    while(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        int m&#x3D;l+(r-l)&#x2F;2;</span><br><span class="line">        if(a[m]&gt;&#x3D;v)r&#x3D;m;</span><br><span class="line">        else l&#x3D;m+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
+        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
@@ -516,6 +500,22 @@
       </categories>
       <tags>
         <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+<hr>
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -614,73 +614,6 @@
       </tags>
   </entry>
   <entry>
-    <title>微信小程序day1</title>
-    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
-    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
-<p>例如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
-<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
-<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
-<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
-<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
-<li>按钮</li>
-<li>属性<ul>
-<li>type<ul>
-<li>primary 绿色</li>
-<li>warn 红色</li>
-<li>default 白色</li>
-</ul>
-</li>
-<li>size<ul>
-<li>default</li>
-<li>mini</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
-<li>文本输入框</li>
-<li>属性 type, 默认为text</li>
-</ul>
-<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
-<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
-<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
-<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
-<li>普通页面的跳转</li>
-<li>属性 url 指定目标页面地址</li>
-</ul>
-<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
-<ul>
-<li>src</li>
-<li>lazy-load</li>
-</ul>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信小程序day2</title>
     <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
     <content><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
@@ -760,6 +693,73 @@
       </tags>
   </entry>
   <entry>
+    <title>微信小程序day1</title>
+    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
+    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
+<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
+<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
+<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
+<li>按钮</li>
+<li>属性<ul>
+<li>type<ul>
+<li>primary 绿色</li>
+<li>warn 红色</li>
+<li>default 白色</li>
+</ul>
+</li>
+<li>size<ul>
+<li>default</li>
+<li>mini</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
+<li>文本输入框</li>
+<li>属性 type, 默认为text</li>
+</ul>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
+<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
+<li>普通页面的跳转</li>
+<li>属性 url 指定目标页面地址</li>
+</ul>
+<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
+<ul>
+<li>src</li>
+<li>lazy-load</li>
+</ul>
+<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>次方求模</title>
     <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
     <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
@@ -769,27 +769,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>筛法求素数</title>
-    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
-    <content><![CDATA[<p>暴力解法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
-
-<p>埃式筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>线性筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -812,6 +791,27 @@
 <p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
 <p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
 <p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>筛法求素数</title>
+    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
+    <content><![CDATA[<p>暴力解法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
+
+<p>埃式筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
 ]]></content>
       <categories>
         <category>算法</category>
