@@ -1,835 +1,572 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Js数据类型和变量</title>
-    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
-<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
-
-<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
-<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
-
-<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
-<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
-
-<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
-<hr>
-<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
-
-<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
-<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
-<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
-<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
-<p><code>&#39;use strict&#39;;</code></p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>17年12月第一套</title>
+      <link href="/2020/09/08/17%E5%B9%B412%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A5%97/"/>
+      <url>/2020/09/08/17%E5%B9%B412%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A5%97/</url>
+      
+        <content type="html"><![CDATA[<p>humiliate 羞辱<br>interpersonal 人际的<br>lawful seat 合法席位<br>diplomatic 外交的<br>in regard to 关于<br>bring disgrace on one’s  own head 自取其辱<br>mortality rates 死亡率<br>escalating prices 物价上涨<br>prolonged 持久的，长期的<br>in some measure 多多少少<br>ironically 讽刺的<br>conspire 似乎共同导致（不良后果）<br>disminish 减少<br>keep sth at bay 防止侵袭<br>corporate communication 公司通讯<br>livelihood 生计<br>kola nut 可乐果<br>stimulant 兴奋剂<br>infamous 名声不好的<br>tonic 滋补品<br>be peculiar to one’s eyes 对某人而言很稀奇<br>fall from grace 失去恩宠<br>beverage 饮料<br>kola-extract 含可乐果提取物的<br>soda fountain 冷饮柜<br>closely guarded secret 严格保守的秘密<br>potent 有效的，强有力的<br>food supplement 保健食品<br>notorious 声名狼藉<br>Urban Land Institute 城市土地学会界<br>dominate 主导<br>using the lens of this basic divide 透过这一基本差异<br>adopt a middle-of-the-road approach 采取中间路线<br>incorporate 结合<br>make waves 掀起波澜<br>real estate 房地产<br>underlying 为…的基础<br>contribute to 有助于<br>downtown revitalization 市中心振兴<br>suburb 郊区<br>tenant 租客<br>predominantly 主要的<br>municipal 市政的<br>upkeep 维持<br>forward thinking 前瞻性<br>urbanity 都市风格<br>transforming downtown areas 改造市中心<br>infrastructure 基础设施<br>retail 零售店<br>public transit 公共交通<br>affluent 富裕的<br>demographic 人口<br>knowledge and talent industry 知识和人才行业<br>proximity 接近<br>transit 交通设施<br>-oriented 以..为方向的<br>as opposed to 不像…<br>buzz of activity is ongoing 喧嚣从不间断<br>homeowner investment 置业投资<br>vigorious 活跃的<br>right urban mix 恰当的城市组合<br>prop up 提升<br>home occupancy 住房占有率<br>have seen 见证<br>characterize 是…的特点<br>go unchecked 某一坏事未得到抑制、控制<br>house （某地）贮藏，容纳，包含</p>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 英语 </category>
+          
       </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kib Kb KB KIB 区别</title>
-    <url>/2020/09/08/Kib%20Kb%20KB%20KIB%20%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>Ki 和 K 只是数学单位</p>
-<p>Ki = 1024</p>
-<p>K  = 1000</p>
-<p>这二者之间没有任何联系</p>
-<p>B 和 b 表示物理存储单位</p>
-<p>B = Byte 即一个字节</p>
-<p>b = bit    即一个二进制位</p>
-<p>了解计算机基本原理的都知道,二者的关系是 : 1 Byte = 8 bit</p>
-<p>所以有如下结果:</p>
-<p>1Kib = 1024 bit</p>
-<p>1Kb  = 1000 bit</p>
-<p>1KiB = 1024 Byte</p>
-<p>1KB  = 1000 Byte</p>
-<p>至于MB MiB Mb Mib 以此类推</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 六级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Kib Kb KB KIB 区别</title>
+      <link href="/2020/09/08/Kib%20Kb%20KB%20KIB%20%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/09/08/Kib%20Kb%20KB%20KIB%20%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<p>Ki 和 K 只是数学单位</p><p>Ki = 1024</p><p>K  = 1000</p><p>这二者之间没有任何联系</p><p>B 和 b 表示物理存储单位</p><p>B = Byte 即一个字节</p><p>b = bit    即一个二进制位</p><p>了解计算机基本原理的都知道,二者的关系是 : 1 Byte = 8 bit</p><p>所以有如下结果:</p><p>1Kib = 1024 bit</p><p>1Kb  = 1000 bit</p><p>1KiB = 1024 Byte</p><p>1KB  = 1000 Byte</p><p>至于MB MiB Mb Mib 以此类推</p>]]></content>
+      
+      
       <categories>
-        <category>计算机组成原理</category>
+          
+          <category> 计算机组成原理 </category>
+          
       </categories>
-      <tags>
-        <tag>单位</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>17年12月第一套</title>
-    <url>/2020/09/08/17%E5%B9%B412%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A5%97/</url>
-    <content><![CDATA[<p>humiliate 羞辱<br>interpersonal 人际的<br>lawful seat 合法席位<br>diplomatic 外交的<br>in regard to 关于<br>bring disgrace on one’s  own head 自取其辱<br>mortality rates 死亡率<br>escalating prices 物价上涨<br>prolonged 持久的，长期的<br>in some measure 多多少少<br>ironically 讽刺的<br>conspire 似乎共同导致（不良后果）<br>disminish 减少<br>keep sth at bay 防止侵袭<br>corporate communication 公司通讯<br>livelihood 生计<br>kola nut 可乐果<br>stimulant 兴奋剂<br>infamous 名声不好的<br>tonic 滋补品<br>be peculiar to one’s eyes 对某人而言很稀奇<br>fall from grace 失去恩宠<br>beverage 饮料<br>kola-extract 含可乐果提取物的<br>soda fountain 冷饮柜<br>closely guarded secret 严格保守的秘密<br>potent 有效的，强有力的<br>food supplement 保健食品<br>notorious 声名狼藉<br>Urban Land Institute 城市土地学会界<br>dominate 主导<br>using the lens of this basic divide 透过这一基本差异<br>adopt a middle-of-the-road approach 采取中间路线<br>incorporate 结合<br>make waves 掀起波澜<br>real estate 房地产<br>underlying 为…的基础<br>contribute to 有助于<br>downtown revitalization 市中心振兴<br>suburb 郊区<br>tenant 租客<br>predominantly 主要的<br>municipal 市政的<br>upkeep 维持<br>forward thinking 前瞻性<br>urbanity 都市风格<br>transforming downtown areas 改造市中心<br>infrastructure 基础设施<br>retail 零售店<br>public transit 公共交通<br>affluent 富裕的<br>demographic 人口<br>knowledge and talent industry 知识和人才行业<br>proximity 接近<br>transit 交通设施<br>-oriented 以..为方向的<br>as opposed to 不像…<br>buzz of activity is ongoing 喧嚣从不间断<br>homeowner investment 置业投资<br>vigorious 活跃的<br>right urban mix 恰当的城市组合<br>prop up 提升<br>home occupancy 住房占有率<br>have seen 见证<br>characterize 是…的特点<br>go unchecked 某一坏事未得到抑制、控制<br>house （某地）贮藏，容纳，包含</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 单位 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>并查集</title>
+      <link href="/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+      <url>/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<p>并查集模板</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;只用了路径压缩的优化 </span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int n,m,pre[maxn];</span><br><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">for(int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">if(x &#x3D;&#x3D; pre[x])</span><br><span class="line">return x;</span><br><span class="line">return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void merge(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">int tx &#x3D; find(x);</span><br><span class="line">int ty &#x3D; find(y);</span><br><span class="line">pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool same(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p>并查集的延伸-&gt;种类并查集</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;洛谷p1525</span><br><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 40010;</span><br><span class="line">int n,m,pre[maxn]; </span><br><span class="line">struct node&#123;</span><br><span class="line">int a,b,val; </span><br><span class="line">&#125;c[100010];</span><br><span class="line">bool cmp(node x, node y)&#123;</span><br><span class="line">return x.val &gt; y.val;</span><br><span class="line">&#125;</span><br><span class="line">void init(int n)&#123;</span><br><span class="line">n &#x3D; n*2;</span><br><span class="line">for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">if(x &#x3D;&#x3D; pre[x])return x;</span><br><span class="line">return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line">void merge(int x, int y)&#123;</span><br><span class="line">int tx &#x3D; find(x);</span><br><span class="line">int ty &#x3D; find(y);</span><br><span class="line">pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line">bool same(int x, int y)&#123;</span><br><span class="line">return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">init(n);</span><br><span class="line">for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">cin &gt;&gt; c[i].a &gt;&gt; c[i].b &gt;&gt; c[i].val;</span><br><span class="line">&#125;</span><br><span class="line">sort(c+1, c+1+m, cmp);</span><br><span class="line">for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">int xx &#x3D; find(c[i].a);</span><br><span class="line">int yy &#x3D; find(c[i].b);</span><br><span class="line">if(xx &#x3D;&#x3D; yy)&#123;</span><br><span class="line">cout &lt;&lt; c[i].val &lt;&lt; endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line">merge(c[i].a, c[i].b+n);</span><br><span class="line">merge(c[i].a+n, c[i].b);</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>种类并查集核心：开k倍数组维护关系<br>附上一个讲的很好的种类并查集文章：<br><a href="https://zhuanlan.zhihu.com/p/97813717" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/97813717</a></p><hr><p>并查集的一点思考：</p><h2 id="亲戚类"><a href="#亲戚类" class="headerlink" title="亲戚类"></a>亲戚类</h2><p>很简单基础的并查集，并查集的本质就是把节点一个个的合并，最后变成一棵树。容易联想到可以把具有亲戚关系的节点放在一棵树上来维护亲戚关系。<br>模板： 洛谷P1551</p>]]></content>
+      
+      
       <categories>
-        <category>英语</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>六级</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Js循环</title>
-    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>哈夫曼树</title>
+      <link href="/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/"/>
+      <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<p>Here is the model:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">int wpl&#x3D;0;</span><br><span class="line">while(q.size()&gt;1)&#123;</span><br><span class="line">int min1&#x3D;q.top();</span><br><span class="line">q.pop();</span><br><span class="line">int min2&#x3D;q.top();</span><br><span class="line">q.pop();</span><br><span class="line">wpl+&#x3D;min1+min2;</span><br><span class="line">q.push(min1+min2);</span><br><span class="line">&#125;</span><br><span class="line">return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">n&#x3D;10;</span><br><span class="line">for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">printf(&quot;%d &quot;,WPL());</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Map和Set</title>
-    <url>/2020/07/22/Map%E5%92%8CSet/</url>
-    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
-<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
-<p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p>
-<hr>
-<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p>
-<p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure>
-
-<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p>
-<p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure>
-
-<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure>
-
-<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p>
-<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure>
-
-<p>重复元素在Set中自动被过滤：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意数字3和字符串’3’是不同的元素。</p>
-<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过delete(key)方法可以删除元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Missing Number</title>
+      <link href="/2020/08/12/Missing%20Number/"/>
+      <url>/2020/08/12/Missing%20Number/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p><p>方法一：<br>求和作差<br>求出 0 到 n 的和，然后再计算原数组的和，作一个差就是缺失的数字了。<br>由于数组里每个数字只被访问了一遍，故为线性时间。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        sum1 += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 等差公式计算 1 到 n 的和</span></span><br><span class="line">    <span class="keyword">int</span> sum2 = (<span class="number">1</span> + nums.length) * nums.length / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum2 - sum1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>方法二：<br>异或<br>由于一个数异或其本身将变成0，而任何一个数和0异或不变，所以利用这个特点，当我们把缺失了的数组和没缺失元素的数组中的所有元素全部异或，除了缺失的数只出现了一次，其余的数均出现了两次（两两异或变成0），最后的结果便是确实的数。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        result = result ^ nums[i] ^ i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>方法三：<br>哈希数组<br>利用哈希数组的唯一性，遍历寻找（不如前两个）</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二分与贪心</title>
+      <link href="/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/"/>
+      <url>/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="例题1：愤怒的牛（LOJ10011）"><a href="#例题1：愤怒的牛（LOJ10011）" class="headerlink" title="例题1：愤怒的牛（LOJ10011）"></a>例题1：愤怒的牛（LOJ10011）</h2><p>题目描述：</p><p>农夫约翰建造了一座有n间牛舍的小屋，牛舍排在一条直线上，第i间牛舍在Xi的位置，但是约翰的m头牛对小屋很不满意，因此经常互相攻击。约翰为了防止牛之间互相伤害，因此决定把每头牛都放在离其它牛尽可能远的牛舍。也就是要最大化最近的两头牛之间的距离。</p><p>牛们并不喜欢这种布局，而且几头牛放在一个隔间里，它们就要发生争斗。为了不让牛互相伤害。John 决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是多少呢？</p><p>Input</p><pre><code>第一行用空格分隔的两个整数 n 和 m；第二行为 n 个用空格隔开的整数，表示位置 x_i。</code></pre><p>Output</p><pre><code>输出仅一个整数，表示最大的最小距离值。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[100005],n,c;</span><br><span class="line">&#x2F;&#x2F;给定最小距离，判断在该距离下是否可以分配出m个牛舍 </span><br><span class="line">bool check(int d)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;因为a[1]原点可以放一个，所以tot初始值为1 </span><br><span class="line">    &#x2F;&#x2F;寻找第一个比now大的牛舍 </span><br><span class="line">    int now&#x3D;a[1]+d,tot&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&lt;now)continue;</span><br><span class="line">        else&#123;</span><br><span class="line">            &#x2F;&#x2F;找到之后tot+1,now更新 </span><br><span class="line">            tot++;</span><br><span class="line">            now&#x3D;a[i]+d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tot&gt;&#x3D;c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;n为小屋数量，c为牛的数量 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">    &#x2F;&#x2F;a[i]表示第i个小屋的位置 </span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    &#x2F;&#x2F;二分法都要先排序,sort()函数是左闭右开区间,默认升序排列 </span><br><span class="line">    sort(a+1,a+n+1);</span><br><span class="line">    &#x2F;&#x2F;l是left，r是right，ans是answer</span><br><span class="line">    &#x2F;&#x2F;将数组平移初始化，使得a[1]位于原点的位置 </span><br><span class="line">    &#x2F;&#x2F;l,r,ans都是具体的距离，而不是下标 </span><br><span class="line">    int l&#x3D;0,r&#x3D;a[n]-a[1],ans;</span><br><span class="line">    while(l&lt;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;mid是middle，向0取整 </span><br><span class="line">        &#x2F;&#x2F;mid理解为最小距离</span><br><span class="line">        &#x2F;&#x2F;对最小距离二分法逼近 </span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;如果找到了，说明最小距离还可以更大 </span><br><span class="line">            ans&#x3D;mid;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else r&#x3D;mid-1; &#x2F;&#x2F;如果没找到，说明最小距离应该变小 </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="例题2：Best-Cow-Fences（LOJ10012）"><a href="#例题2：Best-Cow-Fences（LOJ10012）" class="headerlink" title="例题2：Best Cow Fences（LOJ10012）"></a>例题2：Best Cow Fences（LOJ10012）</h2><p>题目描述：</p><p>给定一个长度为n的非负整数序列 A，求一个平均数最大的，长度不小于L的子段。<br>输出一个整数，表示这个平均数的1000倍。</p><p>Input</p><pre><code>第一行用空格分隔的两个整数 n 和 L；第二行为 n 个用空格隔开的非负整数，表示 A_i。</code></pre><p>Output</p><pre><code>输出一个整数，表示这个平均数的 1000 倍。不用四舍五入，直接输出。</code></pre><p>Example</p><pre><code>样例输入10 66 4 2 10 3 8 5 9 4 1 样例输出6500</code></pre><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;5+1e5;</span><br><span class="line">int n,k;</span><br><span class="line">double a[maxn],s[maxn];</span><br><span class="line">&#x2F;&#x2F;输入一个平均数xx，是否存在平均数比其大的子串长度大于k </span><br><span class="line">bool check(double xx)&#123;</span><br><span class="line">    double x&#x3D;s[k-1]-(k-1)*xx;</span><br><span class="line">    for(int i&#x3D;k;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;遍历，求长度为k的字串的和 - 给定平均值算出的和 </span><br><span class="line">        double y&#x3D;s[i]-s[i-k]-xx*k;</span><br><span class="line">        &#x2F;&#x2F;求出这些字串里面大的最多的那个存到x中 </span><br><span class="line">        x&#x3D;max(x+a[i]-xx,y);</span><br><span class="line">        &#x2F;&#x2F;只要x&gt;&#x3D;0,即存在这样的子串，使得k长度的字串和符合要求 </span><br><span class="line">        &#x2F;&#x2F;就返回真 </span><br><span class="line">        if(x&gt;&#x3D;0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F;n是序列A的长度，k是 字段最小长度 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    double l&#x3D;1e9,r&#x3D;0;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;a[]存储序列A </span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        &#x2F;&#x2F;s[]为前缀和 </span><br><span class="line">        s[i]&#x3D;s[i-1]+a[i];</span><br><span class="line">        &#x2F;&#x2F;l为序列最小值，r为序列最大值 </span><br><span class="line">        if(a[i]&gt;r)r&#x3D;a[i];</span><br><span class="line">        if(a[i]&lt;l)l&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;当r!&#x3D;l时 ，只有l&#x3D;&#x3D;r才跳出循环 </span><br><span class="line">    while((r-l)&gt;1e-4)&#123;</span><br><span class="line">        double mid&#x3D;(l+r)&#x2F;2.0;</span><br><span class="line">        if(check(mid))</span><br><span class="line">            l&#x3D;mid;  &#x2F;&#x2F;平均数范围还可以变大 </span><br><span class="line">        else</span><br><span class="line">            r&#x3D;mid;  &#x2F;&#x2F;平均数范围要缩小 </span><br><span class="line">    &#125;</span><br><span class="line">    int rrr&#x3D;r*1000;</span><br><span class="line">    cout&lt;&lt;rrr&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注： 要注意此题很多数据都是double类型</p><h2 id="10014-「一本通-1-2-练习-1」数列分段-II"><a href="#10014-「一本通-1-2-练习-1」数列分段-II" class="headerlink" title="10014. 「一本通 1.2 练习 1」数列分段 II"></a>10014. 「一本通 1.2 练习 1」数列分段 II</h2><p>对于给定的一个长度为N的正整数数列A[i]，现要将其分成M（M&lt;=N）段，并要求每段连续，且每段和的最大值最小。</p><p>题目里说最大值最小，所以我们可以想到二分答案。<br> 这道题的check是比较好想的。我们枚举每段和的最大值，看这样分出来的段数是否满足条件（段数小于等于m）。找到答案后输出即可（贪心，如果没有和没有达到最大值，则将该元素归于这一段）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn&#x3D;1e5+5;</span><br><span class="line">int n,m;</span><br><span class="line">int a[maxn];</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">    int t&#x3D;0,cnt&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        if(a[i]&gt;x)return false;</span><br><span class="line">        if(t+a[i]&lt;&#x3D;x)&#123;</span><br><span class="line">            t+&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            t&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt&lt;&#x3D;m;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int l&#x3D;0,r&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        r+&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l&lt;r)&#123;</span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))&#123;</span><br><span class="line">            r&#x3D;mid;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h2 id="题外话：STL中的sort如何对结构体排序"><a href="#题外话：STL中的sort如何对结构体排序" class="headerlink" title="题外话：STL中的sort如何对结构体排序"></a>题外话：STL中的sort如何对结构体排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int key,value;</span><br><span class="line">    bool operator &lt; (const Node&amp; rhs) const</span><br><span class="line">    &#123;</span><br><span class="line">        return key&gt;rhs.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[100005];</span><br><span class="line"></span><br><span class="line">bool cmp(const Node&amp; A,const Node&amp; B)</span><br><span class="line">&#123;</span><br><span class="line">    return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct cmp2</span><br><span class="line">&#123;</span><br><span class="line">    bool operator () (const Node&amp; A,const Node&amp; B)</span><br><span class="line">    &#123;</span><br><span class="line">        return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n&#x3D;100000;</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;5;i&lt;n;i+&#x3D;)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);&#x2F;&#x2F;第一种</span><br><span class="line">    sort(a,a+n,cmp);&#x2F;&#x2F;第二种</span><br><span class="line">    sort(a,a+n,cmp2());&#x2F;&#x2F;第三种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h2 id="lower-bound-和-upper-bound"><a href="#lower-bound-和-upper-bound" class="headerlink" title="lower_bound 和 upper_bound"></a>lower_bound 和 upper_bound</h2><p>想得到下标：<br>lower_bound(a,a+n,v)-a<br>v的个数：<br>upper_bound(a,a+n,v)-lower_bound(a,a+n,v)</p><p>自己动手写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;找到第一个满足插入V后序列仍保持有序的位置</span><br><span class="line">int lower_bound(int l,int r,int v)</span><br><span class="line">&#123;</span><br><span class="line">    while(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        int m&#x3D;l+(r-l)&#x2F;2;</span><br><span class="line">        if(a[m]&gt;&#x3D;v)r&#x3D;m;</span><br><span class="line">        else l&#x3D;m+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Missing Number</title>
-    <url>/2020/08/12/Missing%20Number/</url>
-    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p>
-<p>方法一：<br>求和作差<br>求出 0 到 n 的和，然后再计算原数组的和，作一个差就是缺失的数字了。<br>由于数组里每个数字只被访问了一遍，故为线性时间。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        sum1 += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 等差公式计算 1 到 n 的和</span></span><br><span class="line">    <span class="keyword">int</span> sum2 = (<span class="number">1</span> + nums.length) * nums.length / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum2 - sum1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法二：<br>异或<br>由于一个数异或其本身将变成0，而任何一个数和0异或不变，所以利用这个特点，当我们把缺失了的数组和没缺失元素的数组中的所有元素全部异或，除了缺失的数只出现了一次，其余的数均出现了两次（两两异或变成0），最后的结果便是确实的数。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        result = result ^ nums[i] ^ i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法三：<br>哈希数组<br>利用哈希数组的唯一性，遍历寻找（不如前两个）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>次方求模</title>
+      <link href="/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/"/>
+      <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
+      
+        <content type="html"><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p><p>基本题意 求a的b次方，对c去余的值；</p><p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p><p>另一个思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>]]></content>
+      
+      
       <categories>
-        <category>bugs</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown语法</title>
-    <url>/2020/07/21/markdown%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p><code>Markdown是什么</code></p>
-<ul>
-<li>Markdown 是一种非常简单的、轻量级的标记语言。用户可以使用简单的标记符号<strong>以最小的输入代价去生成极富表现力的文档。</strong>Markdown 的语法简洁明了、学习容易，功能比纯文本强得多，因此有很多人用它写博客、写文档。</li>
-</ul>
-<p><code>Markdown具有很多优点</code></p>
-<ul>
-<li>写作中添加简单符号即可完成排版，所见即所得，让你专注于文字而不是排版。</li>
-<li>格式转换方便，Markdown 的文本你可以轻松转换为 HTML、PDF等文件。</li>
-<li>自带格式化/排版信息，且规则简单友好，可保存为纯文本。</li>
-<li>对比HTML：它更专注于内容，标签对内容的侵入性低。</li>
-<li>写作时舒服，优雅感，你会感觉它就是为博客而生。</li>
-</ul>
-<hr>
-<h1 id="MarkDown使用语法如下"><a href="#MarkDown使用语法如下" class="headerlink" title="MarkDown使用语法如下"></a>MarkDown使用语法如下</h1><h2 id="一、-标题"><a href="#一、-标题" class="headerlink" title="一、 标题"></a>一、 标题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><hr>
-<h2 id="二、-字体"><a href="#二、-字体" class="headerlink" title="二、 字体"></a>二、 字体</h2><ul>
-<li>加粗</li>
-</ul>
-<p>要加粗的文字左右分别用两个*号包起来</p>
-<ul>
-<li>斜体</li>
-</ul>
-<p>要倾斜的文字左右分别用一个*号包起来</p>
-<ul>
-<li>斜体加粗</li>
-</ul>
-<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
-<ul>
-<li>删除线</li>
-</ul>
-<p>要加删除线的文字左右分别用两个~~号包起来</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
-<hr>
-<h2 id="三、-引用"><a href="#三、-引用" class="headerlink" title="三、 引用"></a>三、 引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h2 id="四、-分割线"><a href="#四、-分割线" class="headerlink" title="四、 分割线"></a>四、 分割线</h2><p>三个或者三个以上的 - 或者 * 都可以。</p>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：<br>可以看到，显示效果是一样的。</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="五、-代码"><a href="#五、-代码" class="headerlink" title="五、 代码"></a>五、 代码</h2><p>语法：<br>单行代码：代码之间分别用一个反引号包起来<br><code></code>代码内容<code></code>    </p>
-<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">单行代码</span><br><span class="line"></span><br><span class="line">&#96;create database hero;&#96;</span><br><span class="line"></span><br><span class="line">代码块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    function fun()&#123;</span><br><span class="line">         echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><code>create database hero;</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">     echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="六、-超链接"><a href="#六、-超链接" class="headerlink" title="六、 超链接"></a>六、 超链接</h2><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[简书](http:&#x2F;&#x2F;jianshu.com)</span><br><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
-<p><strong>注：</strong>Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;超链接地址&quot; target&#x3D;&quot;_blank&quot;&gt;超链接名&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;1f5ac0cf6a8b&quot; target&#x3D;&quot;_blank&quot;&gt;简书&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="七、-列表"><a href="#七、-列表" class="headerlink" title="七、 列表"></a>七、 列表</h2><p>###无序列表</p>
-<p>语法：<br>无序列表用 - + * 任何一种都可以</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<hr>
-<p>###有序列表</p>
-<p>语法：<br>数字加点</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
-</ol>
-<hr>
-<p>###列表嵌套</p>
-<p>上一级和下一级之间敲空格错开即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line"> - 下一级</span><br><span class="line"></span><br><span class="line">2个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">  - 下一级</span><br><span class="line"></span><br><span class="line">3个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">   - 下一级</span><br><span class="line"></span><br><span class="line">4个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">	- 下一级</span><br></pre></td></tr></table></figure>
-
-<p>1个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>2个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>3个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<p>4个空格</p>
-<ul>
-<li>上一级<ul>
-<li>下一级</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="八、-表格"><a href="#八、-表格" class="headerlink" title="八、 表格"></a>八、 表格</h2><p>语法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">姓名|技能|排行</span><br><span class="line">--|:--:|--:</span><br><span class="line">刘备|哭|大哥</span><br><span class="line">关羽|打|二哥</span><br><span class="line">张飞|骂|三弟</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th align="center">技能</th>
-<th align="right">排行</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>刘备</td>
-<td align="center">哭</td>
-<td align="right">大哥</td>
-</tr>
-<tr>
-<td>关羽</td>
-<td align="center">打</td>
-<td align="right">二哥</td>
-</tr>
-<tr>
-<td>张飞</td>
-<td align="center">骂</td>
-<td align="right">三弟</td>
-</tr>
-</tbody></table>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>同余定理</title>
+      <link href="/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/"/>
+      <url>/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p><h2 id="同余符号"><a href="#同余符号" class="headerlink" title="同余符号"></a>同余符号</h2><p>两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对模m同余或a同余于b模m。记作a≡b(mod m)</p><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>充分性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,q1和q2为某两个整数，由此的a-b=(q1m+r)-(q2m-r)=m(q1-q2)，根据整除定义，我们有m|(a-b)，由同余式定义得出结论：a≡b(mod m)</p><p>必要性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,所以a-b=m(q1-q2) 故 m|(a-b)。</p><h2 id="同余性质"><a href="#同余性质" class="headerlink" title="同余性质"></a>同余性质</h2><p>反身性：a≡a (mod m)</p><p>对称性： 若a≡b(mod m)，则b≡a(mod m)</p><p>传递性： 若a≡b(mod m)，b≡c(mod m)，则a≡c(mod m)</p><p>同余式相加：若a≡b(mod m)，b≡c(mod m)，则a ± c≡b ± d(mod m)</p><p>同余式相乘：若a≡b(mod m)，b≡c(mod m)，则ac≡bd(mod m)</p><p>线性运算：如果a≡b(mod m)，c≡d(mod m)，那么a ± c≡b ± d(mod m)，且a * c≡b * d(mod m)</p><p>除法：若ac ≡ bc (mod m) c≠0 则 a≡ b (mod m/gcd(c,m)) 其中gcd(c,m)表示c,m的最大公约数。特殊地 ,gcd(c,m)=1 则a ≡ b (mod m)</p><p>幂运算：如果a ≡ b (mod m)，那么a^n ≡ b^n (mod m)</p><p>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</p><p>若a ≡ b (mod mi) (i=1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数</p>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>康托展开和逆康托展开</title>
+      <link href="/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/"/>
+      <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
+      
+        <content type="html"><![CDATA[<p>康托展开</p><p>原理：</p><p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p><p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p><p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p><p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p><p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p><p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>逆康托展开</p><p>原理分析：</p><p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p><p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>删除无用的tags和categories</title>
-    <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
-    <content><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p>
-<p>但是，当某个标签被完全替代，没有文章使用这个标签之后，会发现在标签列表里还是会出现这个标签，点击进去却并没有内容，这非常影响使用体验。</p>
-<p>要清除，只需要执行下列指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>筛法求素数</title>
+      <link href="/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/"/>
+      <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<p>暴力解法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure><p>埃式筛法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>线性筛法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>]]></content>
+      
+      
       <categories>
-        <category>bugs</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二分与贪心</title>
-    <url>/2020/08/01/%E4%BA%8C%E5%88%86%E4%B8%8E%E8%B4%AA%E5%BF%83/</url>
-    <content><![CDATA[<h2 id="例题1：愤怒的牛（LOJ10011）"><a href="#例题1：愤怒的牛（LOJ10011）" class="headerlink" title="例题1：愤怒的牛（LOJ10011）"></a>例题1：愤怒的牛（LOJ10011）</h2><p>题目描述：</p>
-<p>农夫约翰建造了一座有n间牛舍的小屋，牛舍排在一条直线上，第i间牛舍在Xi的位置，但是约翰的m头牛对小屋很不满意，因此经常互相攻击。约翰为了防止牛之间互相伤害，因此决定把每头牛都放在离其它牛尽可能远的牛舍。也就是要最大化最近的两头牛之间的距离。</p>
-<p>牛们并不喜欢这种布局，而且几头牛放在一个隔间里，它们就要发生争斗。为了不让牛互相伤害。John 决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是多少呢？</p>
-<p>Input</p>
-<pre><code>第一行用空格分隔的两个整数 n 和 m；
-
-第二行为 n 个用空格隔开的整数，表示位置 x_i。</code></pre><p>Output</p>
-<pre><code>输出仅一个整数，表示最大的最小距离值。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[100005],n,c;</span><br><span class="line">&#x2F;&#x2F;给定最小距离，判断在该距离下是否可以分配出m个牛舍 </span><br><span class="line">bool check(int d)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;因为a[1]原点可以放一个，所以tot初始值为1 </span><br><span class="line">    &#x2F;&#x2F;寻找第一个比now大的牛舍 </span><br><span class="line">    int now&#x3D;a[1]+d,tot&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&lt;now)continue;</span><br><span class="line">        else&#123;</span><br><span class="line">            &#x2F;&#x2F;找到之后tot+1,now更新 </span><br><span class="line">            tot++;</span><br><span class="line">            now&#x3D;a[i]+d;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tot&gt;&#x3D;c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;n为小屋数量，c为牛的数量 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;c;</span><br><span class="line">    &#x2F;&#x2F;a[i]表示第i个小屋的位置 </span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)cin&gt;&gt;a[i];</span><br><span class="line">    &#x2F;&#x2F;二分法都要先排序,sort()函数是左闭右开区间,默认升序排列 </span><br><span class="line">    sort(a+1,a+n+1);</span><br><span class="line">    &#x2F;&#x2F;l是left，r是right，ans是answer</span><br><span class="line">    &#x2F;&#x2F;将数组平移初始化，使得a[1]位于原点的位置 </span><br><span class="line">    &#x2F;&#x2F;l,r,ans都是具体的距离，而不是下标 </span><br><span class="line">    int l&#x3D;0,r&#x3D;a[n]-a[1],ans;</span><br><span class="line">    while(l&lt;&#x3D;r)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;mid是middle，向0取整 </span><br><span class="line">        &#x2F;&#x2F;mid理解为最小距离</span><br><span class="line">        &#x2F;&#x2F;对最小距离二分法逼近 </span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))</span><br><span class="line">        &#123;</span><br><span class="line">            &#x2F;&#x2F;如果找到了，说明最小距离还可以更大 </span><br><span class="line">            ans&#x3D;mid;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">        else r&#x3D;mid-1; &#x2F;&#x2F;如果没找到，说明最小距离应该变小 </span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="例题2：Best-Cow-Fences（LOJ10012）"><a href="#例题2：Best-Cow-Fences（LOJ10012）" class="headerlink" title="例题2：Best Cow Fences（LOJ10012）"></a>例题2：Best Cow Fences（LOJ10012）</h2><p>题目描述：</p>
-<p>给定一个长度为n的非负整数序列 A，求一个平均数最大的，长度不小于L的子段。<br>输出一个整数，表示这个平均数的1000倍。</p>
-<p>Input</p>
-<pre><code>第一行用空格分隔的两个整数 n 和 L；
-
-第二行为 n 个用空格隔开的非负整数，表示 A_i。</code></pre><p>Output</p>
-<pre><code>输出一个整数，表示这个平均数的 1000 倍。不用四舍五入，直接输出。</code></pre><p>Example</p>
-<pre><code>样例输入
-
-10 6
-6 4 2 10 3 8 5 9 4 1 
-
-样例输出
-
-6500</code></pre><hr>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;5+1e5;</span><br><span class="line">int n,k;</span><br><span class="line">double a[maxn],s[maxn];</span><br><span class="line">&#x2F;&#x2F;输入一个平均数xx，是否存在平均数比其大的子串长度大于k </span><br><span class="line">bool check(double xx)&#123;</span><br><span class="line">    double x&#x3D;s[k-1]-(k-1)*xx;</span><br><span class="line">    for(int i&#x3D;k;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;遍历，求长度为k的字串的和 - 给定平均值算出的和 </span><br><span class="line">        double y&#x3D;s[i]-s[i-k]-xx*k;</span><br><span class="line">        &#x2F;&#x2F;求出这些字串里面大的最多的那个存到x中 </span><br><span class="line">        x&#x3D;max(x+a[i]-xx,y);</span><br><span class="line">        &#x2F;&#x2F;只要x&gt;&#x3D;0,即存在这样的子串，使得k长度的字串和符合要求 </span><br><span class="line">        &#x2F;&#x2F;就返回真 </span><br><span class="line">        if(x&gt;&#x3D;0)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    &#x2F;&#x2F;n是序列A的长度，k是 字段最小长度 </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    double l&#x3D;1e9,r&#x3D;0;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        &#x2F;&#x2F;a[]存储序列A </span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        &#x2F;&#x2F;s[]为前缀和 </span><br><span class="line">        s[i]&#x3D;s[i-1]+a[i];</span><br><span class="line">        &#x2F;&#x2F;l为序列最小值，r为序列最大值 </span><br><span class="line">        if(a[i]&gt;r)r&#x3D;a[i];</span><br><span class="line">        if(a[i]&lt;l)l&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;当r!&#x3D;l时 ，只有l&#x3D;&#x3D;r才跳出循环 </span><br><span class="line">    while((r-l)&gt;1e-4)&#123;</span><br><span class="line">        double mid&#x3D;(l+r)&#x2F;2.0;</span><br><span class="line">        if(check(mid))</span><br><span class="line">            l&#x3D;mid;  &#x2F;&#x2F;平均数范围还可以变大 </span><br><span class="line">        else</span><br><span class="line">            r&#x3D;mid;  &#x2F;&#x2F;平均数范围要缩小 </span><br><span class="line">    &#125;</span><br><span class="line">    int rrr&#x3D;r*1000;</span><br><span class="line">    cout&lt;&lt;rrr&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注： 要注意此题很多数据都是double类型</p>
-<h2 id="10014-「一本通-1-2-练习-1」数列分段-II"><a href="#10014-「一本通-1-2-练习-1」数列分段-II" class="headerlink" title="10014. 「一本通 1.2 练习 1」数列分段 II"></a>10014. 「一本通 1.2 练习 1」数列分段 II</h2><p>对于给定的一个长度为N的正整数数列A[i]，现要将其分成M（M&lt;=N）段，并要求每段连续，且每段和的最大值最小。</p>
-<p>题目里说最大值最小，所以我们可以想到二分答案。<br> 这道题的check是比较好想的。我们枚举每段和的最大值，看这样分出来的段数是否满足条件（段数小于等于m）。找到答案后输出即可（贪心，如果没有和没有达到最大值，则将该元素归于这一段）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn&#x3D;1e5+5;</span><br><span class="line">int n,m;</span><br><span class="line">int a[maxn];</span><br><span class="line">bool check(int x)&#123;</span><br><span class="line">    int t&#x3D;0,cnt&#x3D;1;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        if(a[i]&gt;x)return false;</span><br><span class="line">        if(t+a[i]&lt;&#x3D;x)&#123;</span><br><span class="line">            t+&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            t&#x3D;a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt&lt;&#x3D;m;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int l&#x3D;0,r&#x3D;0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        r+&#x3D;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(l&lt;r)&#123;</span><br><span class="line">        int mid&#x3D;(l+r)&#x2F;2;</span><br><span class="line">        if(check(mid))&#123;</span><br><span class="line">            r&#x3D;mid;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            l&#x3D;mid+1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;l&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="题外话：STL中的sort如何对结构体排序"><a href="#题外话：STL中的sort如何对结构体排序" class="headerlink" title="题外话：STL中的sort如何对结构体排序"></a>题外话：STL中的sort如何对结构体排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct Node</span><br><span class="line">&#123;</span><br><span class="line">    int key,value;</span><br><span class="line">    bool operator &lt; (const Node&amp; rhs) const</span><br><span class="line">    &#123;</span><br><span class="line">        return key&gt;rhs.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[100005];</span><br><span class="line"></span><br><span class="line">bool cmp(const Node&amp; A,const Node&amp; B)</span><br><span class="line">&#123;</span><br><span class="line">    return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct cmp2</span><br><span class="line">&#123;</span><br><span class="line">    bool operator () (const Node&amp; A,const Node&amp; B)</span><br><span class="line">    &#123;</span><br><span class="line">        return A.key&lt;B.key || A.key&#x3D;&#x3D;B.key&amp;&amp;A.value&lt;B.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n&#x3D;100000;</span><br><span class="line">    for(int i&#x3D;0;i&lt;5;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i&#x3D;5;i&lt;n;i+&#x3D;)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i].key&#x3D;1;</span><br><span class="line">        a[i].value&#x3D;n-i;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);&#x2F;&#x2F;第一种</span><br><span class="line">    sort(a,a+n,cmp);&#x2F;&#x2F;第二种</span><br><span class="line">    sort(a,a+n,cmp2());&#x2F;&#x2F;第三种</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="lower-bound-和-upper-bound"><a href="#lower-bound-和-upper-bound" class="headerlink" title="lower_bound 和 upper_bound"></a>lower_bound 和 upper_bound</h2><p>想得到下标：<br>lower_bound(a,a+n,v)-a<br>v的个数：<br>upper_bound(a,a+n,v)-lower_bound(a,a+n,v)</p>
-<p>自己动手写：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;找到第一个满足插入V后序列仍保持有序的位置</span><br><span class="line">int lower_bound(int l,int r,int v)</span><br><span class="line">&#123;</span><br><span class="line">    while(l&lt;r)</span><br><span class="line">    &#123;</span><br><span class="line">        int m&#x3D;l+(r-l)&#x2F;2;</span><br><span class="line">        if(a[m]&gt;&#x3D;v)r&#x3D;m;</span><br><span class="line">        else l&#x3D;m+1;</span><br><span class="line">    &#125;</span><br><span class="line">    return l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>学习打卡</title>
+      <link href="/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/"/>
+      <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
+      
+        <content type="html"><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 规划 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
-<hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 打卡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>欧几里得算法求解最大公约数</title>
+      <link href="/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/"/>
+      <url>/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int a, int b)&#123;</span><br><span class="line">    if (b &#x3D;&#x3D; 0) return a;</span><br><span class="line">    return gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p>数学证明：</p><p>##引理证明</p><p>如果 (a + b) % d = 0，b % d = 0，则必然有 a % d = 0。<br>证明如下：<br>因为(a + b) % d = 0 ,b % d = 0，<br>所以可以令 a + b = kd , b = k’ d, 其中k 和 k’ 都是整数。<br>进而，a + b = kd —-&gt; a + k’d = kd —–&gt; a = (k-k’)d，即 a 是 d 的整数倍，进而必有 a % d = 0，证毕。</p><p>##证明过程</p><p>证 cd(a,b)=cd(b,a%b)</p><p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p><p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p><p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>哈夫曼树</title>
-    <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
-    <content><![CDATA[<p>Here is the model:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">	int wpl&#x3D;0;</span><br><span class="line">	while(q.size()&gt;1)&#123;</span><br><span class="line">		int min1&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		int min2&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		wpl+&#x3D;min1+min2;</span><br><span class="line">		q.push(min1+min2);</span><br><span class="line">	&#125;</span><br><span class="line">	return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	n&#x3D;10;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">	printf(&quot;%d &quot;,WPL());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> acm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>删除无用的tags和categories</title>
+      <link href="/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/"/>
+      <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
+      
+        <content type="html"><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p><p>但是，当某个标签被完全替代，没有文章使用这个标签之后，会发现在标签列表里还是会出现这个标签，点击进去却并没有内容，这非常影响使用体验。</p><p>要清除，只需要执行下列指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> bugs </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>同余定理</title>
-    <url>/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p>
-<h2 id="同余符号"><a href="#同余符号" class="headerlink" title="同余符号"></a>同余符号</h2><p>两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对模m同余或a同余于b模m。记作a≡b(mod m)</p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>充分性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,q1和q2为某两个整数，由此的a-b=(q1m+r)-(q2m-r)=m(q1-q2)，根据整除定义，我们有m|(a-b)，由同余式定义得出结论：a≡b(mod m)</p>
-<p>必要性：<br>若a和b用m相除留下相同的余数r，则 a=q1m+r,b=q2m+r,所以a-b=m(q1-q2) 故 m|(a-b)。</p>
-<h2 id="同余性质"><a href="#同余性质" class="headerlink" title="同余性质"></a>同余性质</h2><p>反身性：a≡a (mod m)</p>
-<p>对称性： 若a≡b(mod m)，则b≡a(mod m)</p>
-<p>传递性： 若a≡b(mod m)，b≡c(mod m)，则a≡c(mod m)</p>
-<p>同余式相加：若a≡b(mod m)，b≡c(mod m)，则a ± c≡b ± d(mod m)</p>
-<p>同余式相乘：若a≡b(mod m)，b≡c(mod m)，则ac≡bd(mod m)</p>
-<p>线性运算：如果a≡b(mod m)，c≡d(mod m)，那么a ± c≡b ± d(mod m)，且a * c≡b * d(mod m)</p>
-<p>除法：若ac ≡ bc (mod m) c≠0 则 a≡ b (mod m/gcd(c,m)) 其中gcd(c,m)表示c,m的最大公约数。特殊地 ,gcd(c,m)=1 则a ≡ b (mod m)</p>
-<p>幂运算：如果a ≡ b (mod m)，那么a^n ≡ b^n (mod m)</p>
-<p>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</p>
-<p>若a ≡ b (mod mi) (i=1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 写作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动态规划</title>
+      <link href="/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+      
+        <content type="html"><![CDATA[<p>leetcode题解动态规划打卡</p><p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p><hr><p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 算法 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何用hexo写文章</title>
-    <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h3>准备工作</h3>
-<p>切换到hexo所在的目录</p>
-<p>如 D: 然后加上 cd blogs cd IcyFeather233</p>
-
-<h3>如何创建新的博客</h3>
-<p>hexo new + 博客名</p>
-
-<h3>如何显示博客</h3>
-<p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p>
-<p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p>
-<p>hexo d = hexo deploy 上传到Github个人主页</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo提交的NunjucksError</title>
+      <link href="/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/"/>
+      <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure><p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>]]></content>
+      
+      
       <categories>
-        <category>测试博客</category>
+          
+          <category> bugs </category>
+          
       </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习打卡</title>
-    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
-    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 写作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序day2</title>
+      <link href="/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/"/>
+      <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul><li>标签之间</li><li>标签属性</li><li>模板语法中</li><li>任何使用到js代码或变量的地方都需要使用双重花括号</li></ul><h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:else</span><br></pre></td></tr></table></figure><h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><h3 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a><code>wx:for</code></h3><ul><li>应用场景<ul><li>数组</li><li>对象</li><li>数值</li><li>字符串</li></ul></li><li><code>wx:for = &quot;</code></li></ul><h3 id="wx-for-index"><a href="#wx-for-index" class="headerlink" title="wx:for-index"></a><code>wx:for-index</code></h3><p>自定义接受数组索引的变量</p><h3 id="wx-for-item"><a href="#wx-for-item" class="headerlink" title="wx:for-item"></a><code>wx:for-item</code></h3><p>自定义接受数组索引的元素</p><h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a><code>wx:key</code></h3><ul><li>在逻辑层和界面层建立一一对应关系，方便局部更新</li><li>简单数组 <ul><li><code>wx:key=&quot;*this&quot;</code></li><li>数组的元素都是基本数据类型</li></ul></li><li>列表数组 <ul><li><code>{users:[{id:1,name:&#39;zs&#39;},{id:2,name:&#39;ls&#39;}]}</code></li><li><code>&lt;view wx:for=&quot;&quot;&gt;&lt;/view&gt;</code></li><li><code>wx:key=&quot;不重复的属性&quot; , 例如 wx:key:&quot;id&quot;, 这里不用写花括号</code></li></ul></li></ul><h3 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h3><ul><li>index 数组索引</li><li>item 数组元素</li></ul><h2 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性"></a>hidden属性</h2><h3 id="通过样式来控制一个元素的实现状态"><a href="#通过样式来控制一个元素的实现状态" class="headerlink" title="通过样式来控制一个元素的实现状态"></a>通过样式来控制一个元素的实现状态</h3><h3 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h3><ul><li>true 隐藏</li><li>false 显示</li></ul><h2 id="模板的引用"><a href="#模板的引用" class="headerlink" title="模板的引用"></a>模板的引用</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul><li>定义 <code>&lt;template name=&quot;header&quot;&gt;&lt;view&gt;公共头部&lt;/view&gt;&lt;/template&gt;</code></li><li>导入 <code>&lt;import src=&quot;./header.wxml&quot;/&gt;</code></li><li>调用 <code>&lt;template is=&quot;header&quot;&gt;&lt;/template&gt;</code></li></ul><h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ul><li>定义 header.wxml <code>&lt;view&gt;公共头部&lt;/view&gt;</code></li><li>导入 <code>&lt;include src=&quot;./header.wxml/&gt;</code></li></ul><h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><h2 id="bind-事件名"><a href="#bind-事件名" class="headerlink" title="bind+事件名"></a>bind+事件名</h2><p>存在事件冒泡</p><h2 id="catch-事件名"><a href="#catch-事件名" class="headerlink" title="catch+事件名"></a>catch+事件名</h2><p>不存在事件冒泡</p><h2 id="常见事件名称"><a href="#常见事件名称" class="headerlink" title="常见事件名称"></a>常见事件名称</h2><ul><li>点击事件 tap</li><li>input输入框和textarea文本域中 input</li></ul><h1 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h1><h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><ul><li>响应式的像素单位</li><li>1rpx~=0.5px</li><li>rpx比px更精细</li></ul><h1 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h1><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><p>逻辑层-界面层<br>小程序中没有实现双向数据绑定</p><h2 id="必须通过事件来实现"><a href="#必须通过事件来实现" class="headerlink" title="必须通过事件来实现"></a>必须通过事件来实现</h2><p><code>this.setData()</code></p><ul><li>更新逻辑层的数据</li><li>通知界面层进行更新</li></ul>]]></content>
+      
+      
       <categories>
-        <category>规划</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>打卡</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>康托展开和逆康托展开</title>
-    <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
-    <content><![CDATA[<p>康托展开</p>
-<p>原理：</p>
-<p>给定一个全排列，计算其字典序。直观起见，我们举例[2, 3, 4, 1]来说明康托展开的运作步骤：<br>命所求字典序为 rank=0</p>
-<p>第 1 位是 2， 那么以 1 打头的所有全排列一定排在这个全排列之前，那么以1打头的全排列有 (3!) = 6种，rank=rank+1∗3!=6</p>
-<p>第 2 位是 3，那么以 1 与 2 作为第二位的所有全排列一定在这个圈排列之前。不过我们已经让 2 打头了，因此不需要再考虑 2 占第二位的情况，只需要计算 1 占第二位的情况。rank=rank+1∗2!=8</p>
-<p>第三位是 4，同时，我们计算以 1 占第三位的所有情况。rank=rank+1∗1!=9</p>
-<p>最后一位，是不需要判定的，因为前n−1位给定后，第n位自定。当然，为了也适应前面推导，可以记 rank=rank+0∗0!=9</p>
-<p>由是，排在 [2, 3, 4, 1] 之前的全排列共有 9 个，那么 [2, 3, 4, 1] 应当是第 10 个全排列。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X&#x3D;a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">const int fact[10] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;</span><br><span class="line">&#x2F;**</span><br><span class="line"> * @brief 康拓展开</span><br><span class="line"> *</span><br><span class="line"> * @param[in] permutation 输入的一个全排列</span><br><span class="line"> * @param[out] num 输入的康拓映射，即是第几个全排列</span><br><span class="line"> *&#x2F;</span><br><span class="line">int contor(const vector&lt;int&gt;&amp; permutation) &#123;</span><br><span class="line">    int num &#x3D; 0;</span><br><span class="line">    int len &#x3D; permutation.size();</span><br><span class="line">    for (int i &#x3D; 0; i &lt; len; ++i) &#123;</span><br><span class="line">        int cnt &#x3D; 0; &#x2F;&#x2F; 在 i 之后，比 i 还小的有几个</span><br><span class="line">        for (int j &#x3D; i + 1; j &lt; len; ++j)</span><br><span class="line">            if (permutation[i] &gt; permutation[j]) ++cnt;</span><br><span class="line">        num +&#x3D; cnt * fact[len - i - 1];</span><br><span class="line">    &#125;</span><br><span class="line">    return num + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>逆康托展开</p>
-<p>原理分析：</p>
-<p>康托展开是一个全排列到一个自然数的双射，因此是可逆的。在（1，2，3，4，5）给出61可以算出起排列组合为 34152。由上述的计算过程可以容易的逆推回来，具体过程如下：</p>
-<p>用 61 / 4! = 2余13，说明a[5]=2,说明比首位小的数有2个，所以首位为3。<br>用 13 / 3! = 2余1，说明a[4]=2，说明在第二位之后小于第二位的数有2个，所以第二位为4。<br>用 1 / 2! = 0余1，说明a[3]=0，说明在第三位之后没有小于第三位的数，所以第三位为1。<br>用 1 / 1! = 1余0，说明a[2]=1，说明在第二位之后小于第四位的数有1个，所以第四位为5。<br>最后一位自然就是剩下的数2啦。<br>通过以上分析，所求排列组合为 34152。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;对前 10 个自然数(0 ~ 9)的阶乘存入表</span><br><span class="line">&#x2F;&#x2F;以免去对其额外的计算</span><br><span class="line">static const int FAC[] &#x3D; &#123;1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880&#125;;   &#x2F;&#x2F; 阶乘</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;康托展开逆运算</span><br><span class="line">void decantor(int x, int n)</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v;  &#x2F;&#x2F; 存放当前可选数</span><br><span class="line">    vector&lt;int&gt; a;  &#x2F;&#x2F; 所求排列组合</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">        v.push_back(i);</span><br><span class="line">    for(int i&#x3D;m;i&gt;&#x3D;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        int r &#x3D; x % FAC[i-1];</span><br><span class="line">        int t &#x3D; x &#x2F; FAC[i-1];</span><br><span class="line">        x &#x3D; r;</span><br><span class="line">        sort(v.begin(),v.end());&#x2F;&#x2F; 从小到大排序 </span><br><span class="line">        a.push_back(v[t]);      &#x2F;&#x2F; 剩余数里第t+1个数为当前位</span><br><span class="line">        v.erase(v.begin()+t);   &#x2F;&#x2F; 移除选做当前位的数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序day1</title>
+      <link href="/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/"/>
+      <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p><p>例如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure><h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p><h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p><h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p><h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p><h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p><h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p><h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul><li>按钮</li><li>属性<ul><li>type<ul><li>primary 绿色</li><li>warn 红色</li><li>default 白色</li></ul></li><li>size<ul><li>default</li><li>mini</li></ul></li></ul></li></ul><h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul><li>文本输入框</li><li>属性 type, 默认为text</li></ul><h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p><h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p><h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p><h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p><h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul><li>普通页面的跳转</li><li>属性 url 指定目标页面地址</li></ul><h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p><ul><li>src</li><li>lazy-load</li></ul><h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p><ul><li>src</li><li>cover</li><li>controls</li></ul><h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p><ul><li>src</li><li>cover</li><li>controls</li></ul>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>并查集</title>
-    <url>/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<p>并查集模板</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;只用了路径压缩的优化 </span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int n,m,pre[maxn];</span><br><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])</span><br><span class="line">		return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void merge(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool same(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>并查集的延伸-&gt;种类并查集</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;洛谷p1525</span><br><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 40010;</span><br><span class="line">int n,m,pre[maxn]; </span><br><span class="line">struct node&#123;</span><br><span class="line">	int a,b,val; </span><br><span class="line">&#125;c[100010];</span><br><span class="line">bool cmp(node x, node y)&#123;</span><br><span class="line">	return x.val &gt; y.val;</span><br><span class="line">&#125;</span><br><span class="line">void init(int n)&#123;</span><br><span class="line">	n &#x3D; n*2;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line">void merge(int x, int y)&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line">bool same(int x, int y)&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	init(n);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		cin &gt;&gt; c[i].a &gt;&gt; c[i].b &gt;&gt; c[i].val;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(c+1, c+1+m, cmp);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		int xx &#x3D; find(c[i].a);</span><br><span class="line">		int yy &#x3D; find(c[i].b);</span><br><span class="line">		if(xx &#x3D;&#x3D; yy)&#123;</span><br><span class="line">			cout &lt;&lt; c[i].val &lt;&lt; endl;</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">		merge(c[i].a, c[i].b+n);</span><br><span class="line">		merge(c[i].a+n, c[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>种类并查集核心：开k倍数组维护关系<br>附上一个讲的很好的种类并查集文章：<br><a href="https://zhuanlan.zhihu.com/p/97813717" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/97813717</a></p>
-<hr>
-<p>并查集的一点思考：</p>
-<h2 id="亲戚类"><a href="#亲戚类" class="headerlink" title="亲戚类"></a>亲戚类</h2><p>很简单基础的并查集，并查集的本质就是把节点一个个的合并，最后变成一棵树。容易联想到可以把具有亲戚关系的节点放在一棵树上来维护亲戚关系。<br>模板： 洛谷P1551</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iterable</title>
+      <link href="/2020/07/22/iterable/"/>
+      <url>/2020/07/22/iterable/</url>
+      
+        <content type="html"><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p><p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p><hr><h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>你可能会有疑问，for … of循环和for … in循环有何区别？</p><p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p><p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p><p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这就是为什么要引入新的for … of循环。</p><hr><h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p><p>以Array为例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>Map的回调函数参数依次为value、key和map本身：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序day1</title>
-    <url>/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/</url>
-    <content><![CDATA[<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
-<p>例如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
-<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
-<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
-<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
-<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
-<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
-<li>按钮</li>
-<li>属性<ul>
-<li>type<ul>
-<li>primary 绿色</li>
-<li>warn 红色</li>
-<li>default 白色</li>
-</ul>
-</li>
-<li>size<ul>
-<li>default</li>
-<li>mini</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
-<li>文本输入框</li>
-<li>属性 type, 默认为text</li>
-</ul>
-<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
-<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
-<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
-<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
-<li>普通页面的跳转</li>
-<li>属性 url 指定目标页面地址</li>
-</ul>
-<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
-<ul>
-<li>src</li>
-<li>lazy-load</li>
-</ul>
-<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
-<ul>
-<li>src</li>
-<li>cover</li>
-<li>controls</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Map和Set</title>
+      <link href="/2020/07/22/Map%E5%92%8CSet/"/>
+      <url>/2020/07/22/Map%E5%92%8CSet/</url>
+      
+        <content type="html"><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p><p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p><p>为了解决这个问题，最新的ES6规范引入了新的数据类型Map。</p><hr><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map是一组键值对的结构，具有极快的查找速度。</p><p>举个例子，假设要根据同学的名字查找对应的成绩，如果用Array实现，需要两个Array：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var names &#x3D; [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;];</span><br><span class="line">var scores &#x3D; [95, 75, 85];</span><br></pre></td></tr></table></figure><p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores取出对应的成绩，Array越长，耗时越长。</p><p>如果用Map实现，只需要一个“名字”-“成绩”的对照表，直接根据名字查找成绩，无论这个表有多大，查找速度都不会变慢。用JavaScript写一个Map如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map([[&#39;Michael&#39;, 95], [&#39;Bob&#39;, 75], [&#39;Tracy&#39;, 85]]);</span><br><span class="line">m.get(&#39;Michael&#39;); &#x2F;&#x2F; 95</span><br></pre></td></tr></table></figure><p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map(); &#x2F;&#x2F; 空Map</span><br><span class="line">m.set(&#39;Adam&#39;, 67); &#x2F;&#x2F; 添加新的key-value</span><br><span class="line">m.set(&#39;Bob&#39;, 59);</span><br><span class="line">m.has(&#39;Adam&#39;); &#x2F;&#x2F; 是否存在key &#39;Adam&#39;: true</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 67</span><br><span class="line">m.delete(&#39;Adam&#39;); &#x2F;&#x2F; 删除key &#39;Adam&#39;</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; undefined</span><br></pre></td></tr></table></figure><p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m &#x3D; new Map();</span><br><span class="line">m.set(&#39;Adam&#39;, 67);</span><br><span class="line">m.set(&#39;Adam&#39;, 88);</span><br><span class="line">m.get(&#39;Adam&#39;); &#x2F;&#x2F; 88</span><br></pre></td></tr></table></figure><hr><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key。</p><p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s1 &#x3D; new Set(); &#x2F;&#x2F; 空Set</span><br><span class="line">var s2 &#x3D; new Set([1, 2, 3]); &#x2F;&#x2F; 含1, 2, 3</span><br></pre></td></tr></table></figure><p>重复元素在Set中自动被过滤：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3, 3, &#39;3&#39;]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, &quot;3&quot;&#125;</span><br></pre></td></tr></table></figure><p>注意数字3和字符串’3’是不同的元素。</p><p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3, 4&#125;</span><br><span class="line">s.add(4);</span><br><span class="line">s; &#x2F;&#x2F; 仍然是 Set &#123;1, 2, 3, 4&#125;</span><br></pre></td></tr></table></figure><p>通过delete(key)方法可以删除元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var s &#x3D; new Set([1, 2, 3]);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2, 3&#125;</span><br><span class="line">s.delete(3);</span><br><span class="line">s; &#x2F;&#x2F; Set &#123;1, 2&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序day2</title>
-    <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
-    <content><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
-<li>标签之间</li>
-<li>标签属性</li>
-<li>模板语法中</li>
-<li>任何使用到js代码或变量的地方都需要使用双重花括号</li>
-</ul>
-<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:else</span><br></pre></td></tr></table></figure>
-
-<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><h3 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a><code>wx:for</code></h3><ul>
-<li>应用场景<ul>
-<li>数组</li>
-<li>对象</li>
-<li>数值</li>
-<li>字符串</li>
-</ul>
-</li>
-<li><code>wx:for = &quot;</code></li>
-</ul>
-<h3 id="wx-for-index"><a href="#wx-for-index" class="headerlink" title="wx:for-index"></a><code>wx:for-index</code></h3><p>自定义接受数组索引的变量</p>
-<h3 id="wx-for-item"><a href="#wx-for-item" class="headerlink" title="wx:for-item"></a><code>wx:for-item</code></h3><p>自定义接受数组索引的元素</p>
-<h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a><code>wx:key</code></h3><ul>
-<li>在逻辑层和界面层建立一一对应关系，方便局部更新</li>
-<li>简单数组 <ul>
-<li><code>wx:key=&quot;*this&quot;</code></li>
-<li>数组的元素都是基本数据类型</li>
-</ul>
-</li>
-<li>列表数组 <ul>
-<li><code>{users:[{id:1,name:&#39;zs&#39;},{id:2,name:&#39;ls&#39;}]}</code></li>
-<li><code>&lt;view wx:for=&quot;&quot;&gt;&lt;/view&gt;</code></li>
-<li><code>wx:key=&quot;不重复的属性&quot; , 例如 wx:key:&quot;id&quot;, 这里不用写花括号</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h3><ul>
-<li>index 数组索引</li>
-<li>item 数组元素</li>
-</ul>
-<h2 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性"></a>hidden属性</h2><h3 id="通过样式来控制一个元素的实现状态"><a href="#通过样式来控制一个元素的实现状态" class="headerlink" title="通过样式来控制一个元素的实现状态"></a>通过样式来控制一个元素的实现状态</h3><h3 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h3><ul>
-<li>true 隐藏</li>
-<li>false 显示</li>
-</ul>
-<h2 id="模板的引用"><a href="#模板的引用" class="headerlink" title="模板的引用"></a>模板的引用</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
-<li>定义 <code>&lt;template name=&quot;header&quot;&gt;&lt;view&gt;公共头部&lt;/view&gt;&lt;/template&gt;</code></li>
-<li>导入 <code>&lt;import src=&quot;./header.wxml&quot;/&gt;</code></li>
-<li>调用 <code>&lt;template is=&quot;header&quot;&gt;&lt;/template&gt;</code></li>
-</ul>
-<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ul>
-<li>定义 header.wxml <code>&lt;view&gt;公共头部&lt;/view&gt;</code></li>
-<li>导入 <code>&lt;include src=&quot;./header.wxml/&gt;</code></li>
-</ul>
-<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><h2 id="bind-事件名"><a href="#bind-事件名" class="headerlink" title="bind+事件名"></a>bind+事件名</h2><p>存在事件冒泡</p>
-<h2 id="catch-事件名"><a href="#catch-事件名" class="headerlink" title="catch+事件名"></a>catch+事件名</h2><p>不存在事件冒泡</p>
-<h2 id="常见事件名称"><a href="#常见事件名称" class="headerlink" title="常见事件名称"></a>常见事件名称</h2><ul>
-<li>点击事件 tap</li>
-<li>input输入框和textarea文本域中 input</li>
-</ul>
-<h1 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h1><h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><ul>
-<li>响应式的像素单位</li>
-<li>1rpx~=0.5px</li>
-<li>rpx比px更精细</li>
-</ul>
-<h1 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h1><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><p>逻辑层-界面层<br>小程序中没有实现双向数据绑定</p>
-<h2 id="必须通过事件来实现"><a href="#必须通过事件来实现" class="headerlink" title="必须通过事件来实现"></a>必须通过事件来实现</h2><p><code>this.setData()</code></p>
-<ul>
-<li>更新逻辑层的数据</li>
-<li>通知界面层进行更新</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Js循环</title>
+      <link href="/2020/07/22/Js%E5%BE%AA%E7%8E%AF/"/>
+      <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>请注意，for … in对Array的循环得到的是String而不是Number。</p><h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>]]></content>
+      
+      
       <categories>
-        <category>前端</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>微信小程序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>次方求模</title>
-    <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
-    <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
-<p>基本题意 求a的b次方，对c去余的值；</p>
-<p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
-<p>另一个思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown语法</title>
+      <link href="/2020/07/21/markdown%E8%AF%AD%E6%B3%95/"/>
+      <url>/2020/07/21/markdown%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p><code>Markdown是什么</code></p><ul><li>Markdown 是一种非常简单的、轻量级的标记语言。用户可以使用简单的标记符号<strong>以最小的输入代价去生成极富表现力的文档。</strong>Markdown 的语法简洁明了、学习容易，功能比纯文本强得多，因此有很多人用它写博客、写文档。</li></ul><p><code>Markdown具有很多优点</code></p><ul><li>写作中添加简单符号即可完成排版，所见即所得，让你专注于文字而不是排版。</li><li>格式转换方便，Markdown 的文本你可以轻松转换为 HTML、PDF等文件。</li><li>自带格式化/排版信息，且规则简单友好，可保存为纯文本。</li><li>对比HTML：它更专注于内容，标签对内容的侵入性低。</li><li>写作时舒服，优雅感，你会感觉它就是为博客而生。</li></ul><hr><h1 id="MarkDown使用语法如下"><a href="#MarkDown使用语法如下" class="headerlink" title="MarkDown使用语法如下"></a>MarkDown使用语法如下</h1><h2 id="一、-标题"><a href="#一、-标题" class="headerlink" title="一、 标题"></a>一、 标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure><p>效果如下：</p><h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><hr><h2 id="二、-字体"><a href="#二、-字体" class="headerlink" title="二、 字体"></a>二、 字体</h2><ul><li>加粗</li></ul><p>要加粗的文字左右分别用两个*号包起来</p><ul><li>斜体</li></ul><p>要倾斜的文字左右分别用一个*号包起来</p><ul><li>斜体加粗</li></ul><p>要倾斜和加粗的文字左右分别用三个*号包起来</p><ul><li>删除线</li></ul><p>要加删除线的文字左右分别用两个~~号包起来</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure><p>效果如下：</p><p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p><hr><h2 id="三、-引用"><a href="#三、-引用" class="headerlink" title="三、 引用"></a>三、 引用</h2><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure><p>效果如下：</p><blockquote><p>这是引用的内容</p><blockquote><p>这是引用的内容</p><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><blockquote><p>这是引用的内容</p></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote><hr><h2 id="四、-分割线"><a href="#四、-分割线" class="headerlink" title="四、 分割线"></a>四、 分割线</h2><p>三个或者三个以上的 - 或者 * 都可以。</p><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure><p>效果如下：<br>可以看到，显示效果是一样的。</p><hr><hr><hr><hr><hr><h2 id="五、-代码"><a href="#五、-代码" class="headerlink" title="五、 代码"></a>五、 代码</h2><p>语法：<br>单行代码：代码之间分别用一个反引号包起来<br><code></code>代码内容<code></code>    </p><p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure><blockquote><p>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。</p></blockquote><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">单行代码</span><br><span class="line"></span><br><span class="line">&#96;create database hero;&#96;</span><br><span class="line"></span><br><span class="line">代码块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    function fun()&#123;</span><br><span class="line">         echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure><p>效果如下：</p><p><code>create database hero;</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">     echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure><hr><h2 id="六、-超链接"><a href="#六、-超链接" class="headerlink" title="六、 超链接"></a>六、 超链接</h2><p>语法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[简书](http:&#x2F;&#x2F;jianshu.com)</span><br><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure><p>效果如下：</p><p><a href="http://jianshu.com" target="_blank" rel="noopener">简书</a><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p><p><strong>注：</strong>Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;超链接地址&quot; target&#x3D;&quot;_blank&quot;&gt;超链接名&lt;&#x2F;a&gt;</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;1f5ac0cf6a8b&quot; target&#x3D;&quot;_blank&quot;&gt;简书&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure><hr><h2 id="七、-列表"><a href="#七、-列表" class="headerlink" title="七、 列表"></a>七、 列表</h2><p>###无序列表</p><p>语法：<br>无序列表用 - + * 任何一种都可以</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure><p>效果如下：</p><ul><li>列表内容</li></ul><ul><li>列表内容</li></ul><ul><li>列表内容</li></ul><hr><p>###有序列表</p><p>语法：<br>数字加点</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure><p>效果如下：</p><ol><li>列表内容</li><li>列表内容</li><li>列表内容</li></ol><hr><p>###列表嵌套</p><p>上一级和下一级之间敲空格错开即可</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line"> - 下一级</span><br><span class="line"></span><br><span class="line">2个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">  - 下一级</span><br><span class="line"></span><br><span class="line">3个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">   - 下一级</span><br><span class="line"></span><br><span class="line">4个空格</span><br><span class="line"></span><br><span class="line">- 上一级</span><br><span class="line">- 下一级</span><br></pre></td></tr></table></figure><p>1个空格</p><ul><li>上一级<ul><li>下一级</li></ul></li></ul><p>2个空格</p><ul><li>上一级<ul><li>下一级</li></ul></li></ul><p>3个空格</p><ul><li>上一级<ul><li>下一级</li></ul></li></ul><p>4个空格</p><ul><li>上一级<ul><li>下一级</li></ul></li></ul><hr><h2 id="八、-表格"><a href="#八、-表格" class="headerlink" title="八、 表格"></a>八、 表格</h2><p>语法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名|技能|排行</span><br><span class="line">--|:--:|--:</span><br><span class="line">刘备|哭|大哥</span><br><span class="line">关羽|打|二哥</span><br><span class="line">张飞|骂|三弟</span><br></pre></td></tr></table></figure><p>效果如下：</p><table><thead><tr><th>姓名</th><th align="center">技能</th><th align="right">排行</th></tr></thead><tbody><tr><td>刘备</td><td align="center">哭</td><td align="right">大哥</td></tr><tr><td>关羽</td><td align="center">打</td><td align="right">二哥</td></tr><tr><td>张飞</td><td align="center">骂</td><td align="right">三弟</td></tr></tbody></table>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欧几里得算法求解最大公约数</title>
-    <url>/2020/07/31/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int gcd(int a, int b)&#123;</span><br><span class="line">    if (b &#x3D;&#x3D; 0) return a;</span><br><span class="line">    return gcd(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>数学证明：</p>
-<p>##引理证明</p>
-<p>如果 (a + b) % d = 0，b % d = 0，则必然有 a % d = 0。<br>证明如下：<br>因为(a + b) % d = 0 ,b % d = 0，<br>所以可以令 a + b = kd , b = k’ d, 其中k 和 k’ 都是整数。<br>进而，a + b = kd —-&gt; a + k’d = kd —–&gt; a = (k-k’)d，即 a 是 d 的整数倍，进而必有 a % d = 0，证毕。</p>
-<p>##证明过程</p>
-<p>证 cd(a,b)=cd(b,a%b)</p>
-<p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
-<p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
-<p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 写作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Js数据类型和变量</title>
+      <link href="/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/"/>
+      <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
+      
+        <content type="html"><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p><p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure><hr><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure><p>变量名也可以用中文，但是，请不要给自己找麻烦。</p><p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure><p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p><h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure><p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p><hr><h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure><p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p><p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p><p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p><p>启用strict模式的方法是在JavaScript代码的第一行写上：</p><p><code>&#39;use strict&#39;;</code></p>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 前端 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>筛法求素数</title>
-    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
-    <content><![CDATA[<p>暴力解法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
-
-<p>埃式筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>线性筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何用hexo写文章</title>
+      <link href="/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/"/>
+      <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h3>准备工作</h3><p>切换到hexo所在的目录</p><p>如 D: 然后加上 cd blogs cd IcyFeather233</p><h3>如何创建新的博客</h3><p>hexo new + 博客名</p><h3>如何显示博客</h3><p>hexo g = hexo generate 相当于编译，每当改变博客内容就要进行编译</p><p>hexo s = hexo server 进行本地预览 地址为 localhost:4000</p><p>hexo d = hexo deploy 上传到Github个人主页</p>]]></content>
+      
+      
       <categories>
-        <category>算法</category>
+          
+          <category> 测试博客 </category>
+          
       </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 写作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
