@@ -149,20 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
-]]></content>
-      <categories>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Missing Number</title>
     <url>/2020/08/12/Missing%20Number/</url>
     <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p>
@@ -176,6 +162,20 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>hexo提交的NunjucksError</title>
+    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+]]></content>
+      <categories>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
   </entry>
   <entry>
     <title>iterable</title>
@@ -506,18 +506,6 @@
       </tags>
   </entry>
   <entry>
-    <title>哈夫曼树</title>
-    <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
-    <content><![CDATA[<p>Here is the model:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">	int wpl&#x3D;0;</span><br><span class="line">	while(q.size()&gt;1)&#123;</span><br><span class="line">		int min1&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		int min2&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		wpl+&#x3D;min1+min2;</span><br><span class="line">		q.push(min1+min2);</span><br><span class="line">	&#125;</span><br><span class="line">	return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	n&#x3D;10;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">	printf(&quot;%d &quot;,WPL());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>同余定理</title>
     <url>/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p>
@@ -535,6 +523,18 @@
 <p>若a ≡ b (mod m)，n|m,则 a ≡ b (mod n)</p>
 <p>若a ≡ b (mod mi) (i=1,2…n) 则 a ≡ b (mod [m1,m2,…mn]) 其中[m1,m2,…mn]表示m1,m2,…mn的最小公倍数</p>
 ]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>哈夫曼树</title>
+    <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
+    <content><![CDATA[<p>Here is the model:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">	int wpl&#x3D;0;</span><br><span class="line">	while(q.size()&gt;1)&#123;</span><br><span class="line">		int min1&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		int min2&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		wpl+&#x3D;min1+min2;</span><br><span class="line">		q.push(min1+min2);</span><br><span class="line">	&#125;</span><br><span class="line">	return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	n&#x3D;10;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">	printf(&quot;%d &quot;,WPL());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -565,6 +565,18 @@
       </tags>
   </entry>
   <entry>
+    <title>学习打卡</title>
+    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
+    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>打卡</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>康托展开和逆康托展开</title>
     <url>/2020/07/31/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80%E5%92%8C%E9%80%86%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/</url>
     <content><![CDATA[<p>康托展开</p>
@@ -591,18 +603,6 @@
       </categories>
       <tags>
         <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习打卡</title>
-    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
-    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
-]]></content>
-      <categories>
-        <category>规划</category>
-      </categories>
-      <tags>
-        <tag>打卡</tag>
       </tags>
   </entry>
   <entry>
