@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"icyfeather233.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="项目结构pages存放页面的文件夹，每一个子文件夹对应一个页面 例如 123456&#x2F;index* index.wxml   \\页面结构* index.json   \\页面配置文件(非必需)* index.wxss   \\页面样式(非必需)* index.js     \\页面的逻辑文件  app.js应用入口文件 app.json应用配置文件 app.wxss全局样式文件 组件基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序day1">
+<meta property="og:url" content="https://icyfeather233.github.io/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/index.html">
+<meta property="og:site_name" content="极冰&amp;飞羽的小站">
+<meta property="og:description" content="项目结构pages存放页面的文件夹，每一个子文件夹对应一个页面 例如 123456&#x2F;index* index.wxml   \\页面结构* index.json   \\页面配置文件(非必需)* index.wxss   \\页面样式(非必需)* index.js     \\页面的逻辑文件  app.js应用入口文件 app.json应用配置文件 app.wxss全局样式文件 组件基本">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-26T13:52:15.000Z">
+<meta property="article:modified_time" content="2020-07-26T14:08:42.523Z">
+<meta property="article:author" content="IcyFeather233">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://icyfeather233.github.io/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>微信小程序day1 | 极冰&飞羽的小站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">极冰&飞羽的小站</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">十年饮冰，难凉热血</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目结构"><span class="nav-number">1.</span> <span class="nav-text">项目结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pages"><span class="nav-number">1.1.</span> <span class="nav-text">pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-js"><span class="nav-number">1.2.</span> <span class="nav-text">app.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-json"><span class="nav-number">1.3.</span> <span class="nav-text">app.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app-wxss"><span class="nav-number">1.4.</span> <span class="nav-text">app.wxss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组件"><span class="nav-number">2.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本组件"><span class="nav-number">2.1.</span> <span class="nav-text">基本组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#view"><span class="nav-number">2.1.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text"><span class="nav-number">2.1.2.</span> <span class="nav-text">text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单组件"><span class="nav-number">2.2.</span> <span class="nav-text">表单组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#form"><span class="nav-number">2.2.1.</span> <span class="nav-text">form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#button"><span class="nav-number">2.2.2.</span> <span class="nav-text">button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input"><span class="nav-number">2.2.3.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radio"><span class="nav-number">2.2.4.</span> <span class="nav-text">radio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkbox"><span class="nav-number">2.2.5.</span> <span class="nav-text">checkbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textarea"><span class="nav-number">2.2.6.</span> <span class="nav-text">textarea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch"><span class="nav-number">2.2.7.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航组件"><span class="nav-number">2.3.</span> <span class="nav-text">导航组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator"><span class="nav-number">2.3.1.</span> <span class="nav-text">navigator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多媒体组件"><span class="nav-number">2.4.</span> <span class="nav-text">多媒体组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#image"><span class="nav-number">2.4.1.</span> <span class="nav-text">image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#audio"><span class="nav-number">2.4.2.</span> <span class="nav-text">audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video"><span class="nav-number">2.4.3.</span> <span class="nav-text">video</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="IcyFeather233"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">IcyFeather233</p>
+  <div class="site-description" itemprop="description">十年饮冰，难凉热血</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/IcyFeather233" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;IcyFeather233" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://icyfeather233.github.io/2020/07/26/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IcyFeather233">
+      <meta itemprop="description" content="十年饮冰，难凉热血">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极冰&飞羽的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信小程序day1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-26 21:52:15 / 修改时间：22:08:42" itemprop="dateCreated datePublished" datetime="2020-07-26T21:52:15+08:00">2020-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h2><p>存放页面的文件夹，每一个子文件夹对应一个页面</p>
+<p>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;index</span><br><span class="line"></span><br><span class="line">* index.wxml   \\页面结构</span><br><span class="line">* index.json   \\页面配置文件(非必需)</span><br><span class="line">* index.wxss   \\页面样式(非必需)</span><br><span class="line">* index.js     \\页面的逻辑文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><p>应用入口文件</p>
+<h2 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h2><p>应用配置文件</p>
+<h2 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h2><p>全局样式文件</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>布局标签，相当于div，块级元素</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>文本标签，相当于span，行级元素</p>
+<h2 id="表单组件"><a href="#表单组件" class="headerlink" title="表单组件"></a>表单组件</h2><h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>表单</p>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><ul>
+<li>按钮</li>
+<li>属性<ul>
+<li>type<ul>
+<li>primary 绿色</li>
+<li>warn 红色</li>
+<li>default 白色</li>
+</ul>
+</li>
+<li>size<ul>
+<li>default</li>
+<li>mini</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><ul>
+<li>文本输入框</li>
+<li>属性 type, 默认为text</li>
+</ul>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框，一般外面需要嵌套radio-group组件</p>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框，一般外面需要嵌套checkbox-group组件</p>
+<h3 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h3><p>文本域</p>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><p>开关组件，checked属性</p>
+<h2 id="导航组件"><a href="#导航组件" class="headerlink" title="导航组件"></a>导航组件</h2><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><ul>
+<li>普通页面的跳转</li>
+<li>属性 url 指定目标页面地址</li>
+</ul>
+<h2 id="多媒体组件"><a href="#多媒体组件" class="headerlink" title="多媒体组件"></a>多媒体组件</h2><h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>图片组件</p>
+<ul>
+<li>src</li>
+<li>lazy-load</li>
+</ul>
+<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>音频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>视频组件</p>
+<ul>
+<li>src</li>
+<li>cover</li>
+<li>controls</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag"># 微信小程序</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/22/iterable/" rel="prev" title="iterable">
+      <i class="fa fa-chevron-left"></i> iterable
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/" rel="next" title="微信小程序day2">
+      微信小程序day2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Mon Jul 20 2020 08:00:00 GMT+0800 (GMT+08:00) – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">IcyFeather233</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script src="/live2d-widget/autoload.js"></script>
