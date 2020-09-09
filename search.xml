@@ -80,6 +80,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Missing Number</title>
+    <url>/2020/08/12/Missing%20Number/</url>
+    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p>
+<p>方法一：<br>求和作差<br>求出 0 到 n 的和，然后再计算原数组的和，作一个差就是缺失的数字了。<br>由于数组里每个数字只被访问了一遍，故为线性时间。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        sum1 += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 等差公式计算 1 到 n 的和</span></span><br><span class="line">    <span class="keyword">int</span> sum2 = (<span class="number">1</span> + nums.length) * nums.length / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum2 - sum1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法二：<br>异或<br>由于一个数异或其本身将变成0，而任何一个数和0异或不变，所以利用这个特点，当我们把缺失了的数组和没缺失元素的数组中的所有元素全部异或，除了缺失的数只出现了一次，其余的数均出现了两次（两两异或变成0），最后的结果便是确实的数。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        result = result ^ nums[i] ^ i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法三：<br>哈希数组<br>利用哈希数组的唯一性，遍历寻找（不如前两个）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>Kib Kb KB KIB 区别</title>
     <url>/2020/09/08/Kib%20Kb%20KB%20KIB%20%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>Ki 和 K 只是数学单位</p>
@@ -102,6 +117,20 @@
       </categories>
       <tags>
         <tag>单位</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo提交的NunjucksError</title>
+    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+]]></content>
+      <categories>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -149,33 +178,44 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+    <title>iterable</title>
+    <url>/2020/07/22/iterable/</url>
+    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<hr>
+<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
+<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
+<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
+<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是为什么要引入新的for … of循环。</p>
+<hr>
+<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
+<p>以Array为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Map的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>bugs</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>Javascript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Missing Number</title>
-    <url>/2020/08/12/Missing%20Number/</url>
-    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p>
-<p>方法一：<br>求和作差<br>求出 0 到 n 的和，然后再计算原数组的和，作一个差就是缺失的数字了。<br>由于数组里每个数字只被访问了一遍，故为线性时间。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        sum1 += n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 等差公式计算 1 到 n 的和</span></span><br><span class="line">    <span class="keyword">int</span> sum2 = (<span class="number">1</span> + nums.length) * nums.length / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum2 - sum1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法二：<br>异或<br>由于一个数异或其本身将变成0，而任何一个数和0异或不变，所以利用这个特点，当我们把缺失了的数组和没缺失元素的数组中的所有元素全部异或，除了缺失的数只出现了一次，其余的数均出现了两次（两两异或变成0），最后的结果便是确实的数。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        result = result ^ nums[i] ^ i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法三：<br>哈希数组<br>利用哈希数组的唯一性，遍历寻找（不如前两个）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
   </entry>
   <entry>
     <title>markdown语法</title>
@@ -381,46 +421,6 @@
       </categories>
       <tags>
         <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -693,24 +693,6 @@
       </tags>
   </entry>
   <entry>
-    <title>次方求模</title>
-    <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
-    <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
-<p>基本题意 求a的b次方，对c去余的值；</p>
-<p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
-<p>另一个思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信小程序day2</title>
     <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
     <content><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
@@ -803,6 +785,24 @@
 <p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
 <p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
 <p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>次方求模</title>
+    <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
+    <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
+<p>基本题意 求a的b次方，对c去余的值；</p>
+<p>我们学习c语言的常规思路算出a的b次方，在%c即可。但在acm不能通过的。   //时间超时，数值过大</p>
+<p>另一个思路则是每次a*a时都进行一个%c运算，缩小值。这样也是不能通过的 //时间超时</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;二分快速幂函</span><br><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans &#x3D; 1;</span><br><span class="line">    a &#x3D; a % c;</span><br><span class="line">    while(b&gt;0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b % 2 &#x3D; &#x3D; 1)</span><br><span class="line">        ans &#x3D; (ans * a) % c;</span><br><span class="line">        b &#x3D; b&#x2F;2;</span><br><span class="line">        a &#x3D; (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法参考：<br><a href="https://blog.csdn.net/code_pang/article/details/7989356?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.compare" target="_blank" rel="noopener">高次方求模</a></p>
 ]]></content>
       <categories>
         <category>算法</category>
