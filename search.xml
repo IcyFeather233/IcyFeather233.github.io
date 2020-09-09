@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js数据类型和变量</title>
-    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
-<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
-
-<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
-<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
-
-<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
-<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
-
-<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
-<hr>
-<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
-
-<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
-<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
-<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
-<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
-<p><code>&#39;use strict&#39;;</code></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>17年12月第一套</title>
     <url>/2020/09/08/17%E5%B9%B412%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A5%97/</url>
     <content><![CDATA[<p>humiliate 羞辱<br>interpersonal 人际的<br>lawful seat 合法席位<br>diplomatic 外交的<br>in regard to 关于<br>bring disgrace on one’s  own head 自取其辱<br>mortality rates 死亡率<br>escalating prices 物价上涨<br>prolonged 持久的，长期的<br>in some measure 多多少少<br>ironically 讽刺的<br>conspire 似乎共同导致（不良后果）<br>disminish 减少<br>keep sth at bay 防止侵袭<br>corporate communication 公司通讯<br>livelihood 生计<br>kola nut 可乐果<br>stimulant 兴奋剂<br>infamous 名声不好的<br>tonic 滋补品<br>be peculiar to one’s eyes 对某人而言很稀奇<br>fall from grace 失去恩宠<br>beverage 饮料<br>kola-extract 含可乐果提取物的<br>soda fountain 冷饮柜<br>closely guarded secret 严格保守的秘密<br>potent 有效的，强有力的<br>food supplement 保健食品<br>notorious 声名狼藉<br>Urban Land Institute 城市土地学会界<br>dominate 主导<br>using the lens of this basic divide 透过这一基本差异<br>adopt a middle-of-the-road approach 采取中间路线<br>incorporate 结合<br>make waves 掀起波澜<br>real estate 房地产<br>underlying 为…的基础<br>contribute to 有助于<br>downtown revitalization 市中心振兴<br>suburb 郊区<br>tenant 租客<br>predominantly 主要的<br>municipal 市政的<br>upkeep 维持<br>forward thinking 前瞻性<br>urbanity 都市风格<br>transforming downtown areas 改造市中心<br>infrastructure 基础设施<br>retail 零售店<br>public transit 公共交通<br>affluent 富裕的<br>demographic 人口<br>knowledge and talent industry 知识和人才行业<br>proximity 接近<br>transit 交通设施<br>-oriented 以..为方向的<br>as opposed to 不像…<br>buzz of activity is ongoing 喧嚣从不间断<br>homeowner investment 置业投资<br>vigorious 活跃的<br>right urban mix 恰当的城市组合<br>prop up 提升<br>home occupancy 住房占有率<br>have seen 见证<br>characterize 是…的特点<br>go unchecked 某一坏事未得到抑制、控制<br>house （某地）贮藏，容纳，包含</p>
@@ -71,6 +32,45 @@
 
 <p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
 <h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Js数据类型和变量</title>
+    <url>/2020/07/21/Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JavaScript的对象是一组由键-值组成的无序集合，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var person &#x3D; &#123;</span><br><span class="line">    name: &#39;Bob&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    tags: [&#39;js&#39;, &#39;web&#39;, &#39;mobile&#39;],</span><br><span class="line">    city: &#39;Beijing&#39;,</span><br><span class="line">    hasCar: true,</span><br><span class="line">    zipcode: null</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。上述<code>person</code>对象一共定义了6个键值对，其中每个键又称为对象的属性，例如，<code>person</code>的<code>name</code>属性为<code>&#39;Bob&#39;</code>，<code>zipcode</code>属性为<code>null</code>。</p>
+<p>要获取一个对象的属性，我们用对象变量.属性名的方式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">person.name; &#x2F;&#x2F; &#39;Bob&#39;</span><br><span class="line">person.zipcode; &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a; &#x2F;&#x2F; 申明了变量a，此时a的值为undefined</span><br><span class="line">var $b &#x3D; 1; &#x2F;&#x2F; 申明了变量$b，同时给$b赋值，此时$b的值为1</span><br><span class="line">var s_007 &#x3D; &#39;007&#39;; &#x2F;&#x2F; s_007是一个字符串</span><br><span class="line">var Answer &#x3D; true; &#x2F;&#x2F; Answer是一个布尔值true</span><br><span class="line">var t &#x3D; null; &#x2F;&#x2F; t的值是null</span><br></pre></td></tr></table></figure>
+
+<p>变量名也可以用中文，但是，请不要给自己找麻烦。</p>
+<p>在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; 123; &#x2F;&#x2F; a的值是整数123</span><br><span class="line">a &#x3D; &#39;ABC&#39;; &#x2F;&#x2F; a变为字符串</span><br></pre></td></tr></table></figure>
+
+<p>这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错。</p>
+<h4 id="打印变量"><a href="#打印变量" class="headerlink" title="打印变量"></a>打印变量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 100;</span><br><span class="line">console.log(x);</span><br></pre></td></tr></table></figure>
+
+<p>使用console.log()代替alert()的好处是可以避免弹出烦人的对话框。</p>
+<hr>
+<h3 id="strict模式"><a href="#strict模式" class="headerlink" title="strict模式"></a>strict模式</h3><p>JavaScript在设计之初，为了方便初学者学习，并不强制要求用var申明变量。这个设计错误带来了严重的后果：如果一个变量没有通过var申明就被使用，那么该变量就自动被申明为全局变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i &#x3D; 10; &#x2F;&#x2F; i现在是全局变量</span><br></pre></td></tr></table></figure>
+
+<p>在同一个页面的不同的JavaScript文件中，如果都不用var申明，恰好都使用了变量i，将造成变量i互相影响，产生难以调试的错误结果。</p>
+<p>使用var申明的变量则不是全局变量，它的范围被限制在该变量被申明的函数体内（函数的概念将稍后讲解），同名变量在不同的函数体内互不冲突。</p>
+<p>为了修补JavaScript这一严重设计缺陷，ECMA在后续规范中推出了strict模式，在strict模式下运行的JavaScript代码，强制通过var申明变量，未使用var申明变量就使用的，将导致运行错误。</p>
+<p>启用strict模式的方法是在JavaScript代码的第一行写上：</p>
+<p><code>&#39;use strict&#39;;</code></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -149,6 +149,20 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo提交的NunjucksError</title>
+    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
+
+<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
+]]></content>
+      <categories>
+        <category>bugs</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Missing Number</title>
     <url>/2020/08/12/Missing%20Number/</url>
     <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMTIxNDUwMDM?x-oss-process=image/format,png#pic_center" alt="从 0 到 n 中找到缺失的数字。">要求：在线性时间内完成</p>
@@ -162,20 +176,6 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>hexo提交的NunjucksError</title>
-    <url>/2020/07/27/hexo%E6%8F%90%E4%BA%A4%E7%9A%84NunjucksError/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FATAL Something&#39;s wrong. Maybe you can find the solution here: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;troubleshooting.html</span><br><span class="line">Nunjucks Error:  [Line 7, Column 101] unexpected token: &#125;&#125;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;               Context Dump               &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    &#x3D;&#x3D;&#x3D; (line number probably different from source) &#x3D;&#x3D;&#x3D;</span><br><span class="line">  2 | &lt;li&gt;标签之间&lt;&#x2F;li&gt;</span><br><span class="line">  3 | &lt;li&gt;标签属性&lt;&#x2F;li&gt;</span><br><span class="line">  4 | &lt;li&gt;模板语法中&lt;&#x2F;li&gt;</span><br><span class="line">  5 | &lt;li&gt;任何使用到js代码或变量的地方都需要使用双重花括号&lt;&#x2F;li&gt;</span><br><span class="line">  6 | &lt;&#x2F;ul&gt;</span><br><span class="line">  7 | &lt;h2 id&#x3D;&quot;条件判断&quot;&gt;&lt;a href&#x3D;&quot;#条件判断&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;条件判断&quot;&gt;&lt;&#x2F;a&gt;条件判断&lt;&#x2F;h2&gt;&lt;p&gt;&lt;code&gt;wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;&lt;&#x2F;code&gt;&lt;br&gt;&lt;code&gt;wx:else&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;</span><br><span class="line">  8 | &lt;h2 id&#x3D;&quot;列表渲染&quot;&gt;&lt;a href&#x3D;&quot;#列表渲染&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;列表渲染&quot;&gt;&lt;&#x2F;a&gt;列表渲染&lt;&#x2F;h2&gt;&lt;h3 id&#x3D;&quot;wx-for&quot;&gt;&lt;a href&#x3D;&quot;#wx-for&quot; class&#x3D;&quot;headerlink&quot; title&#x3D;&quot;wx:for&quot;&gt;&lt;&#x2F;a&gt;&lt;code&gt;wx:for&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;&lt;ul&gt;</span><br><span class="line">  9 | &lt;li&gt;应用场景&lt;ul&gt;</span><br><span class="line">  10 | &lt;li&gt;数组&lt;&#x2F;li&gt;</span><br><span class="line">  11 | &lt;li&gt;对象&lt;&#x2F;li&gt;</span><br><span class="line">  12 | &lt;li&gt;数值&lt;&#x2F;li&gt;</span><br><span class="line">    &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;             Context Dump Ends            &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">    at formatNunjucksError (D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:99:13)</span><br><span class="line">    at D:\blog\IcyFeather233\node_modules\hexo\lib\extend\tag.js:121:34</span><br><span class="line">    at tryCatcher (D:\blog\IcyFeather233\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\blog\IcyFeather233\node_modules\bluebird\js\release\promise.js:725:18)</span><br><span class="line">    at _drainQueueStep (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\blog\IcyFeather233\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (internal&#x2F;timers.js:456:21)</span><br></pre></td></tr></table></figure>
-
-<p>解决方法：把连着的三行单行代码用一个代码块装起来即可</p>
-]]></content>
-      <categories>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
   </entry>
   <entry>
     <title>markdown语法</title>
@@ -473,22 +473,6 @@
       </tags>
   </entry>
   <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
-<hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>删除无用的tags和categories</title>
     <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
     <content><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p>
@@ -503,6 +487,22 @@
       </categories>
       <tags>
         <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+<hr>
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -565,6 +565,18 @@
       </tags>
   </entry>
   <entry>
+    <title>学习打卡</title>
+    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
+    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>打卡</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>并查集</title>
     <url>/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
     <content><![CDATA[<p>并查集模板</p>
@@ -582,18 +594,6 @@
       </categories>
       <tags>
         <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>学习打卡</title>
-    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
-    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
-]]></content>
-      <categories>
-        <category>规划</category>
-      </categories>
-      <tags>
-        <tag>打卡</tag>
       </tags>
   </entry>
   <entry>
@@ -623,85 +623,6 @@
       </categories>
       <tags>
         <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信小程序day2</title>
-    <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
-    <content><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
-<li>标签之间</li>
-<li>标签属性</li>
-<li>模板语法中</li>
-<li>任何使用到js代码或变量的地方都需要使用双重花括号</li>
-</ul>
-<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:else</span><br></pre></td></tr></table></figure>
-
-<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><h3 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a><code>wx:for</code></h3><ul>
-<li>应用场景<ul>
-<li>数组</li>
-<li>对象</li>
-<li>数值</li>
-<li>字符串</li>
-</ul>
-</li>
-<li><code>wx:for = &quot;</code></li>
-</ul>
-<h3 id="wx-for-index"><a href="#wx-for-index" class="headerlink" title="wx:for-index"></a><code>wx:for-index</code></h3><p>自定义接受数组索引的变量</p>
-<h3 id="wx-for-item"><a href="#wx-for-item" class="headerlink" title="wx:for-item"></a><code>wx:for-item</code></h3><p>自定义接受数组索引的元素</p>
-<h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a><code>wx:key</code></h3><ul>
-<li>在逻辑层和界面层建立一一对应关系，方便局部更新</li>
-<li>简单数组 <ul>
-<li><code>wx:key=&quot;*this&quot;</code></li>
-<li>数组的元素都是基本数据类型</li>
-</ul>
-</li>
-<li>列表数组 <ul>
-<li><code>{users:[{id:1,name:&#39;zs&#39;},{id:2,name:&#39;ls&#39;}]}</code></li>
-<li><code>&lt;view wx:for=&quot;&quot;&gt;&lt;/view&gt;</code></li>
-<li><code>wx:key=&quot;不重复的属性&quot; , 例如 wx:key:&quot;id&quot;, 这里不用写花括号</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h3><ul>
-<li>index 数组索引</li>
-<li>item 数组元素</li>
-</ul>
-<h2 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性"></a>hidden属性</h2><h3 id="通过样式来控制一个元素的实现状态"><a href="#通过样式来控制一个元素的实现状态" class="headerlink" title="通过样式来控制一个元素的实现状态"></a>通过样式来控制一个元素的实现状态</h3><h3 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h3><ul>
-<li>true 隐藏</li>
-<li>false 显示</li>
-</ul>
-<h2 id="模板的引用"><a href="#模板的引用" class="headerlink" title="模板的引用"></a>模板的引用</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
-<li>定义 <code>&lt;template name=&quot;header&quot;&gt;&lt;view&gt;公共头部&lt;/view&gt;&lt;/template&gt;</code></li>
-<li>导入 <code>&lt;import src=&quot;./header.wxml&quot;/&gt;</code></li>
-<li>调用 <code>&lt;template is=&quot;header&quot;&gt;&lt;/template&gt;</code></li>
-</ul>
-<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ul>
-<li>定义 header.wxml <code>&lt;view&gt;公共头部&lt;/view&gt;</code></li>
-<li>导入 <code>&lt;include src=&quot;./header.wxml/&gt;</code></li>
-</ul>
-<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><h2 id="bind-事件名"><a href="#bind-事件名" class="headerlink" title="bind+事件名"></a>bind+事件名</h2><p>存在事件冒泡</p>
-<h2 id="catch-事件名"><a href="#catch-事件名" class="headerlink" title="catch+事件名"></a>catch+事件名</h2><p>不存在事件冒泡</p>
-<h2 id="常见事件名称"><a href="#常见事件名称" class="headerlink" title="常见事件名称"></a>常见事件名称</h2><ul>
-<li>点击事件 tap</li>
-<li>input输入框和textarea文本域中 input</li>
-</ul>
-<h1 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h1><h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><ul>
-<li>响应式的像素单位</li>
-<li>1rpx~=0.5px</li>
-<li>rpx比px更精细</li>
-</ul>
-<h1 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h1><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><p>逻辑层-界面层<br>小程序中没有实现双向数据绑定</p>
-<h2 id="必须通过事件来实现"><a href="#必须通过事件来实现" class="headerlink" title="必须通过事件来实现"></a>必须通过事件来实现</h2><p><code>this.setData()</code></p>
-<ul>
-<li>更新逻辑层的数据</li>
-<li>通知界面层进行更新</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -787,6 +708,85 @@
       </categories>
       <tags>
         <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序day2</title>
+    <url>/2020/07/27/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fday2/</url>
+    <content><![CDATA[<h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1><h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><ul>
+<li>标签之间</li>
+<li>标签属性</li>
+<li>模板语法中</li>
+<li>任何使用到js代码或变量的地方都需要使用双重花括号</li>
+</ul>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wx:if &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:elif &#x3D; &quot;&#123;&#123;&#125;&#125;&quot;</span><br><span class="line">wx:else</span><br></pre></td></tr></table></figure>
+
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><h3 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a><code>wx:for</code></h3><ul>
+<li>应用场景<ul>
+<li>数组</li>
+<li>对象</li>
+<li>数值</li>
+<li>字符串</li>
+</ul>
+</li>
+<li><code>wx:for = &quot;</code></li>
+</ul>
+<h3 id="wx-for-index"><a href="#wx-for-index" class="headerlink" title="wx:for-index"></a><code>wx:for-index</code></h3><p>自定义接受数组索引的变量</p>
+<h3 id="wx-for-item"><a href="#wx-for-item" class="headerlink" title="wx:for-item"></a><code>wx:for-item</code></h3><p>自定义接受数组索引的元素</p>
+<h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a><code>wx:key</code></h3><ul>
+<li>在逻辑层和界面层建立一一对应关系，方便局部更新</li>
+<li>简单数组 <ul>
+<li><code>wx:key=&quot;*this&quot;</code></li>
+<li>数组的元素都是基本数据类型</li>
+</ul>
+</li>
+<li>列表数组 <ul>
+<li><code>{users:[{id:1,name:&#39;zs&#39;},{id:2,name:&#39;ls&#39;}]}</code></li>
+<li><code>&lt;view wx:for=&quot;&quot;&gt;&lt;/view&gt;</code></li>
+<li><code>wx:key=&quot;不重复的属性&quot; , 例如 wx:key:&quot;id&quot;, 这里不用写花括号</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="默认变量"><a href="#默认变量" class="headerlink" title="默认变量"></a>默认变量</h3><ul>
+<li>index 数组索引</li>
+<li>item 数组元素</li>
+</ul>
+<h2 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性"></a>hidden属性</h2><h3 id="通过样式来控制一个元素的实现状态"><a href="#通过样式来控制一个元素的实现状态" class="headerlink" title="通过样式来控制一个元素的实现状态"></a>通过样式来控制一个元素的实现状态</h3><h3 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h3><ul>
+<li>true 隐藏</li>
+<li>false 显示</li>
+</ul>
+<h2 id="模板的引用"><a href="#模板的引用" class="headerlink" title="模板的引用"></a>模板的引用</h2><h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
+<li>定义 <code>&lt;template name=&quot;header&quot;&gt;&lt;view&gt;公共头部&lt;/view&gt;&lt;/template&gt;</code></li>
+<li>导入 <code>&lt;import src=&quot;./header.wxml&quot;/&gt;</code></li>
+<li>调用 <code>&lt;template is=&quot;header&quot;&gt;&lt;/template&gt;</code></li>
+</ul>
+<h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><ul>
+<li>定义 header.wxml <code>&lt;view&gt;公共头部&lt;/view&gt;</code></li>
+<li>导入 <code>&lt;include src=&quot;./header.wxml/&gt;</code></li>
+</ul>
+<h1 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h1><h2 id="bind-事件名"><a href="#bind-事件名" class="headerlink" title="bind+事件名"></a>bind+事件名</h2><p>存在事件冒泡</p>
+<h2 id="catch-事件名"><a href="#catch-事件名" class="headerlink" title="catch+事件名"></a>catch+事件名</h2><p>不存在事件冒泡</p>
+<h2 id="常见事件名称"><a href="#常见事件名称" class="headerlink" title="常见事件名称"></a>常见事件名称</h2><ul>
+<li>点击事件 tap</li>
+<li>input输入框和textarea文本域中 input</li>
+</ul>
+<h1 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h1><h2 id="rpx"><a href="#rpx" class="headerlink" title="rpx"></a>rpx</h2><ul>
+<li>响应式的像素单位</li>
+<li>1rpx~=0.5px</li>
+<li>rpx比px更精细</li>
+</ul>
+<h1 id="单项数据流"><a href="#单项数据流" class="headerlink" title="单项数据流"></a>单项数据流</h1><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><p>逻辑层-界面层<br>小程序中没有实现双向数据绑定</p>
+<h2 id="必须通过事件来实现"><a href="#必须通过事件来实现" class="headerlink" title="必须通过事件来实现"></a>必须通过事件来实现</h2><p><code>this.setData()</code></p>
+<ul>
+<li>更新逻辑层的数据</li>
+<li>通知界面层进行更新</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
       </tags>
   </entry>
   <entry>
