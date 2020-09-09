@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js循环</title>
-    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
-<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>17年12月第一套</title>
     <url>/2020/09/08/17%E5%B9%B412%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A5%97/</url>
     <content><![CDATA[<p>humiliate 羞辱<br>interpersonal 人际的<br>lawful seat 合法席位<br>diplomatic 外交的<br>in regard to 关于<br>bring disgrace on one’s  own head 自取其辱<br>mortality rates 死亡率<br>escalating prices 物价上涨<br>prolonged 持久的，长期的<br>in some measure 多多少少<br>ironically 讽刺的<br>conspire 似乎共同导致（不良后果）<br>disminish 减少<br>keep sth at bay 防止侵袭<br>corporate communication 公司通讯<br>livelihood 生计<br>kola nut 可乐果<br>stimulant 兴奋剂<br>infamous 名声不好的<br>tonic 滋补品<br>be peculiar to one’s eyes 对某人而言很稀奇<br>fall from grace 失去恩宠<br>beverage 饮料<br>kola-extract 含可乐果提取物的<br>soda fountain 冷饮柜<br>closely guarded secret 严格保守的秘密<br>potent 有效的，强有力的<br>food supplement 保健食品<br>notorious 声名狼藉<br>Urban Land Institute 城市土地学会界<br>dominate 主导<br>using the lens of this basic divide 透过这一基本差异<br>adopt a middle-of-the-road approach 采取中间路线<br>incorporate 结合<br>make waves 掀起波澜<br>real estate 房地产<br>underlying 为…的基础<br>contribute to 有助于<br>downtown revitalization 市中心振兴<br>suburb 郊区<br>tenant 租客<br>predominantly 主要的<br>municipal 市政的<br>upkeep 维持<br>forward thinking 前瞻性<br>urbanity 都市风格<br>transforming downtown areas 改造市中心<br>infrastructure 基础设施<br>retail 零售店<br>public transit 公共交通<br>affluent 富裕的<br>demographic 人口<br>knowledge and talent industry 知识和人才行业<br>proximity 接近<br>transit 交通设施<br>-oriented 以..为方向的<br>as opposed to 不像…<br>buzz of activity is ongoing 喧嚣从不间断<br>homeowner investment 置业投资<br>vigorious 活跃的<br>right urban mix 恰当的城市组合<br>prop up 提升<br>home occupancy 住房占有率<br>have seen 见证<br>characterize 是…的特点<br>go unchecked 某一坏事未得到抑制、控制<br>house （某地）贮藏，容纳，包含</p>
@@ -124,6 +96,34 @@
       </tags>
   </entry>
   <entry>
+    <title>Js循环</title>
+    <url>/2020/07/22/Js%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for循环最常用的地方是利用索引来遍历数组：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr &#x3D; [&#39;Apple&#39;, &#39;Google&#39;, &#39;Microsoft&#39;];</span><br><span class="line">var i, x;</span><br><span class="line">for (i&#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">    x &#x3D; arr[i];</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用break语句退出循环，否则就是死循环：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var x &#x3D; 0;</span><br><span class="line">for (;;) &#123; &#x2F;&#x2F; 将无限循环下去</span><br><span class="line">    if (x &gt; 100) &#123;</span><br><span class="line">        break; &#x2F;&#x2F; 通过if判断来退出循环</span><br><span class="line">    &#125;</span><br><span class="line">    x ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h2><p>for循环的一个变体是for … in循环，它可以把一个对象的所有属性依次循环出来。注意：这里的key是对象o的属性而非值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要过滤掉对象继承的属性，用hasOwnProperty()来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var o &#x3D; &#123;</span><br><span class="line">    name: &#39;Jack&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    city: &#39;Beijing&#39;</span><br><span class="line">&#125;;</span><br><span class="line">for (var key in o) &#123;</span><br><span class="line">    if (o.hasOwnProperty(key)) &#123;</span><br><span class="line">        console.log(key); &#x2F;&#x2F; &#39;name&#39;, &#39;age&#39;, &#39;city&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for … in循环可以直接循环出Array的索引。注意，这里的i是数组的索引而非对应的值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">for (var i in a) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;</span><br><span class="line">    console.log(a[i]); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意，for … in对Array的循环得到的是String而不是Number。</p>
+<h2 id="while-和-do-while"><a href="#while-和-do-while" class="headerlink" title="while 和 do while"></a>while 和 do while</h2><p>这两种用法和C语言一样，不再赘述。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Kib Kb KB KIB 区别</title>
     <url>/2020/09/08/Kib%20Kb%20KB%20KIB%20%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>Ki 和 K 只是数学单位</p>
@@ -162,6 +162,46 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">missingNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; <span class="built_in">set</span> = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123;</span><br><span class="line">        <span class="built_in">set</span>.add(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断 0 到 n 中哪个数字缺失了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">set</span>.contains(i)) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>iterable</title>
+    <url>/2020/07/22/iterable/</url>
+    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<hr>
+<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
+<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
+<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
+<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是为什么要引入新的for … of循环。</p>
+<hr>
+<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
+<p>以Array为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Map的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo提交的NunjucksError</title>
@@ -384,43 +424,36 @@
       </tags>
   </entry>
   <entry>
-    <title>iterable</title>
-    <url>/2020/07/22/iterable/</url>
-    <content><![CDATA[<p>遍历Array可以采用下标循环，遍历Map和Set就无法使用下标。为了统一集合类型，ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
-<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
-<hr>
-<h2 id="用for-…-of循环遍历集合"><a href="#用for-…-of循环遍历集合" class="headerlink" title="用for … of循环遍历集合"></a>用for … of循环遍历集合</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">for (var x of a) &#123; &#x2F;&#x2F; 遍历Array</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of s) &#123; &#x2F;&#x2F; 遍历Set</span><br><span class="line">    console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">for (var x of m) &#123; &#x2F;&#x2F; 遍历Map</span><br><span class="line">    console.log(x[0] + &#39;&#x3D;&#39; + x[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>删除无用的tags和categories</title>
+    <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
+    <content><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p>
+<p>但是，当某个标签被完全替代，没有文章使用这个标签之后，会发现在标签列表里还是会出现这个标签，点击进去却并没有内容，这非常影响使用体验。</p>
+<p>要清除，只需要执行下列指令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 
-<p>你可能会有疑问，for … of循环和for … in循环有何区别？</p>
-<p>for … in循环由于历史遗留问题，它遍历的实际上是对象的属性名称。一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p>
-<p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x in a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;name&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>for … in循环将把name包括在内，但Array的length属性却不包括在内。</p>
-<p>for … of循环则完全修复了这些问题，它只循环集合本身的元素：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.name &#x3D; &#39;Hello&#39;;</span><br><span class="line">for (var x of a) &#123;</span><br><span class="line">    console.log(x); &#x2F;&#x2F; &#39;A&#39;, &#39;B&#39;, &#39;C&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这就是为什么要引入新的for … of循环。</p>
-<hr>
-<h2 id="iterable内置的forEach方法"><a href="#iterable内置的forEach方法" class="headerlink" title="iterable内置的forEach方法"></a>iterable内置的forEach方法</h2><p>然而，更好的方式是直接使用iterable内置的forEach方法，它接收一个函数，每次迭代就自动回调该函数。</p>
-<p>以Array为例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element, index, array) &#123;</span><br><span class="line">    &#x2F;&#x2F; element: 指向当前元素的值</span><br><span class="line">    &#x2F;&#x2F; index: 指向当前索引</span><br><span class="line">    &#x2F;&#x2F; array: 指向Array对象本身</span><br><span class="line">    console.log(element + &#39;, index &#x3D; &#39; + index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Set与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var s &#x3D; new Set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]);</span><br><span class="line">s.forEach(function (element, sameElement, set) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Map的回调函数参数依次为value、key和map本身：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var m &#x3D; new Map([[1, &#39;x&#39;], [2, &#39;y&#39;], [3, &#39;z&#39;]]);</span><br><span class="line">m.forEach(function (value, key, map) &#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果对某些参数不感兴趣，由于JavaScript的函数调用不要求参数必须一致，因此可以忽略它们。例如，只需要获得Array的element：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a &#x3D; [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;];</span><br><span class="line">a.forEach(function (element) &#123;</span><br><span class="line">    console.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>bugs</category>
       </categories>
       <tags>
-        <tag>Javascript</tag>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
+<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
+<hr>
+<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -473,51 +506,6 @@
       </tags>
   </entry>
   <entry>
-    <title>删除无用的tags和categories</title>
-    <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%97%A0%E7%94%A8%E7%9A%84tags%E5%92%8Ccategories/</url>
-    <content><![CDATA[<p>在发布文章后，有时候会发现标签或分类的描述不够准确，需要修改tags或者categories的内容。</p>
-<p>但是，当某个标签被完全替代，没有文章使用这个标签之后，会发现在标签列表里还是会出现这个标签，点击进去却并没有内容，这非常影响使用体验。</p>
-<p>要清除，只需要执行下列指令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>bugs</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划</title>
-    <url>/2020/07/30/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>leetcode题解动态规划打卡</p>
-<p>爬楼梯（70）<br>最大子序和（53）<br>最长上升子序列（300）<br>三角形最小路径和（120）<br>最小路径和（64）<br>打家劫舍（198）</p>
-<hr>
-<p>双层Vector的定义如下：<br><code>vector&lt;vector&lt;&lt;int&gt;&gt; dp(num_of_hang, vector&lt;int&gt;(num_of_lie))</code></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>哈夫曼树</title>
-    <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
-    <content><![CDATA[<p>Here is the model:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">	int wpl&#x3D;0;</span><br><span class="line">	while(q.size()&gt;1)&#123;</span><br><span class="line">		int min1&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		int min2&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		wpl+&#x3D;min1+min2;</span><br><span class="line">		q.push(min1+min2);</span><br><span class="line">	&#125;</span><br><span class="line">	return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	n&#x3D;10;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">	printf(&quot;%d &quot;,WPL());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>同余定理</title>
     <url>/2020/07/31/%E5%90%8C%E4%BD%99%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<h2 id="定理叙述"><a href="#定理叙述" class="headerlink" title="定理叙述"></a>定理叙述</h2><p>同余定理是数论中的重要概念。给定一个正整数m，如果两个整数a和b满足（a-b）能够被m整除，即（a-b）/m得到一个整数，那么就称整数a与b对模m同余，记作a≡b(mod m)。</p>
@@ -543,18 +531,6 @@
       </tags>
   </entry>
   <entry>
-    <title>学习打卡</title>
-    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
-    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
-]]></content>
-      <categories>
-        <category>规划</category>
-      </categories>
-      <tags>
-        <tag>打卡</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何用hexo写文章</title>
     <url>/2020/07/20/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%86%99%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<h3>准备工作</h3>
@@ -577,18 +553,10 @@
       </tags>
   </entry>
   <entry>
-    <title>并查集</title>
-    <url>/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<p>并查集模板</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;只用了路径压缩的优化 </span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int n,m,pre[maxn];</span><br><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])</span><br><span class="line">		return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void merge(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool same(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>并查集的延伸-&gt;种类并查集</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;洛谷p1525</span><br><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 40010;</span><br><span class="line">int n,m,pre[maxn]; </span><br><span class="line">struct node&#123;</span><br><span class="line">	int a,b,val; </span><br><span class="line">&#125;c[100010];</span><br><span class="line">bool cmp(node x, node y)&#123;</span><br><span class="line">	return x.val &gt; y.val;</span><br><span class="line">&#125;</span><br><span class="line">void init(int n)&#123;</span><br><span class="line">	n &#x3D; n*2;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line">void merge(int x, int y)&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line">bool same(int x, int y)&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	init(n);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		cin &gt;&gt; c[i].a &gt;&gt; c[i].b &gt;&gt; c[i].val;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(c+1, c+1+m, cmp);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		int xx &#x3D; find(c[i].a);</span><br><span class="line">		int yy &#x3D; find(c[i].b);</span><br><span class="line">		if(xx &#x3D;&#x3D; yy)&#123;</span><br><span class="line">			cout &lt;&lt; c[i].val &lt;&lt; endl;</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">		merge(c[i].a, c[i].b+n);</span><br><span class="line">		merge(c[i].a+n, c[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>种类并查集核心：开k倍数组维护关系<br>附上一个讲的很好的种类并查集文章：<br><a href="https://zhuanlan.zhihu.com/p/97813717" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/97813717</a></p>
-<hr>
-<p>并查集的一点思考：</p>
-<h2 id="亲戚类"><a href="#亲戚类" class="headerlink" title="亲戚类"></a>亲戚类</h2><p>很简单基础的并查集，并查集的本质就是把节点一个个的合并，最后变成一棵树。容易联想到可以把具有亲戚关系的节点放在一棵树上来维护亲戚关系。<br>模板： 洛谷P1551</p>
-]]></content>
+    <title>哈夫曼树</title>
+    <url>/2020/08/28/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/</url>
+    <content><![CDATA[<p>Here is the model:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn&#x3D;105;</span><br><span class="line">int a[maxn],n;</span><br><span class="line"></span><br><span class="line">int WPL()&#123;</span><br><span class="line">	priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) q.push(a[i]);</span><br><span class="line">	int wpl&#x3D;0;</span><br><span class="line">	while(q.size()&gt;1)&#123;</span><br><span class="line">		int min1&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		int min2&#x3D;q.top();</span><br><span class="line">		q.pop();</span><br><span class="line">		wpl+&#x3D;min1+min2;</span><br><span class="line">		q.push(min1+min2);</span><br><span class="line">	&#125;</span><br><span class="line">	return wpl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	n&#x3D;10;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++) a[i]&#x3D;i+1;</span><br><span class="line">	printf(&quot;%d &quot;,WPL());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -623,6 +591,18 @@
       </categories>
       <tags>
         <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习打卡</title>
+    <url>/2020/07/31/%E5%AD%A6%E4%B9%A0%E6%89%93%E5%8D%A1/</url>
+    <content><![CDATA[<p>想入门 ACM，应该学些什么？ - 菠萝菠萝蜜的回答 - 知乎<br><a href="https://www.zhihu.com/question/293409951/answer/488266342" target="_blank" rel="noopener">https://www.zhihu.com/question/293409951/answer/488266342</a></p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>打卡</tag>
       </tags>
   </entry>
   <entry>
@@ -690,6 +670,26 @@
       </categories>
       <tags>
         <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>并查集</title>
+    <url>/2020/08/28/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[<p>并查集模板</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;只用了路径压缩的优化 </span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int n,m,pre[maxn];</span><br><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])</span><br><span class="line">		return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void merge(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool same(int x,int y)</span><br><span class="line">&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>并查集的延伸-&gt;种类并查集</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;洛谷p1525</span><br><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 40010;</span><br><span class="line">int n,m,pre[maxn]; </span><br><span class="line">struct node&#123;</span><br><span class="line">	int a,b,val; </span><br><span class="line">&#125;c[100010];</span><br><span class="line">bool cmp(node x, node y)&#123;</span><br><span class="line">	return x.val &gt; y.val;</span><br><span class="line">&#125;</span><br><span class="line">void init(int n)&#123;</span><br><span class="line">	n &#x3D; n*2;</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;</span><br><span class="line">		pre[i] &#x3D; i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">	if(x &#x3D;&#x3D; pre[x])return x;</span><br><span class="line">	return pre[x] &#x3D; find(pre[x]);</span><br><span class="line">&#125;</span><br><span class="line">void merge(int x, int y)&#123;</span><br><span class="line">	int tx &#x3D; find(x);</span><br><span class="line">	int ty &#x3D; find(y);</span><br><span class="line">	pre[tx] &#x3D; ty;</span><br><span class="line">&#125;</span><br><span class="line">bool same(int x, int y)&#123;</span><br><span class="line">	return find(x) &#x3D;&#x3D; find(y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	init(n);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		cin &gt;&gt; c[i].a &gt;&gt; c[i].b &gt;&gt; c[i].val;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(c+1, c+1+m, cmp);</span><br><span class="line">	for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;</span><br><span class="line">		int xx &#x3D; find(c[i].a);</span><br><span class="line">		int yy &#x3D; find(c[i].b);</span><br><span class="line">		if(xx &#x3D;&#x3D; yy)&#123;</span><br><span class="line">			cout &lt;&lt; c[i].val &lt;&lt; endl;</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">		merge(c[i].a, c[i].b+n);</span><br><span class="line">		merge(c[i].a+n, c[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>种类并查集核心：开k倍数组维护关系<br>附上一个讲的很好的种类并查集文章：<br><a href="https://zhuanlan.zhihu.com/p/97813717" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/97813717</a></p>
+<hr>
+<p>并查集的一点思考：</p>
+<h2 id="亲戚类"><a href="#亲戚类" class="headerlink" title="亲戚类"></a>亲戚类</h2><p>很简单基础的并查集，并查集的本质就是把节点一个个的合并，最后变成一棵树。容易联想到可以把具有亲戚关系的节点放在一棵树上来维护亲戚关系。<br>模板： 洛谷P1551</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
       </tags>
   </entry>
   <entry>
@@ -772,6 +772,27 @@
       </tags>
   </entry>
   <entry>
+    <title>筛法求素数</title>
+    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
+    <content><![CDATA[<p>暴力解法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
+
+<p>埃式筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性筛法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>次方求模</title>
     <url>/2020/07/31/%E6%AC%A1%E6%96%B9%E6%B1%82%E6%A8%A1/</url>
     <content><![CDATA[<p>这是acm数论部分经常用到的一个知识点。   </p>
@@ -803,27 +824,6 @@
 <p>cd(a,b)=cd(b,a%b)。<br>令 a = kb + r，则有 r = a - kb，<br>正向</p>
 <p>若 d 是 a , b的公约数有，则必有 a % d = 0 以及 b % d = 0，进而必有 r % d = 0，所以显然 d 也是 b, r 的公约数<br>反向</p>
 <p>若 d 是 b, r 的公约数， 则必有 a % d = 0 以及 r % d = 0, 即 b %ｄ＝ 0 以及 (a - kb) % d=0，借助上述引理证明，进而必有 a % d = 0。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>筛法求素数</title>
-    <url>/2020/07/31/%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0/</url>
-    <content><![CDATA[<p>暴力解法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int zhishu(int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;sqrt(n);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n%i&#x3D;&#x3D;0)</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for(int j&#x3D;1;j&lt;&#x3D;m;j++)</span><br><span class="line">zhishu(j);</span><br></pre></td></tr></table></figure>
-
-<p>埃式筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        for(ll j &#x3D; i*2;j &lt;&#x3D; MAX;j +&#x3D; i)   &#x2F;&#x2F; 素数的倍数都为合数</span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[j] &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>线性筛法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">const int MAX &#x3D; 1000100;   &#x2F;&#x2F; 求MAX范围内的素数</span><br><span class="line">ll su[MAX],cnt;</span><br><span class="line">bool isprimer[MAX];</span><br><span class="line">void prime()</span><br><span class="line">&#123;</span><br><span class="line">    cnt &#x3D; 1;</span><br><span class="line">    memset(isprimer,1,sizeof isprimer);   &#x2F;&#x2F; 初始化认为所有数都为素数</span><br><span class="line">    isprimer[0] &#x3D; isprimer[1] &#x3D; 0;   &#x2F;&#x2F; 0和1不是素数</span><br><span class="line">    for(ll i &#x3D; 2;i &lt;&#x3D; MAX;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isprimer[i])   &#x2F;&#x2F; 保存素数</span><br><span class="line">        &#123;</span><br><span class="line">            su[cnt++] &#x3D; i;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历素数表中比i的最小素因数小的素数，并筛去合数</span><br><span class="line">        for(ll j &#x3D; 1;j &lt; cnt &amp;&amp; su[j]*i &lt; MAX;++j)   </span><br><span class="line">        &#123;</span><br><span class="line">            isprimer[su[j]*i] &#x3D; 0;   &#x2F;&#x2F;筛去合数</span><br><span class="line">            if(i%su[j]&#x3D;&#x3D;0) break;    &#x2F;&#x2F;找到i的最小素因数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    prime();</span><br><span class="line">    for(ll i &#x3D; 1;i &lt; cnt;i++)</span><br><span class="line">        printf(&quot;%lld &quot;,su[i]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://wenku.baidu.com/view/4881881daaea998fcc220e99.html" target="_blank" rel="noopener">线性筛法原理</a></p>
 ]]></content>
       <categories>
         <category>算法</category>
