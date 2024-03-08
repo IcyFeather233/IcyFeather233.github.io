@@ -1,6 +1,6 @@
 # 操作说明
 
-所有网页数据都在 `docs` 目录下，文章数据都是 Markdown 格式，html 格式的文件都是 jekyll 自动生成的
+所有网页数据都在 `docs` 目录下，文章数据都是 Markdown 格式，HTML 格式的文件都是 jekyll 自动生成的
 
 ## 创建博客
 
