@@ -25,6 +25,7 @@
 ```
 git add .
 git commit -m 'xxx'
+git remote add origin https://github.com/IcyFeather233/IcyFeather233.github.io.git
 git push -u origin gh-pages
 ```
 
