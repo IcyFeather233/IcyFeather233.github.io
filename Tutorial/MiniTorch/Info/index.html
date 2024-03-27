@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-                <title>MiniTorch - IcyFeather's Site</title>
+                <title>MiniTorch Info - IcyFeather's Site</title>
 
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,15 +12,15 @@
             
 
             
-                <link  rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+                <link  rel="icon" type="image/x-icon" href="../../../img/favicon.ico">
             
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
                         <script>hljs.initHighlightingOnLoad();</script>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../assets/css/main.min.css">
-                <script src="../../search/main.js"></script>
+            <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../../assets/css/main.min.css">
+                <script src="../../../search/main.js"></script>
 
             
                 
@@ -55,7 +55,7 @@
             <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="
-                            nav-link text-gray text-decoration-none" href="../..">[Home]</a>
+                            nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class=" active 
@@ -63,19 +63,31 @@
                             <ul class="dropdown-menu">
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">MiniTorch</a>
+        <a class="dropdown-item text-decoration-none" href="#">MiniTorch &raquo;</a>
+        <ul class="submenu dropdown-menu">
+                <!-- block dropdown-menu -->
+    <li>
+        <a href="./" class="dropdown-item text-decoration-none  active ">MiniTorch Info</a>
+    </li>
+<!-- endblock -->
+                <!-- block dropdown-menu -->
+    <li>
+        <a href="../Setup/" class="dropdown-item text-decoration-none ">MiniTorch Setup</a>
+    </li>
+<!-- endblock -->
+        </ul>
     </li>
 <!-- endblock -->
                                     <!-- block dropdown-menu -->
     <li>
-        <a href="../MkDocs/" class="dropdown-item text-decoration-none ">MkDocs</a>
+        <a href="../../MkDocs/" class="dropdown-item text-decoration-none ">MkDocs</a>
     </li>
 <!-- endblock -->
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="
-                            nav-link text-gray text-decoration-none" href="../../about/">[About]</a>
+                            nav-link text-gray text-decoration-none" href="../../../about/">[About]</a>
                         </li>
             </ul>
         </li>
@@ -108,7 +120,7 @@
             <main><!-- block search -->
 <div class="collapse" id="collapseExample">
     <div role="search" class="search-box">
-        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
             <input type="text" name="q" class="search-query"
             placeholder="Search docs" title="Type search term here" />
         </form>
@@ -120,10 +132,28 @@
     <article>
         <header>
             
-                <h1 class=" title" id="component-title">MiniTorch</h1>
+                <h1 class=" title" id="component-title">MiniTorch Info</h1>
             
         </header>
-        <p><p>See Details at <a href="https://icyfeather233.github.io/minitorch-zh/">minitorch-zh</a></p></p>
+        <p><p>MiniTorch 是一个面向希望了解深度学习系统内部概念的机器学习工程师的 DIY 教学库。它是 Torch API 的纯 Python 重新实现，旨在简单、易读、经过测试且增量的。最终的库可以运行 Torch 代码。</p>
+<div style="text-align: center;">
+    <img src="../../../assets/MiniTorch/networkcnn.png" width="80%">
+</div>
+
+<p>该课程的主要仓库可在 <a href="https://github.com/minitorch/minitorch">GitHub</a> 上找到。为了完成任务，你需要填写 TODO 声明并通过包含的单元测试套件。此外，还有额外的可视化工具来追踪你的进度。</p>
+<pre><code class="language-python">class ReLU(ScalarFunction):
+
+    @staticmethod
+    def forward(ctx, a):
+        # TODO: Implement for Task 1.2.
+        raise NotImplementedError('Need to implement for Task 1.2')
+
+    @staticmethod
+    def backward(ctx, d_output):
+        # TODO: Implement for Task 1.4.
+        raise NotImplementedError('Need to implement for Task 1.4')
+</code></pre>
+<p>原始的文档在 <a href="https://minitorch.github.io/">minitorch docs</a> 这里可以找到</p></p>
     </article>
 </section>
 <!-- endblock -->
@@ -133,13 +163,13 @@
                     <!-- block preview -->
         <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
             <div class="col themed-grid-col">
-                <a rel="prev" href="../.." class="nav-link">
+                <a rel="prev" href="../../.." class="nav-link">
                     <i class="fa fa-arrow-left"></i> Previous
                 </a>
             </div>
             <div class="col themed-grid-col"></div>
             <div class="col themed-grid-col">
-                <a rel="next" href="../MkDocs/" class="nav-link">
+                <a rel="next" href="../Setup/" class="nav-link">
                     Next <i class="fa fa-arrow-right"></i>
                 </a>
             </div>
@@ -169,11 +199,11 @@
             
         </div>
 
-            <script>var base_url = '../..';</script>
-            <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
-            <script src="../../assets/js/bootstrap.bundle.min.js""></script>
-            <script src="../../assets/js/main.min.js""></script>
-                <script src="../../search/main.js" defer></script>
+            <script>var base_url = '../../..';</script>
+            <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../../assets/js/main.min.js""></script>
+                <script src="../../../search/main.js" defer></script>
 
     </body>
 
