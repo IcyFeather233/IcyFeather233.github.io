@@ -1,0 +1,18 @@
+site_name: Chen Mengzhuo's Site
+nav: 
+  - Home: index.md
+  - Papers:
+    - Make LLM a Testing Expert: papers/gptdroid.md
+    - Testing the limits: papers/limits.md
+    - CultureLLM: papers/culturellm.md
+  - Tutorials:
+    - MiniTorch: 
+      - MiniTorch Info: Tutorial/MiniTorch/Info.md
+      - MiniTorch Setup: Tutorial/MiniTorch/Setup.md
+      - MiniTorch Task-0 Fundamentals: Tutorial/MiniTorch/Task0.md
+    - MkDocs: Tutorial/MkDocs.md
+  - About: about.md
+theme:
+    name: simple-blog
+    favicon: img/favicon.ico
+
