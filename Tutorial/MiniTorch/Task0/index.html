@@ -1,223 +1,912 @@
+
 <!doctype html>
-<html>
-    <head>
-                <title>MiniTorch Task-0 Fundamentals - Chen Mengzhuo's Site</title>
-
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-            
-            
-            
-
-            
-                <link  rel="icon" type="image/x-icon" href="../../../img/favicon.ico">
-            
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                        <script>hljs.initHighlightingOnLoad();</script>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../../assets/css/main.min.css">
-                <script src="../../../search/main.js"></script>
-
-            
-                
-            
-    </head>
-
-    <body>
-        <div class="container py-3">
-            <header>
-                    <!-- block header -->
-<nav class="navbar navbar-expand-xl border-bottom">
-    <div class="container-fluid">
-        
-
-        
-            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Chen Mengzhuo's Site</span>
-        
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
-            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
-            <ul class="navbar-nav">
-
-                <!-- block menu -->
-                <li class="nav-item">
-                    <!-- block menu -->
+<html lang="en" class="no-js">
+  <head>
     
-        <li class="nav-item" id="component-menu">
-            <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../../..">[Home]</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="
-                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Papers]</a>
-                            <ul class="dropdown-menu">
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a href="../../../papers/gptdroid/" class="dropdown-item text-decoration-none ">Make LLM a Testing Expert</a>
-    </li>
-<!-- endblock -->
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a href="../../../papers/limits/" class="dropdown-item text-decoration-none ">Testing the limits</a>
-    </li>
-<!-- endblock -->
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a href="../../../papers/culturellm/" class="dropdown-item text-decoration-none ">CultureLLM</a>
-    </li>
-<!-- endblock -->
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class=" active 
-                            nav-link dropdown-toggle text-decoration-none" href="#" data-bs-toggle="dropdown">[Tutorials]</a>
-                            <ul class="dropdown-menu">
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a class="dropdown-item text-decoration-none" href="#">MiniTorch &raquo;</a>
-        <ul class="submenu dropdown-menu">
-                <!-- block dropdown-menu -->
-    <li>
-        <a href="../Info/" class="dropdown-item text-decoration-none ">MiniTorch Info</a>
-    </li>
-<!-- endblock -->
-                <!-- block dropdown-menu -->
-    <li>
-        <a href="../Setup/" class="dropdown-item text-decoration-none ">MiniTorch Setup</a>
-    </li>
-<!-- endblock -->
-                <!-- block dropdown-menu -->
-    <li>
-        <a href="./" class="dropdown-item text-decoration-none  active ">MiniTorch Task-0 Fundamentals</a>
-    </li>
-<!-- endblock -->
-        </ul>
-    </li>
-<!-- endblock -->
-                                    <!-- block dropdown-menu -->
-    <li>
-        <a href="../../MkDocs/" class="dropdown-item text-decoration-none ">MkDocs</a>
-    </li>
-<!-- endblock -->
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../../../about/">[About]</a>
-                        </li>
-            </ul>
-        </li>
-<!-- endblock -->
-                </li>
-                <!-- endblock -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Setup/">
+      
+      
+        <link rel="next" href="../../MkDocs/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>MiniTorch Task-0 Fundamentals - Chen Mengzhuo's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+      
 
-                <!-- block search -->
-                <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="md-search-icon">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </div>
-                    </a>
-                </li>
-                <!--  endblock -->
 
-                <!-- block source -->
-                <li class="nav-item">
-                    
-                </li>
-                <!--  endblock -->
-            </ul>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Chen Mengzhuo&#39;s Site" class="md-header__button md-logo" aria-label="Chen Mengzhuo's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chen Mengzhuo's Site
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MiniTorch Task-0 Fundamentals
+            
+          </span>
+        </div>
+      </div>
     </div>
-</nav>
-<!--  endblock -->
-            </header>
-
-            <main><!-- block search -->
-<div class="collapse" id="collapseExample">
-    <div role="search" class="search-box">
-        <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-            <input type="text" name="q" class="search-query"
-            placeholder="Search docs" title="Type search term here" />
-        </form>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-<!-- endblock -->
-                    <!-- block content -->
-<section class="container post">
-    <article>
-        <header>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
             
-                <h1 class=" title" id="component-title">MiniTorch Task-0 Fundamentals</h1>
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Chen Mengzhuo&#39;s Site" class="md-nav__button md-logo" aria-label="Chen Mengzhuo's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chen Mengzhuo's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
-        </header>
-        <p><p>Task0 的部分就是照着原文档的这个部分做：<a href="https://minitorch.github.io/module0/module0/">module0</a></p>
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/gptdroid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Make LLM a Testing Expert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing the limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/culturellm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CultureLLM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MiniTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            MiniTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniTorch Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniTorch Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MiniTorch Task-0 Fundamentals
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MiniTorch Task-0 Fundamentals
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何正确的阅读这份文档？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task01-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.1 Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task02-testing-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.2 Testing and Debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task03-functional-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.3 Functional Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task04-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.4 Modules
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何正确的阅读这份文档？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task01-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.1 Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task02-testing-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.2 Testing and Debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task03-functional-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.3 Functional Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task04-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.4 Modules
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>MiniTorch Task-0 Fundamentals</h1>
+
+<p>Task0 的部分就是照着原文档的这个部分做：<a href="https://minitorch.github.io/module0/module0/">module0</a></p>
 <h3 id="_1">如何正确的阅读这份文档？</h3>
 <p>首先，应该把该页面上的 <a href="https://minitorch.github.io/module0/contributing/">Contributing</a> 看了，学会使用 <code>pytest</code> 在工程中进行测试</p>
 <p>然后我们会发现报了很多的 <code>NotImplementedError</code>，我们需要一个个的把工程里面的代码补全，直到最后运行 <code>pytest</code> 不出错</p>
-<p>其次，我们不要着急开始写，先把 <a href="https://minitorch.github.io/module0/module0/#task-01-operators">operator 基础知识</a> 仔细阅读一遍，了解 <code>operators.py</code> 实现方面的数学基础</p>
-<p>[TODO]</p></p>
-    </article>
-</section>
-<!-- endblock -->
-            </main>
+<h3 id="task01-operators">Task0.1 Operators</h3>
+<div class="admonition info">
+<p class="admonition-title">todo</p>
+<p>完成 <code>minitorch/operators.py</code> 中标记为 <code>task0_1</code> 的测试函数。</p>
+</div>
+<p>我们不要着急开始写，先把 <a href="https://minitorch.github.io/module0/module0/#task-01-operators">operator 基础知识</a> 仔细阅读一遍，了解 <code>operators.py</code> 实现方面的数学基础</p>
+<p>需要注意的有 <code>minitorch.operators.sigmoid(x: float) -&gt; float</code> 这个函数，这个函数为了稳定性，在大于零和小于零的时候计算公式会发生变化</p>
+<h3 id="task02-testing-and-debugging">Task0.2 Testing and Debugging</h3>
+<p>我们要求您为Task0.1中的运算符实现属性测试。这些测试应确保您的函数不仅能工作，而且还要遵循任何输入的高级数学属性。请注意，您需要更改这些测试函数的参数。</p>
+<div class="admonition info">
+<p class="admonition-title">todo</p>
+<p>完成 <code>test/test_operators.py</code> 中标记为 <code>task0_2</code> 的测试函数。</p>
+</div>
+<h3 id="task03-functional-python">Task0.3 Functional Python</h3>
+<p>为了练习在Python中使用高阶函数，实现三个基本的函数式概念。将它们与Task 0.1中描述的运算符结合使用，以构建在列表上而非单个值上运作的更复杂的数学运算。</p>
+<div class="admonition info">
+<p class="admonition-title">todo</p>
+<p>完成 <code>minitorch/operators.py</code> 中标记为 <code>task0_3</code> 的测试函数。</p>
+</div>
+<p><strong>minitorch.operators.map(fn: Callable[[float], float]) -&gt; Callable[[Iterable[float]], Iterable[float]]</strong></p>
+<p>参数：</p>
+<ul>
+<li>fn：一个从一个值映射到一个值的函数。</li>
+</ul>
+<p>返回：</p>
+<ul>
+<li>一个函数，该函数接受一个列表，将<code>fn</code>应用于每个元素，并返回一个新的列表。</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Higher-order map.</span>
 
-            
-                    <!-- block preview -->
-        <div class="row row-cols-md-3 text-center pt-md-3" id="component-preview">
-            <div class="col themed-grid-col">
-                <a rel="prev" href="../Setup/" class="nav-link">
-                    <i class="fa fa-arrow-left"></i> Previous
-                </a>
+<span class="sd">    See https://en.wikipedia.org/wiki/Map_(higher-order_function)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fn: Function from one value to one value.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A function that takes a list, applies `fn` to each element, and returns a</span>
+<span class="sd">        new list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+            <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">ans</span>
+
+    <span class="k">return</span> <span class="n">process</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.negList(ls: Iterable[float]) -&gt; Iterable[float]</strong></p>
+<p>使用 <code>map</code> 和 <code>neg</code> 来对 <code>ls</code> 中的每个元素进行取反</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">negList</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="s2">&quot;Use `map` and `neg` to negate each element in `ls`&quot;</span>
+    <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">neg</span><span class="p">)(</span><span class="n">ls</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.zipWith(fn: Callable[[float, float], float]) -&gt; Callable[[Iterable[float], Iterable[float]], Iterable[float]]</strong></p>
+<p>参数：</p>
+<ul>
+<li>fn: 合并两个值</li>
+</ul>
+<p>返回：</p>
+<ul>
+<li>一个函数，它接受两个大小相等的列表 <code>ls1</code> 和 <code>ls2</code>，通过对每一对元素应用 fn(x, y)，生成一个新的列表。</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">zipWith</span><span class="p">(</span>
+    <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Higher-order zipwith (or map2).</span>
+
+<span class="sd">    See https://en.wikipedia.org/wiki/Map_(higher-order_function)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fn: combine two values</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Function that takes two equally sized lists `ls1` and `ls2`, produce a new list by</span>
+<span class="sd">        applying fn(x, y) on each pair of elements.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">ls1</span><span class="p">,</span> <span class="n">ls2</span><span class="p">):</span>
+        <span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ls1</span><span class="p">,</span> <span class="n">ls2</span><span class="p">):</span>
+            <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">new_list</span>
+
+    <span class="k">return</span> <span class="n">process</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.addLists(ls1: Iterable[float], ls2: Iterable[float]) -&gt; Iterable[float]</strong></p>
+<p>使用 <code>zipWith</code> 和 <code>add</code> 将 <code>ls1</code> 和 <code>ls2</code> 的元素相加。</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">addLists</span><span class="p">(</span><span class="n">ls1</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">ls2</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="s2">&quot;Add the elements of `ls1` and `ls2` using `zipWith` and `add`&quot;</span>
+    <span class="k">return</span> <span class="n">zipWith</span><span class="p">(</span><span class="n">add</span><span class="p">)(</span><span class="n">ls1</span><span class="p">,</span> <span class="n">ls2</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.reduce(fn: Callable[[float, float], float], start: float) -&gt; Callable[[Iterable[float]], float]</strong></p>
+<p>参数：</p>
+<ul>
+<li>fn: 合并两个值</li>
+<li>start: 起始值 $x_0$</li>
+</ul>
+<p>返回：</p>
+<ul>
+<li>一个函数，它接受元素列表 x_1 ... x_n 并以这样的形式计算： <code>fn(x_3, fn(x_2, fn(x_1, x_0)))</code>，这种操作叫做 reduction。</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span>
+    <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="nb">float</span><span class="p">],</span> <span class="n">start</span><span class="p">:</span> <span class="nb">float</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Higher-order reduce.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fn: combine two values</span>
+<span class="sd">        start: start value $x_0$</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Function that takes a list `ls` of elements</span>
+<span class="sd">        $x_1 \ldots x_n$ and computes the reduction :math:`fn(x_3, fn(x_2,</span>
+<span class="sd">        fn(x_1, x_0)))`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">return</span> <span class="n">process</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.sum(ls: Iterable[float]) -&gt; float</strong></p>
+<p>使用 <code>reduce</code> 和 <code>add</code> 对列表进行求和。</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="s2">&quot;Sum up a list using `reduce` and `add`.&quot;</span>
+    <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">0</span><span class="p">)(</span><span class="n">ls</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p><strong>minitorch.operators.prod(ls: Iterable[float]) -&gt; float</strong></p>
+<p>使用 <code>reduce</code> 和 <code>mul</code> 计算列表的乘积。</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">prod</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="s2">&quot;Product of a list using `reduce` and `mul`.&quot;</span>
+    <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span><span class="n">mul</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="n">ls</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h3 id="task04-modules">Task0.4 Modules</h3>
+<p>这个任务是要实现 :class:<code>minitorch.Module</code> 类的核心结构。我们要求你实现一个树形数据结构，每个节点上都存储有命名的 :class:<code>minitorch.Parameter</code>。这样的数据结构使用户能够方便地创建树，以便遍历找到所有感兴趣的参数。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>这里原始 wiki 提到可以运行 <code>streamlit run app.py -- 0</code> 来测试系统，但是这个 <code>app.py</code> 在<a href="https://github.com/minitorch/minitorch/tree/main/project">这里</a>，而我们的 wiki 这里是采用单个 Task 分别完成的方式，所以如果想用这种方式测试的话，需要单独再克隆原仓库然后修改 Task0 部分的代码进行测试</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">todo</p>
+<p>完成 <code>minitorch/module.py</code> 中标记为 <code>task0_4</code> 的测试函数。</p>
+</div>
+<p><strong>minitorch.module.Module.train() -&gt; None</strong></p>
+<p>将此模块及其所有子模块的模式设置为 <code>train</code> 模式。</p>
+<p><strong>minitorch.module.Module.eval() -&gt; None</strong></p>
+<p>将此模块及其所有子模块的模式设置为 <code>eval</code> 模式。</p>
+<p><strong>minitorch.module.Module.named_parameters() -&gt; Sequence[Tuple[str, Parameter]]</strong></p>
+<p>收集此模块及其所有子模块的所有参数。</p>
+<p>返回：</p>
+<ul>
+<li>Sequence[Tuple[str, Parameter]] - 每个祖先参数的名称和参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="col themed-grid-col"></div>
-            <div class="col themed-grid-col">
-                <a rel="next" href="../../MkDocs/" class="nav-link">
-                    Next <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-<!-- endblock -->
-            
-
-            
-                    <!-- block footer -->
-<footer class="pt-4 my-md-5 pt-md-5 border-top" id="component-footer">
-    <div class="row">
-        <div class="col-12 col-md">
-                <!-- block copyright -->
-
-    <small class="d-block mb-3">
-        Made with
-        <a href="https://github.com/FernandoCelmer/mkdocs-simple-blog" target="_blank" rel="noopener">
-            Simple Blog for MkDocs
-        </a>
-    </small>
-
-<!-- endblock -->
-        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
     </div>
+  </div>
 </footer>
-<!-- endblock -->
-            
-        </div>
-
-            <script>var base_url = '../../..';</script>
-            <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-            <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-            <script src="../../../assets/js/main.min.js""></script>
-                <script src="../../../search/main.js" defer></script>
-
-    </body>
-
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
 </html>
