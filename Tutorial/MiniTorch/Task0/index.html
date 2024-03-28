@@ -518,6 +518,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#task05-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.5 Visualization
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -647,6 +656,15 @@
   <a href="#task04-modules" class="md-nav__link">
     <span class="md-ellipsis">
       Task0.4 Modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task05-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task0.5 Visualization
     </span>
   </a>
   
@@ -854,8 +872,37 @@
 <p>收集此模块及其所有子模块的所有参数。</p>
 <p>返回：</p>
 <ul>
-<li>Sequence[Tuple[str, Parameter]] - 每个祖先参数的名称和参数。</li>
+<li><code>Sequence[Tuple[str, Parameter]]</code> - 每个祖先参数的名称和参数。</li>
 </ul>
+<p><strong>minitorch.module.Module.parameters() -&gt; Sequence[Parameter]</strong></p>
+<p>遍历此模块及其所有子模块的所有参数。</p>
+<details class="note">
+<summary><code>named_parameters()</code> 和 <code>parameters()</code> 的区别</summary>
+<p><code>named_parameters()</code> 和 <code>parameters()</code> 是 PyTorch 中的两个函数，它们都用于获取模型中的参数，但是返回的内容有所不同。</p>
+<p><code>parameters()</code> 是一个返回模型所有参数的迭代器。它会返回模型中所有的参数，不包括名称。这对于遍历模型的所有参数，如在优化器中更新参数时非常有用。</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+</code></pre></div>
+<p><code>named_parameters()</code> 也是一个返回模型所有参数的迭代器，但它返回的是一个元组，元组中包含每个参数的名称和参数本身。这对于需要知道参数名称的情况非常有用，例如在打印特定参数或者理解模型的结构时。</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
+</code></pre></div>
+<p>总的来说，<code>parameters()</code> 和 <code>named_parameters()</code> 的区别在于是否返回参数的名称。</p>
+</details>
+<h3 id="task05-visualization">Task0.5 Visualization</h3>
+<p>对于前几个作业，我们使用了在 <code>minitorch/datasets.py</code> 中实现的一组数据集，这些是2D点分类数据集。（可以参考 <a href="https://playground.tensorflow.org/">TensorFlow Playground</a> 查看类似的例子。）这些数据集都可以添加到可视化中。</p>
+<p>要使用系统进行实验，请使用：</p>
+<div class="highlight"><pre><span></span><code>streamlit run app.py -- 0
+</code></pre></div>
+<p>阅读 <code>project/run_torch.py</code> 中的代码，你可以初步了解到一个使用 Torch 对这些数据集进行模型实现的例子。</p>
+<p>你也可以通过调整参数来提供一个试图执行分类任务的模型。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>启动一个 streamlit server 并打印数据集的图像。手动创建分类器，将线性数据集按照正确的颜色进行划分。</p>
+<p>将图像和你使用的参数一起添加到你的代码库中的 README 文件里。</p>
+</div>
 
 
 
