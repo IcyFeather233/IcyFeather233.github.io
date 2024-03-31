@@ -711,6 +711,10 @@
 <p>完成 <code>minitorch/operators.py</code> 中标记为 <code>task0_3</code> 的测试函数。</p>
 </div>
 <p><strong>minitorch.operators.map(fn: Callable[[float], float]) -&gt; Callable[[Iterable[float]], Iterable[float]]</strong></p>
+<div style="text-align: center;">
+    <img src="../../../assets/MiniTorch/map.png" width="80%">
+</div>
+
 <p>参数：</p>
 <ul>
 <li>fn：一个从一个值映射到一个值的函数。</li>
@@ -754,6 +758,10 @@
 </code></pre></div>
 </details>
 <p><strong>minitorch.operators.zipWith(fn: Callable[[float, float], float]) -&gt; Callable[[Iterable[float], Iterable[float]], Iterable[float]]</strong></p>
+<div style="text-align: center;">
+    <img src="../../../assets/MiniTorch/zip.png" width="80%">
+</div>
+
 <p>参数：</p>
 <ul>
 <li>fn: 合并两个值</li>
@@ -800,10 +808,14 @@
 </code></pre></div>
 </details>
 <p><strong>minitorch.operators.reduce(fn: Callable[[float, float], float], start: float) -&gt; Callable[[Iterable[float]], float]</strong></p>
+<div style="text-align: center;">
+    <img src="../../../assets/MiniTorch/reduce.png" width="80%">
+</div>
+
 <p>参数：</p>
 <ul>
 <li>fn: 合并两个值</li>
-<li>start: 起始值 $x_0$</li>
+<li>start: 起始值 x_0</li>
 </ul>
 <p>返回：</p>
 <ul>
@@ -856,13 +868,29 @@
 </details>
 <h3 id="task04-modules">Task0.4 Modules</h3>
 <p>这个任务是要实现 :class:<code>minitorch.Module</code> 类的核心结构。我们要求你实现一个树形数据结构，每个节点上都存储有命名的 :class:<code>minitorch.Parameter</code>。这样的数据结构使用户能够方便地创建树，以便遍历找到所有感兴趣的参数。</p>
+<div style="text-align: center;">
+    <img src="../../../assets/MiniTorch/module.png" width="80%">
+</div>
+
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>这里原始 wiki 提到可以运行 <code>streamlit run app.py -- 0</code> 来测试系统，但是这个 <code>app.py</code> 在<a href="https://github.com/minitorch/minitorch/tree/main/project">这里</a>，而我们的 wiki 这里是采用单个 Task 分别完成的方式，所以如果想用这种方式测试的话，需要单独再克隆原仓库然后修改 Task0 部分的代码进行测试</p>
+<p>可以进入 <code>project</code> 目录运行 <code>streamlit run app.py -- 0</code> 中使用 <code>Module Sandbox</code> 部分来测试系统</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">todo</p>
 <p>完成 <code>minitorch/module.py</code> 中标记为 <code>task0_4</code> 的测试函数。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">类的魔法属性和魔法方法</p>
+<ul>
+<li>当创建对象的时候会自动调用 <code>__init__</code> 魔法方法，给对象添加成员变量及给设置初始值（注意不是类变量，所有的实例共享同一个类变量）。</li>
+<li>用于查看对象的属性信息，使用魔法属性 <code>__dict__</code>，<code>实例.__dict__</code> 或 <code>类.__dict__</code>，返回字典形式的属性信息</li>
+<li>当使用 <code>print</code> 函数直接打印当前 obj 的时候，自动调用 <code>__str__</code> 魔法方法，打印字符串。</li>
+<li>没有 <code>__str__</code> 时，类的 <code>__repr__</code> 方法定义了实例化对象的输出信息，重写该方法，可以输出我们想要的信息，对类的实例化对象有更好的了解。</li>
+<li><code>__call__</code> 魔法方法把类的实例变成可调用的对象：<code>obj()</code>，相当于 <code>obj.__call__()</code>。</li>
+<li>在类实例的每个属性进行赋值时，都会首先调用 <code>__setattr__()</code> 方法，并在 <code>__setattr__()</code> 方法中将属性名和属性值添加到类实例的<code>__dict__</code> 属性中。</li>
+<li><code>__getattr__(self,name)</code> 定义当用户获取一个不存在的属性时的行为。</li>
+</ul>
 </div>
 <p><strong>minitorch.module.Module.train() -&gt; None</strong></p>
 <p>将此模块及其所有子模块的模式设置为 <code>train</code> 模式。</p>
@@ -890,6 +918,164 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">param</span><span class="p">)</span>
 </code></pre></div>
 <p>总的来说，<code>parameters()</code> 和 <code>named_parameters()</code> 的区别在于是否返回参数的名称。</p>
+</details>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Module</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Modules form a tree that store parameters and other</span>
+<span class="sd">    submodules. They make up the basis of neural network stacks.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        _modules : Storage of the child modules</span>
+<span class="sd">        _parameters : Storage of the module&#39;s parameters</span>
+<span class="sd">        training : Whether the module is in training mode or evaluation mode</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_modules</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Module</span><span class="p">]</span>
+    <span class="n">_parameters</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">]</span>
+    <span class="n">training</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modules</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">modules</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Module</span><span class="p">]:</span>
+        <span class="s2">&quot;Return the direct child modules of this module.&quot;</span>
+        <span class="n">m</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_modules&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="s2">&quot;Set the mode of this module and all descendent modules to `train`.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="s2">&quot;Set the mode of this module and all descendent modules to `eval`.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">named_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collect all the parameters of this module and its descendents.</span>
+
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The name and `Parameter` of each ancestor parameter.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">def</span> <span class="nf">recursive</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="k">if</span> <span class="n">name</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">_parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">_modules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">recursive</span><span class="p">(</span><span class="n">prefix</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+        <span class="n">recursive</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+
+    <span class="k">def</span> <span class="nf">parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Parameter</span><span class="p">]:</span>
+        <span class="s2">&quot;Enumerate over all the parameters of this module and its descendents.&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()]</span>
+
+    <span class="k">def</span> <span class="nf">add_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Parameter</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Manually add a parameter. Useful helper for scalar parameters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            k: Local name of the parameter.</span>
+<span class="sd">            v: Value for the parameter.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Newly created parameter.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_parameters&quot;</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">Parameter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_parameters&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">Module</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_modules&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_parameters&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_parameters&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_modules&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s2">&quot;_modules&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">_addindent</span><span class="p">(</span><span class="n">s_</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">numSpaces</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">s2</span> <span class="o">=</span> <span class="n">s_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">s_</span>
+            <span class="n">first</span> <span class="o">=</span> <span class="n">s2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">s2</span> <span class="o">=</span> <span class="p">[(</span><span class="n">numSpaces</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">s2</span><span class="p">]</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">s</span>
+            <span class="k">return</span> <span class="n">s</span>
+
+        <span class="n">child_lines</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">module</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">mod_str</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+            <span class="n">mod_str</span> <span class="o">=</span> <span class="n">_addindent</span><span class="p">(</span><span class="n">mod_str</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">child_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;): &quot;</span> <span class="o">+</span> <span class="n">mod_str</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">child_lines</span>
+
+        <span class="n">main_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span>
+        <span class="k">if</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="c1"># simple one-liner info, which most builtin Modules will use</span>
+            <span class="n">main_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="n">main_str</span> <span class="o">+=</span> <span class="s2">&quot;)&quot;</span>
+        <span class="k">return</span> <span class="n">main_str</span>
+
+
+<span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A Parameter is a special container stored in a :class:`Module`.</span>
+
+<span class="sd">    It is designed to hold a :class:`Variable`, but we allow it to hold</span>
+<span class="sd">    any value for testing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;requires_grad_&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="s2">&quot;Update the parameter value.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;requires_grad_&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
 </details>
 <h3 id="task05-visualization">Task0.5 Visualization</h3>
 <p>对于前几个作业，我们使用了在 <code>minitorch/datasets.py</code> 中实现的一组数据集，这些是2D点分类数据集。（可以参考 <a href="https://playground.tensorflow.org/">TensorFlow Playground</a> 查看类似的例子。）这些数据集都可以添加到可视化中。</p>
