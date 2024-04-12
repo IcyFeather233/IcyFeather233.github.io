@@ -1,0 +1,1391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Data/">
+      
+      
+        <link rel="next" href="../Pretrain/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>Tokenizer 训练 - Chen Mengzhuo's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#txt" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Chen Mengzhuo&#39;s Site" class="md-header__button md-logo" aria-label="Chen Mengzhuo's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chen Mengzhuo's Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tokenizer 训练
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Chen Mengzhuo&#39;s Site" class="md-nav__button md-logo" aria-label="Chen Mengzhuo's Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chen Mengzhuo's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/gptdroid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Make LLM a Testing Expert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/limits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing the limits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../papers/culturellm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CultureLLM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MiniTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            MiniTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniTorch Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniTorch Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task0/Task0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 作业
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task0/Fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributting 提交要领
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://minitorch.github.io/module0/property_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Propery Testing 属性测试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://minitorch.github.io/module0/modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modules 模块
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://minitorch.github.io/module0/functional/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional 功能函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://minitorch.github.io/module0/visualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualization 可视化工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AutoDiff
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            AutoDiff
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task1/Task1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 作业
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task1/Derivatives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Derivative 求导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task1/Scalar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scalar 标量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task1/Autodifferentiation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autodifferentiation 自动求导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MiniTorch/Task1/Backpropagate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BackPropagate 反向传播
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MiniChatLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            MiniChatLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Info 介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Preparation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Preperation 环境准备
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data 数据准备
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tokenizer 训练
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tokenizer 训练
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      准备txt语料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      语料处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      训练 tokenizer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pretrain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pretrain 预训练
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blogs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Utils 常用工具
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Utils 常用工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Blog/Utils/jump_server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jump Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#txt" class="md-nav__link">
+    <span class="md-ellipsis">
+      准备txt语料
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      语料处理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      训练 tokenizer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Tokenizer 训练</h1>
+
+<h2 id="txt">准备txt语料</h2>
+<p>首先从 <a href="https://dumps.wikimedia.org/zhwiki/">中文 Wiki</a> 上下载 <code>zhwiki-[存档日期]-pages-articles-multistream.xml.bz2</code> 获取中文语料数据</p>
+<div class="highlight"><pre><span></span><code>mkdir tokenizer_data
+
+cd tokenizer_data/
+
+wget https://dumps.wikimedia.org/zhwiki/20240401/zhwiki-20240401-pages-articles-multistream.xml.bz2
+</code></pre></div>
+<p>我的 GPU 服务器下载速度太慢了，使用了自己香港的跳板机来下载：<a href="../../../Blog/Utils/jump_server/">Jump Server</a></p>
+<h2 id="_1">语料处理</h2>
+<p>首先使用 <a href="https://github.com/apertium/WikiExtractor/tree/master">WikiExtractor</a></p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/apertium/WikiExtractor/master/WikiExtractor.py
+
+python WikiExtractor.py --infn zhwiki-20240401-pages-articles-multistream.xml.bz2 
+</code></pre></div>
+<p>这个处理的过程要比较长的时间，有879万左右的条目，最后会输出一个 <code>wiki.txt</code></p>
+<div class="highlight"><pre><span></span><code>(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/tokenizer_data$ ls -al
+total 4734260
+drwxrwxrwx  2 mengzhuo.chen mengzhuo.chen       4096 Apr 11 07:50 .
+drwxrwxr-x 12 mengzhuo.chen mengzhuo.chen       4096 Apr 11 07:46 ..
+-rw-rw-rw-  1 mengzhuo.chen mengzhuo.chen      25329 Apr 11 07:49 WikiExtractor.py
+-rw-rw-rw-  1 mengzhuo.chen mengzhuo.chen 1864875360 Apr 11 08:09 wiki.txt
+-rw-rw-r--  1 mengzhuo.chen mengzhuo.chen 2982973859 Apr  2 05:02 zhwiki-20240401-pages-articles-multistream.xml.bz2
+(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/tokenizer_data$ head wiki.txt 
+
+数学:
+数学，是研究數量、结构以及空间等概念及其变化的一門学科，屬於形式科學的一種。數學利用抽象化和邏輯推理，從計數、計算、量度、對物體形狀及運動的觀察發展而成。數學家們拓展這些概念，以公式化新的猜想，以及從選定的公理及定義出發，嚴謹地推導出一些定理。
+基礎數學的知識與運用是生活中不可或缺的一環。對數學基本概念的完善，早在古埃及、美索不达米亚及古印度历史上的古代數學文本便可觀見，而在古希臘那裡有更為嚴謹的處理。從那時開始，數學的發展便持續不斷地小幅進展，至16世紀的文藝復興時期，因为新的科學發現和數學革新兩者的交互，致使數學的加速发展，直至今日。数学并成为許多國家及地區的教育中的一部分。
+数学在许多领域都有应用，包括科學、工程、醫學、經濟學和金融學等。數學對這些領域的應用通常被稱為應用數學，有時亦會激起新的數學發現，並導致全新學科的發展，例如物理学的实质性发展中建立的某些理论激发数学家对于某些问题的不同角度的思考。數學家也研究純粹數學，就是數學本身的实质性內容，而不以任何實際應用為目標。許多研究雖然以純粹數學開始，但其过程中也發現許多可用之处。
+詞源.
+西方语言中“數學”（）一詞源自於古希臘語的（），其有“學習”、“學問”、“科學”，還有個較狹義且技術性的意思－「數學研究」，即使在其語源內。其形容詞（），意思為「和學習有關的」或「用功的」，亦會被用來指「數學的」。其在英语中表面上的複數形式，及在法语中的表面複數形式&#39;，可溯至拉丁文的中性複數&#39;，由西塞罗譯自希臘文複數（），此一希臘語被亚里士多德拿來指「萬物皆數」的概念。
+汉字表示的「數學」一詞大約产生于中国宋元時期。多指象數之學，但有時也含有今天上的數學意義，例如，秦九韶的《數學九章》（《永樂大典》記，即《數書九章》也被宋代周密所著的《癸辛雜識》記爲《數學大略》）、《數學通軌》（明代柯尚遷著）、《数学钥》（清代杜知耕著）、《數學拾遺》（清代丁取忠撰）。直到1939年，經過中國數學名詞審查委員會研究“算學”與“數學”兩詞的使用狀況後，確認以“數學”表示今天意義上的數學含義。
+历史.
+數學有着久遠的歷史。它被認為起源於人類早期的生產活動：中國古代的六艺之一就有「數」，數學一詞在西方有希腊语詞源（mathematikós），意思是“学问的基础”，源于（máthema，“科学，知识，学问”）。
+</code></pre></div>
+<p>可以看到里面还有繁体字，我们需要进行一下简繁体的转换，把繁体字都变成简体字，这一步要用到 Python 的 OpenCC 库</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>OpenCC 是一个开源的中文转换库，可以在繁体中文和简体中文之间进行转换。在 Python 中，可以使用 opencc-python-reimplemented 这个库来使用 OpenCC。以下是一个使用 opencc-python-reimplemented 将文件从繁体中文转换为简体中文的例子。</p>
+</div>
+<p>首先，需要安装 opencc-python-reimplemented。如果你还没有安装，可以使用 pip 来安装：</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>opencc-python-reimplemented
+</code></pre></div>
+<p>然后，创建一个 <code>opencc_convert.py</code> 来转换：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">opencc</span> <span class="kn">import</span> <span class="n">OpenCC</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># 初始化转换器，t2s 表示从繁体转简体</span>
+<span class="n">cc</span> <span class="o">=</span> <span class="n">OpenCC</span><span class="p">(</span><span class="s1">&#39;t2s&#39;</span><span class="p">)</span>
+
+<span class="c1"># 初始化错误字符计数器</span>
+<span class="n">error_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># 先获取文件总行数，用于进度条</span>
+<span class="n">total_lines</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;wiki.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;wiki.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># 创建一个进度条</span>
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">total_lines</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+
+    <span class="c1"># 创建一个空字符串，用于存储转换后的文本</span>
+    <span class="n">simplified_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="c1"># 逐行读取和转换文本</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># 更新进度条</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># 计算原始行和忽略错误后的行的长度差，即为错误字符数量</span>
+        <span class="n">error_count</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+
+        <span class="c1"># 转换文本</span>
+        <span class="n">simplified_line</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="c1"># 添加到简体文本中</span>
+        <span class="n">simplified_text</span> <span class="o">+=</span> <span class="n">simplified_line</span>
+
+    <span class="c1"># 关闭进度条</span>
+    <span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 输出到新的文件</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;wiki.simple.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">simplified_text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total invalid characters: </span><span class="si">{</span><span class="n">error_count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>运行 <code>python opencc_convert.py</code>，这个过程也要花费比较长的时间</p>
+<div class="highlight"><pre><span></span><code>(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/tokenizer_data$ python opencc_convert.py 
+100%|███████████████████| 11548973/11548973 [24:17&lt;00:00, 7923.93it/s]
+Total invalid characters: 0
+(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/tokenizer_data$ ls -al
+total 6555456
+drwxrwxrwx  2 mengzhuo.chen mengzhuo.chen       4096 Apr 11 09:19 .
+drwxrwxr-x 12 mengzhuo.chen mengzhuo.chen       4096 Apr 11 07:46 ..
+-rw-rw-rw-  1 mengzhuo.chen mengzhuo.chen      25329 Apr 11 07:49 WikiExtractor.py
+-rw-rw-r--  1 mengzhuo.chen mengzhuo.chen       1167 Apr 11 08:55 opencc_convert.py
+-rw-rw-rw-  1 mengzhuo.chen mengzhuo.chen 1864904100 Apr 11 09:19 wiki.simple.txt
+-rw-rw-rw-  1 mengzhuo.chen mengzhuo.chen 1864875360 Apr 11 08:09 wiki.txt
+-rw-rw-r--  1 mengzhuo.chen mengzhuo.chen 2982973859 Apr  2 05:02 zhwiki-20240401-pages-articles-multistream.xml.bz2
+(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/tokenizer_data$ head wiki.simple.txt 
+
+数学:
+数学，是研究数量、结构以及空间等概念及其变化的一门学科，属于形式科学的一种。数学利用抽象化和逻辑推理，从计数、计算、量度、对物体形状及运动的观察发展而成。数学家们拓展这些概念，以公式化新的猜想，以及从选定的公理及定义出发，严谨地推导出一些定理。
+基础数学的知识与运用是生活中不可或缺的一环。对数学基本概念的完善，早在古埃及、美索不达米亚及古印度历史上的古代数学文本便可观见，而在古希腊那里有更为严谨的处理。从那时开始，数学的发展便持续不断地小幅进展，至16世纪的文艺复兴时期，因为新的科学发现和数学革新两者的交互，致使数学的加速发展，直至今日。数学并成为许多国家及地区的教育中的一部分。
+数学在许多领域都有应用，包括科学、工程、医学、经济学和金融学等。数学对这些领域的应用通常被称为应用数学，有时亦会激起新的数学发现，并导致全新学科的发展，例如物理学的实质性发展中建立的某些理论激发数学家对于某些问题的不同角度的思考。数学家也研究纯粹数学，就是数学本身的实质性内容，而不以任何实际应用为目标。许多研究虽然以纯粹数学开始，但其过程中也发现许多可用之处。
+词源.
+西方语言中“数学”（）一词源自于古希腊语的（），其有“学习”、“学问”、“科学”，还有个较狭义且技术性的意思－「数学研究」，即使在其语源内。其形容词（），意思为「和学习有关的」或「用功的」，亦会被用来指「数学的」。其在英语中表面上的复数形式，及在法语中的表面复数形式&#39;，可溯至拉丁文的中性复数&#39;，由西塞罗译自希腊文复数（），此一希腊语被亚里士多德拿来指「万物皆数」的概念。
+汉字表示的「数学」一词大约产生于中国宋元时期。多指象数之学，但有时也含有今天上的数学意义，例如，秦九韶的《数学九章》（《永乐大典》记，即《数书九章》也被宋代周密所著的《癸辛杂识》记为《数学大略》）、《数学通轨》（明代柯尚迁著）、《数学钥》（清代杜知耕著）、《数学拾遗》（清代丁取忠撰）。直到1939年，经过中国数学名词审查委员会研究“算学”与“数学”两词的使用状况后，确认以“数学”表示今天意义上的数学含义。
+历史.
+数学有着久远的历史。它被认为起源于人类早期的生产活动：中国古代的六艺之一就有「数」，数学一词在西方有希腊语词源（mathematikós），意思是“学问的基础”，源于（máthema，“科学，知识，学问”）。
+</code></pre></div>
+<p>最后将得到的 <code>wiki.simple.txt</code> 放到项目根目录的 <code>data</code> 目录下即可</p>
+<div class="highlight"><pre><span></span><code>cp wiki.simple.txt ../data/
+</code></pre></div>
+<h2 id="tokenizer">训练 tokenizer</h2>
+<p>运行 <code>python train_tokenizer.py</code>:</p>
+<div class="highlight"><pre><span></span><code>(MiniChatLM) mengzhuo.chen@dsw-2939-6b55ccb46d-9rwqv:/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese$ python train_tokenizer.py
+[00:00:17] Pre-processing sequences       ████████████████████████████████████████████████████████████████████████████████████████████ 323001   /        0
+[00:00:57] Tokenize words                 ████████████████████████████████████████████████████████████████████████████████████████████ 39775199 / 39775199
+[00:01:26] Count pairs                    ████████████████████████████████████████████████████████████████████████████████████████████ 39775199 / 39775199
+[00:05:33] Compute merges                 ████████████████████████████████████████████████████████████████████████████████████████████ 18917    /    18917
+slow tokenizer save in path: /maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/model_save/hf_tokenizer_slow/hf_bpe_tokenizer.josn
+fast tokenizer save in path: /maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/model_save/hf_tokenizer
+
+train tokenizer finished. you can use `AutoTokenizer.from_pretrained(&#39;/maindata/data/shared/Security-SFT/cmz/ChatLM-mini-Chinese/model_save/hf_tokenizer&#39;)` to load and test your tokenizer.
+</code></pre></div>
+<details class="info">
+<summary>tokenizer 中使用 char level 和 byte level 有什么区别</summary>
+<p>在自然语言处理中，"tokenization"是将输入文本分割成更小的部分（或"tokens"）的过程。不同的tokenizer在如何分割文本方面有不同的策略。在讨论char-level和byte-level tokenization时，我们主要关注的是分割的粒度。</p>
+<ol>
+<li>
+<p><strong>Char-level Tokenization</strong>：在字符级别的分词中，输入被分割成单个字符。例如，字符串"hello"在字符级别的分词下会被分割成['h', 'e', 'l', 'l', 'o']。这种方法的一个优点是它可以处理任何语言，因为所有的语言都可以被分解成字符。然而，它的一个主要缺点是生成的token序列可能会非常长，这可能会导致计算效率低下，并且可能会损失一些更高层次的语义信息。</p>
+</li>
+<li>
+<p><strong>Byte-level Tokenization</strong>：在字节级别的分词中，输入被分割成字节。这是一种更精细的分词方式，因为它可以处理字符级别分词无法处理的字符，比如特殊符号或者是非标准的Unicode字符。这种方法在处理非常复杂的文本或者是多语言的文本时非常有用。在字节级别的分词下，字符串"hello"可能被分割成一系列的字节，这取决于字符到字节的映射。Byte-level BPE（Byte Pair Encoding）是一种流行的字节级别分词方法，它可以动态地学习一个词汇表，以更有效地处理各种语言和符号。</p>
+</li>
+</ol>
+<p>总的来说，char-level和byte-level分词的主要区别在于分词的粒度，以及它们如何处理各种字符和符号。</p>
+</details>
+<details class="info">
+<summary>fast tokenizer 和 slow tokenizer 有什么区别？</summary>
+<p>"fast tokenizer"和"slow tokenizer"是Hugging Face提供的两种类型的tokenizer，它们在功能上是相同的，但在实现和性能上有所不同。</p>
+<ol>
+<li>
+<p><strong>Slow Tokenizer</strong>：这是Hugging Face最初提供的tokenizer，用Python实现。它包含了所有的tokenization方法，如基于词汇表的tokenization（如BERT），字节级的tokenization（如GPT-2）等。尽管它们在功能上很强大，但由于是用Python实现的，所以在处理大量文本时可能会比较慢。</p>
+</li>
+<li>
+<p><strong>Fast Tokenizer</strong>：这是Hugging Face后来提供的新型tokenizer，用Rust实现。它们的功能和slow tokenizer相同，但由于是用Rust实现的，所以在处理大量文本时更快。此外，fast tokenizer还提供了一些额外的功能，如对齐原始文本和tokens（这在某些任务中很有用，如命名实体识别），以及更高效的序列批处理。</p>
+</li>
+</ol>
+<p>在大多数情况下，建议使用fast tokenizer，因为它在速度和功能上都更优。但是，如果你正在处理的文本量不大，或者你需要使用一些slow tokenizer特有的功能，那么使用slow tokenizer也是可以的。</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
