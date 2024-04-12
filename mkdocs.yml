@@ -9,10 +9,38 @@ nav:
     - MiniTorch: 
       - MiniTorch Info: Tutorial/MiniTorch/Info.md
       - MiniTorch Setup: Tutorial/MiniTorch/Setup.md
-      - MiniTorch Task-0 Fundamentals: Tutorial/MiniTorch/Task0.md
+      - Fundamentals:
+        - Assignment 作业: Tutorial/MiniTorch/Task0/Task0.md
+        - Contributting 提交要领: Tutorial/MiniTorch/Task0/Fundamentals.md
+        - Propery Testing 属性测试: https://minitorch.github.io/module0/property_testing/
+        - Modules 模块: https://minitorch.github.io/module0/modules/
+        - Functional 功能函数: https://minitorch.github.io/module0/functional/
+        - Visualization 可视化工具: https://minitorch.github.io/module0/visualization/
+      - AutoDiff: 
+        - Assignment 作业: Tutorial/MiniTorch/Task1/Task1.md
+        - Derivative 求导: Tutorial/MiniTorch/Task1/Derivatives.md
+        - Scalar 标量: Tutorial/MiniTorch/Task1/Scalar.md
+        - Autodifferentiation 自动求导: Tutorial/MiniTorch/Task1/Autodifferentiation.md
+        - BackPropagate 反向传播: Tutorial/MiniTorch/Task1/Backpropagate.md
+    - MiniChatLM:
+      - Info 介绍: Tutorial/MiniChatLM/Info.md
+      - Preperation 环境准备: Tutorial/MiniChatLM/Preparation.md
+      - Data 数据准备: Tutorial/MiniChatLM/Data.md
+      - Tokenizer 训练: Tutorial/MiniChatLM/Tokenizer.md
+      - Pretrain 预训练: Tutorial/MiniChatLM/Pretrain.md
     - MkDocs: Tutorial/MkDocs.md
+  - Blogs:
+    - Utils 常用工具:
+      - Jump Server: Blog/Utils/jump_server.md
   - About: about.md
 theme:
-    name: simple-blog
+    # name: simple-blog
+    name: material
     favicon: img/favicon.ico
+    features:
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
